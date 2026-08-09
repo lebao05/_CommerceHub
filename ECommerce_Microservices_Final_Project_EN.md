@@ -1,11 +1,12 @@
 # FINAL PROJECT
-# E-Commerce Microservices Platform – A Distributed E-Commerce Platform
+
+# E-Commerce Microservices Platform – Distributed E-Commerce Platform
 
 ## 1. Problem Context
 
-Modern e-commerce systems must serve large volumes of users, products, orders, and payment transactions. The system must remain stable even when some components fail, and it must be able to scale independently according to load.
+Modern e-commerce systems must serve large numbers of users, products, orders, and payment transactions. The system must remain stable even when some components fail, while also being able to scale individual components independently according to workload.
 
-A monolithic system can start simple:
+A monolithic system can start simply:
 
 ```text
 Frontend
@@ -15,70 +16,70 @@ E-Commerce Application
 Database
 ```
 
-But as the system grows, a single application may have to handle:
+However, as the system grows, a single application may have to handle:
 
-- Authentication
-- Product Catalog
-- Search
-- Cart
-- Order
-- Inventory
-- Payment
-- Shipping
-- Notification
-- Review
-- Recommendation
+* Authentication
+* Product Catalog
+* Search
+* Cart
+* Order
+* Inventory
+* Payment
+* Shipping
+* Notification
+* Review
+* Recommendation
 
-This leads to high coupling, difficulty in scaling each function independently, and makes even a small change affect the entire system.
+This leads to high coupling, makes independent scaling difficult, and causes a small change to potentially affect the entire system.
 
-Therefore, the main question of the project is:
+Therefore, the main question of this project is:
 
-> Can we build an E-Commerce platform based on a microservices architecture, in which business capabilities can be developed, deployed, scaled, and changed independently, while the system still guarantees consistency, reliability, security, and observability?
+> Can we build an E-Commerce Platform using a microservices architecture, where business capabilities can be developed, deployed, scaled, and changed independently while the system still ensures consistency, reliability, security, and observability?
 
-The focus of the project is **Software Architecture and Distributed Systems**, not merely building a shopping website.
+The main focus of this project is **Software Architecture and Distributed Systems**, not simply building an online shopping website.
 
 ---
 
-# 2. Overall Goals
+# 2. Overall Objectives
 
 Build an E-Commerce Platform capable of:
 
-- Managing users and authentication.
-- Managing products.
-- Managing product categories.
-- Searching for products.
-- Managing the shopping cart.
-- Creating and managing orders.
-- Managing inventory.
-- Processing payments.
-- Managing shipping.
-- Sending notifications.
-- Managing reviews and ratings.
-- Supporting promotions/coupons.
-- Using a message broker for asynchronous communication.
-- Handling distributed transactions.
-- Supporting the Saga Pattern.
-- Supporting the Outbox Pattern.
-- Handling duplicate events using idempotency.
-- Caching with Redis.
-- API Gateway.
-- Database per Service.
-- Distributed tracing.
-- Logging and monitoring.
-- Ability to scale services independently.
-- Ability to add new providers without modifying many existing services.
+* Managing users and authentication.
+* Managing products.
+* Managing product categories.
+* Searching for products.
+* Managing shopping carts.
+* Creating and managing orders.
+* Managing inventory.
+* Processing payments.
+* Managing shipping.
+* Sending notifications.
+* Managing reviews and ratings.
+* Supporting promotions/coupons.
+* Using a message broker for asynchronous communication.
+* Handling distributed transactions.
+* Supporting the Saga Pattern.
+* Supporting the Outbox Pattern.
+* Handling duplicate events using idempotency.
+* Using Redis for caching.
+* Providing an API Gateway.
+* Using Database per Service.
+* Supporting distributed tracing.
+* Providing logging and monitoring.
+* Scaling services independently.
+* Adding new providers without requiring major changes to existing services.
 
 ---
 
 # 3. Overall Example
 
-The user accesses:
+Users access:
 
 ```text
 E-Commerce Platform
 ```
 
-And can:
+They can:
 
 ```text
 Browse Product
@@ -129,17 +130,17 @@ A reference architecture:
                     Service                    Service
 ```
 
-This is only a reference architecture. The team may propose a different architecture if it can explain the reasoning.
+This is only a reference architecture. The team may propose a different architecture if the reasons can be clearly explained.
 
 ---
 
 # 4. Architectural Drivers
 
-The project must focus on addressing the following architectural drivers.
+The project must focus on solving the following architectural drivers.
 
 ## 4.1 Modifiability
 
-It must be possible to add:
+The system should be able to add:
 
 ```text
 PayPal
@@ -148,11 +149,11 @@ VNPay
 MoMo
 ```
 
-without having to modify the entire Order Service.
+without modifying the entire Order Service.
 
 ## 4.2 Scalability
 
-Example:
+For example:
 
 ```text
 Product Service: 2 instances
@@ -160,7 +161,7 @@ Order Service: 10 instances
 Payment Service: 5 instances
 ```
 
-Each service is scaled independently.
+Each service can be scaled independently.
 
 ## 4.3 Reliability
 
@@ -174,13 +175,13 @@ Payment
 Timeout
 ```
 
-The system must have:
+the system should provide:
 
-- Retry.
-- Timeout.
-- Circuit Breaker.
-- Compensation.
-- Dead Letter Queue if appropriate.
+* Retry.
+* Timeout.
+* Circuit Breaker.
+* Compensation.
+* Dead Letter Queue where appropriate.
 
 ## 4.4 Consistency
 
@@ -193,14 +194,14 @@ Payment
 Shipping
 ```
 
-We cannot simply use a single database transaction for the entire system.
+A single database transaction cannot simply be used across the entire system.
 
-The team needs to research:
+The team needs to study:
 
-- Eventual Consistency.
-- Saga.
-- Transactional Outbox.
-- Idempotency.
+* Eventual Consistency.
+* Saga.
+* Transactional Outbox.
+* Idempotency.
 
 ## 4.5 Performance
 
@@ -212,19 +213,19 @@ Product Detail
 Category Listing
 ```
 
-may receive a very large volume of requests.
+may receive a very large number of requests.
 
-The team needs to research:
+The team should study:
 
-- Redis.
-- Database indexing.
-- Read optimization.
-- Search engine.
-- CDN if needed.
+* Redis.
+* Database indexing.
+* Read optimization.
+* Search engine.
+* CDN if necessary.
 
 ## 4.6 Observability
 
-The system needs to know:
+The system should provide:
 
 ```text
 Request ID
@@ -236,7 +237,7 @@ Error
 Event
 ```
 
-A request:
+A request such as:
 
 ```text
 POST /orders
@@ -256,7 +257,7 @@ Payment
 Notification
 ```
 
-It is possible to use:
+Possible technologies include:
 
 ```text
 OpenTelemetry
@@ -271,16 +272,16 @@ ELK/OpenSearch
 
 The Identity Service is responsible for:
 
-- Registration.
-- Login.
-- Logout.
-- Password management.
-- Access token.
-- Refresh token.
-- Role.
-- Permission.
+* Registration.
+* Login.
+* Logout.
+* Password management.
+* Access tokens.
+* Refresh tokens.
+* Roles.
+* Permissions.
 
-Example:
+Examples:
 
 ```text
 POST /auth/register
@@ -288,7 +289,7 @@ POST /auth/login
 POST /auth/refresh
 ```
 
-The Product Service or Order Service should not manage passwords on their own.
+Product Service or Order Service should not manage passwords independently.
 
 Architecture:
 
@@ -302,12 +303,12 @@ Identity Service
 Identity Database
 ```
 
-Topics to research:
+Possible topics to study:
 
-- JWT.
-- OAuth2.
-- OpenID Connect.
-- Role-Based Access Control.
+* JWT.
+* OAuth2.
+* OpenID Connect.
+* Role-Based Access Control.
 
 ---
 
@@ -347,7 +348,7 @@ PUT /products/{id}
 DELETE /products/{id}
 ```
 
-The Product Service should not directly access the Order Service's database.
+The Product Service should not directly access the Order Service database.
 
 ---
 
@@ -362,7 +363,7 @@ Sort
 Autocomplete
 ```
 
-It may use:
+Possible technology:
 
 ```text
 Elasticsearch / OpenSearch
@@ -377,12 +378,12 @@ Product Service
       |
  Message Broker
       |
-   Search Service
+ Search Service
       |
  Elasticsearch
 ```
 
-When a Product changes, the Search Service updates its index.
+When a product changes, the Search Service updates its index.
 
 The Product Service does not need to know the internal implementation of the Search Service.
 
@@ -390,7 +391,7 @@ The Product Service does not need to know the internal implementation of the Sea
 
 # 8. Module 4 – Cart Service
 
-The Cart Service manages the shopping cart:
+The Cart Service manages:
 
 ```text
 Cart
@@ -400,7 +401,7 @@ ProductId
 PriceSnapshot
 ```
 
-Example:
+Examples:
 
 ```text
 POST /cart/items
@@ -409,11 +410,11 @@ DELETE /cart/items/{id}
 GET /cart
 ```
 
-The Cart can use Redis because the data:
+The cart can use Redis because its data:
 
-- changes frequently;
-- needs fast response;
-- can expire.
+* changes frequently;
+* requires fast responses;
+* may have expiration.
 
 Example:
 
@@ -447,15 +448,15 @@ Customer A → Buy
 Customer B → Buy
 ```
 
-If not handled correctly, both customers may end up buying the same product.
+If the operation is not handled correctly, both customers may purchase the same product.
 
-The team needs to research:
+The team should study:
 
-- Optimistic Concurrency.
-- Pessimistic Lock.
-- Atomic update.
-- Reservation.
-- Idempotency.
+* Optimistic Concurrency.
+* Pessimistic Lock.
+* Atomic update.
+* Reservation.
+* Idempotency.
 
 ---
 
@@ -471,7 +472,7 @@ OrderTotal
 CustomerId
 ```
 
-The order state can be:
+Order states may be:
 
 ```text
 PENDING
@@ -493,7 +494,7 @@ PENDING
 CANCELLED
 ```
 
-The Order Service should not directly perform the entire:
+The Order Service should not directly perform all:
 
 ```text
 Payment
@@ -502,7 +503,7 @@ Shipping
 Notification
 ```
 
-via synchronous calls within a single God Service.
+through synchronous calls inside a single God Service.
 
 ---
 
@@ -532,9 +533,9 @@ Confirm Order
 Create Shipment
 ```
 
-Checkout must handle error cases.
+Checkout must handle failure scenarios.
 
-Example:
+For example:
 
 ```text
 Inventory OK
@@ -542,9 +543,9 @@ Inventory OK
 Payment FAILED
 ```
 
-We cannot let the inventory be held forever.
+Inventory cannot remain reserved forever.
 
-There must be compensation:
+Compensation is required:
 
 ```text
 Payment Failed
@@ -576,7 +577,7 @@ MoMo
 PayPal
 ```
 
-Should not hard-code:
+The system should not hard-code:
 
 ```text
 if provider == "Stripe"
@@ -587,7 +588,7 @@ else if provider == "MoMo"
    ...
 ```
 
-Instead, use an abstraction:
+Instead, an abstraction can be used:
 
 ```text
 interface IPaymentProvider
@@ -705,13 +706,13 @@ Product
    +--- Rating
 ```
 
-It may publish an event:
+The service may publish:
 
 ```text
 ReviewCreated
 ```
 
-so that Analytics or the Recommendation Service can process it.
+so that Analytics or Recommendation Services can process it.
 
 ---
 
@@ -726,7 +727,7 @@ Promotion
 Campaign
 ```
 
-Example:
+Examples:
 
 ```text
 SAVE10
@@ -749,13 +750,13 @@ Minimum order?
 Usage limit?
 ```
 
-The entire promotion logic should not be placed inside the Order Service.
+Promotion logic should not be placed entirely inside the Order Service.
 
 ---
 
 # 17. API Gateway
 
-The frontend should not call all services directly:
+The frontend should not directly call every service:
 
 ```text
 Frontend
@@ -777,16 +778,16 @@ API Gateway
 Microservices
 ```
 
-The Gateway may handle:
+The Gateway can handle:
 
-- Routing.
-- Authentication.
-- Rate limiting.
-- Request logging.
-- Correlation ID.
-- Aggregation if needed.
+* Routing.
+* Authentication.
+* Rate limiting.
+* Request logging.
+* Correlation ID.
+* Aggregation where necessary.
 
-Options to research:
+Possible technologies:
 
 ```text
 YARP
@@ -813,7 +814,7 @@ API Gateway
 Product Service
 ```
 
-Suitable for requests that need an immediate response.
+Suitable when an immediate response is required.
 
 ## 18.2 Asynchronous
 
@@ -833,16 +834,16 @@ Notification Service
 
 Suitable for:
 
-- Event propagation.
-- Background processing.
-- Decoupling.
-- High throughput.
+* Event propagation.
+* Background processing.
+* Decoupling.
+* High throughput.
 
 ---
 
 # 19. Message Broker
 
-We may use:
+The system can use:
 
 ```text
 RabbitMQ
@@ -854,7 +855,7 @@ or:
 Kafka
 ```
 
-Examples:
+Example events:
 
 ```text
 OrderCreated
@@ -867,42 +868,40 @@ OrderCancelled
 
 The team must explain:
 
-> Why choose RabbitMQ or Kafka?
+> Why was RabbitMQ or Kafka selected?
 
-Do not use a message broker just to make the system "look like microservices".
+The message broker must not be used only to make the system "look like microservices."
 
 ---
 
 # 20. Event-Driven Architecture
 
-A flow:
+An example flow:
 
 ```text
-Customer
-   ↓
 Order Service
-   ↓
+      ↓
 OrderCreated
-   ↓
+      ↓
 Message Broker
-   ├───────────────┐
-   ↓               ↓
+      ├───────────────┐
+      ↓               ↓
 Inventory       Notification
-   ↓
+      ↓
 InventoryReserved
-   ↓
+      ↓
 Payment
 ```
 
-The service receiving an event does not need to know where the publishing service is located.
+A service receiving an event does not need to know where the publishing service is located.
 
-This reduces coupling.
+This helps reduce coupling.
 
 ---
 
 # 21. Saga Pattern
 
-The order workflow can be handled with a Saga.
+The order workflow can be handled using a Saga.
 
 Example:
 
@@ -916,7 +915,7 @@ Process Payment
 Create Shipment
 ```
 
-If Payment fails:
+If payment fails:
 
 ```text
 Payment Failed
@@ -940,7 +939,7 @@ and:
 Orchestration Saga
 ```
 
-The team must explain the choice.
+The team must explain its choice.
 
 ---
 
@@ -954,7 +953,7 @@ Database Transaction
 Publish Event
 ```
 
-Example:
+For example:
 
 ```text
 Save Order
@@ -968,7 +967,7 @@ Save Order = SUCCESS
 Publish Event = FAILED
 ```
 
-the database has the order but the system has no event.
+the database contains the order, but the system does not have the event.
 
 Outbox Pattern:
 
@@ -986,7 +985,7 @@ Order DB
        Message Broker
 ```
 
-The database transaction saves:
+The database transaction stores:
 
 ```text
 Order
@@ -994,13 +993,13 @@ Order
 Outbox Event
 ```
 
-in the same transaction.
+within the same transaction.
 
 ---
 
 # 23. Idempotency
 
-Distributed systems can send duplicate events.
+Distributed systems may deliver duplicate events.
 
 Example:
 
@@ -1018,15 +1017,15 @@ charge
 charge
 ```
 
-A request has:
+A request may contain:
 
 ```text
 Idempotency-Key: abc-123
 ```
 
-The service must ensure that the same key does not produce multiple side effects.
+The service must ensure that the same key does not create multiple side effects.
 
-It can store:
+Possible stored data:
 
 ```text
 IdempotencyKey
@@ -1039,7 +1038,7 @@ CreatedAt
 
 # 24. Distributed Transaction
 
-Should not:
+The system should not use:
 
 ```text
 BEGIN TRANSACTION
@@ -1068,7 +1067,7 @@ Payment
 Shipping
 ```
 
-and use compensation when needed.
+and compensation is used when necessary.
 
 ---
 
@@ -1094,7 +1093,7 @@ Inventory Service
 Inventory DB
 ```
 
-Should not:
+The system should not have:
 
 ```text
 Order Service
@@ -1139,18 +1138,18 @@ Product DB
 Redis
 ```
 
-The team needs to research:
+The team should study:
 
-- Cache Aside.
-- TTL.
-- Cache invalidation.
-- Cache stampede.
+* Cache Aside.
+* TTL.
+* Cache invalidation.
+* Cache stampede.
 
 ---
 
 # 27. Search
 
-Product search may use:
+Product search can use:
 
 ```text
 Elasticsearch / OpenSearch
@@ -1163,21 +1162,21 @@ Search:
 "iphone 17 pro"
 ```
 
-It may support:
+Possible capabilities:
 
-- Full-text search.
-- Fuzzy search.
-- Filter.
-- Sorting.
-- Price range.
-- Category.
-- Brand.
+* Full-text search.
+* Fuzzy search.
+* Filter.
+* Sorting.
+* Price range.
+* Category.
+* Brand.
 
 ---
 
 # 28. Recommendation Service
 
-A simple recommendation can be built:
+A simple recommendation system can be built:
 
 ```text
 User
@@ -1202,7 +1201,7 @@ Monitor
 Laptop Bag
 ```
 
-Recommendation is not a mandatory part of the MVP.
+Recommendation is not required for the MVP.
 
 ---
 
@@ -1238,14 +1237,14 @@ This is eventual consistency.
 
 The team must identify:
 
-- Which data requires strong consistency?
-- Which data can accept eventual consistency?
+* Which data requires strong consistency?
+* Which data can accept eventual consistency?
 
 ---
 
 # 30. Reliability
 
-Services must handle failure.
+Services must handle failures.
 
 Example:
 
@@ -1257,7 +1256,7 @@ Payment
 Timeout
 ```
 
-We can use:
+Possible mechanisms:
 
 ```text
 Timeout
@@ -1267,7 +1266,7 @@ Bulkhead
 Fallback
 ```
 
-Do not retry indefinitely.
+Retries should not be infinite.
 
 Example:
 
@@ -1280,9 +1279,10 @@ Dead Letter / Failed
 ```
 
 ---
+
 # 31. Distributed Lock
 
-Some operations may require a lock.
+Some operations may require locking.
 
 Example:
 
@@ -1293,25 +1293,25 @@ Request A
 Request B
 ```
 
-We can use:
+Possible approaches:
 
 ```text
 Database optimistic concurrency
 ```
 
-or in some cases:
+or, in certain cases:
 
 ```text
 Redis Distributed Lock
 ```
 
-The team must explain why a lock is needed and why a particular method is chosen.
+The team must explain why locking is needed and why the selected approach is appropriate.
 
 ---
 
 # 32. Observability
 
-The system must have:
+The system needs:
 
 ```text
 Logs
@@ -1336,7 +1336,7 @@ Payment       250ms
 Notification  15ms
 ```
 
-It is possible to use:
+Possible technologies:
 
 ```text
 OpenTelemetry
@@ -1350,19 +1350,19 @@ ELK/OpenSearch
 
 # 33. Security
 
-Issues that must be addressed:
+Security concerns include:
 
-- Authentication.
-- Authorization.
-- JWT.
-- OAuth2/OIDC.
-- Password hashing.
-- HTTPS.
-- CORS.
-- Rate limiting.
-- Input validation.
-- Secret management.
-- Service-to-service authentication.
+* Authentication.
+* Authorization.
+* JWT.
+* OAuth2/OIDC.
+* Password hashing.
+* HTTPS.
+* CORS.
+* Rate limiting.
+* Input validation.
+* Secret management.
+* Service-to-service authentication.
 
 Do not store:
 
@@ -1434,17 +1434,17 @@ Notification Service
 
 ---
 
-# 35. Failure Scenario 1 � Payment Failed
+# 35. Failure Scenario 1 – Payment Failed
 
 ```text
 OrderCreated
-     ?
+     ↓
 InventoryReserved
-     ?
+     ↓
 PaymentFailed
-     ?
+     ↓
 ReleaseInventory
-     ?
+     ↓
 CancelOrder
 ```
 
@@ -1456,13 +1456,13 @@ Order cancelled because payment failed.
 
 ---
 
-# 36. Failure Scenario 2 � Inventory Failed
+# 36. Failure Scenario 2 – Inventory Failed
 
 ```text
 OrderCreated
-     ?
+     ↓
 InventoryReservationFailed
-     ?
+     ↓
 CancelOrder
 ```
 
@@ -1470,25 +1470,25 @@ Payment has not been charged yet.
 
 ---
 
-# 37. Failure Scenario 3 � Payment succeeds but Order Service crashes
+# 37. Failure Scenario 3 – Payment Succeeds but Order Service Crashes
 
 Example:
 
 ```text
 PaymentCompleted
-      ?
+      ↓
 Order Service DOWN
 ```
 
 The event must not be lost.
 
-When the Order Service comes back up:
+When the Order Service becomes available again:
 
 ```text
 Message Broker
-      ?
+      ↓
 Order Service
-      ?
+      ↓
 Process PaymentCompleted
 ```
 
@@ -1496,14 +1496,14 @@ Therefore, message durability and consumer recovery are very important.
 
 ---
 
-# 38. Failure Scenario 4 � Duplicate Event
+# 38. Failure Scenario 4 – Duplicate Event
 
 ```text
 PaymentCompleted
 PaymentCompleted
 ```
 
-The Order Service must handle it idempotently.
+The Order Service must process events idempotently.
 
 ```text
 if event already processed
@@ -1512,7 +1512,7 @@ else
     process
 ```
 
-It is possible to use:
+Possible mechanism:
 
 ```text
 ProcessedEvents
@@ -1520,55 +1520,55 @@ ProcessedEvents
 
 ---
 
-# 39. Failure Scenario 5 � Redis Down
+# 39. Failure Scenario 5 – Redis Down
 
 If Redis fails:
 
 ```text
 Product Cache
-     ?
+     ↓
 Redis DOWN
 ```
 
-The Product Service must still be able to access the database.
+the Product Service should still be able to access the database.
 
-Do not let:
+The system should not behave like:
 
 ```text
 Redis DOWN
-   ?
+   ↓
 Entire E-Commerce DOWN
 ```
 
 ---
 
-# 40. Failure Scenario 6 � Payment Provider Down
+# 40. Failure Scenario 6 – Payment Provider Down
 
 ```text
 Payment Service
-      ?
+      ↓
 Stripe
-      ?
+      ↓
 Timeout
 ```
 
-Possible handling:
+Possible flow:
 
 ```text
 Retry
- ?
+ ↓
 Retry
- ?
+ ↓
 Circuit Open
- ?
+ ↓
 Payment Pending
 ```
 
-The customer is not charged multiple times.
+The customer must not be charged multiple times.
 
 ---
 
-# 41. Extensibility � Payment Provider
+# 41. Extensibility – Payment Provider
 
 Initially:
 
@@ -1576,13 +1576,13 @@ Initially:
 Stripe
 ```
 
-Later, requirement:
+Later, the system requires:
 
 ```text
 VNPay
 ```
 
-Good architecture:
+A good architecture:
 
 ```text
 IPaymentProvider
@@ -1592,11 +1592,26 @@ IPaymentProvider
       +--- MoMoProvider
 ```
 
-The Payment Service does not need to be rewritten.
+Only:
+
+```text
+VNPayProvider
+```
+
+and its registration need to be added.
+
+There should be no need to rewrite:
+
+```text
+Order Service
+Inventory Service
+Frontend
+Shipping Service
+```
 
 ---
 
-# 42. Extensibility � Shipping Provider
+# 42. Extensibility – Shipping Provider
 
 Initially:
 
@@ -1618,13 +1633,13 @@ GHTKAdapter
 
 and register the provider.
 
-The upstream services do not need to know the specific implementation.
+Higher-level services do not need to know the specific implementation.
 
 ---
 
-# 43. Extensibility � Notification Provider
+# 43. Extensibility – Notification Provider
 
-May support:
+The system can support:
 
 ```text
 Email
@@ -1661,7 +1676,7 @@ Order Worker 3
 Order Worker 4
 ```
 
-If the back-end uses a queue:
+If the backend uses a queue:
 
 ```text
                Queue
@@ -1677,7 +1692,7 @@ Workers can be scaled independently.
 
 # 45. High Traffic Scenario
 
-Black Friday:
+During Black Friday:
 
 ```text
 Normal:
@@ -1687,16 +1702,16 @@ Black Friday:
 50,000 requests/sec
 ```
 
-We do not necessarily scale the entire system.
+It is not necessary to scale the entire system equally.
 
-Example:
+For example:
 
 ```text
-Product Service   ? 20 instances
-Search Service    ? 15 instances
-Cart Service      ? 10 instances
-Order Service     ? 15 instances
-Payment Service   ? 5 instances
+Product Service   → 20 instances
+Search Service    → 15 instances
+Cart Service      → 10 instances
+Order Service     → 15 instances
+Payment Service   → 5 instances
 ```
 
 This is an important benefit of microservices.
@@ -1705,7 +1720,7 @@ This is an important benefit of microservices.
 
 # 46. Background Job Processing
 
-Operations that do not need an immediate response can be put into a queue:
+Operations that do not require an immediate response can be placed into a queue:
 
 ```text
 Generate Invoice
@@ -1720,9 +1735,9 @@ Example:
 
 ```text
 OrderCreated
-     ?
+     ↓
 Queue
-     ?
+     ↓
 Invoice Worker
 ```
 
@@ -1730,7 +1745,7 @@ Invoice Worker
 
 # 47. Event Catalog
 
-Some events that can be defined:
+Possible events include:
 
 ```text
 UserRegistered
@@ -1759,7 +1774,7 @@ ReviewCreated
 CouponApplied
 ```
 
-Each event should have:
+Each event should contain:
 
 ```text
 EventId
@@ -1800,13 +1815,13 @@ OrderId
 TraceId
 ```
 
-to help debug distributed systems.
+This helps debug distributed systems.
 
 ---
 
 # 49. Versioning
 
-APIs and events need versioning.
+APIs and events need versions.
 
 Example:
 
@@ -1815,19 +1830,19 @@ OrderCreated.v1
 OrderCreated.v2
 ```
 
-We should not change an event contract in a breaking way without a migration strategy.
+A breaking change to an event contract should not be introduced without a migration strategy.
 
-Topics to research:
+Possible topics:
 
-- Backward compatibility.
-- Schema evolution.
-- Consumer-driven contract testing.
+* Backward compatibility.
+* Schema evolution.
+* Consumer-driven contract testing.
 
 ---
 
 # 50. Testing Strategy
 
-The system needs many types of tests.
+The system needs multiple types of testing.
 
 ## Unit Test
 
@@ -1852,15 +1867,15 @@ Service + Message Broker
 
 ## Contract Test
 
-Check that:
+Verify that:
 
 ```text
 Producer
-     ?
+     ↕
 Consumer
 ```
 
-share the same contract.
+share a compatible contract.
 
 ## End-to-End Test
 
@@ -1868,23 +1883,23 @@ Example:
 
 ```text
 Login
- ?
+ ↓
 Browse Product
- ?
+ ↓
 Add Cart
- ?
+ ↓
 Checkout
- ?
+ ↓
 Payment
- ?
+ ↓
 Order Confirmed
 ```
 
 ---
 
-# 51. Anti-pattern � God Service
+# 51. Anti-pattern – God Service
 
-Do not:
+Avoid:
 
 ```text
 ECommerceService
@@ -1903,9 +1918,9 @@ A single service should not contain all business logic.
 
 ---
 
-# 52. Anti-pattern � Shared Database
+# 52. Anti-pattern – Shared Database
 
-Do not:
+Avoid:
 
 ```text
 Order Service
@@ -1915,7 +1930,7 @@ Order Service
 Product DB    Inventory DB
 ```
 
-Other services should not directly access each other's databases.
+where services directly access each other's databases.
 
 Instead:
 
@@ -1931,27 +1946,27 @@ Inventory DB
 
 ---
 
-# 53. Anti-pattern � Distributed Monolith
+# 53. Anti-pattern – Distributed Monolith
 
 Microservices do not mean:
 
 ```text
 Service A
-   ?
+   ↓
 Service B
-   ?
+   ↓
 Service C
-   ?
+   ↓
 Service D
-   ?
+   ↓
 Service E
 ```
 
-where everything must operate synchronously.
+where everything must work synchronously.
 
-If one service goes down, the entire system goes down � that may be a distributed monolith.
+If one service goes down and the entire system goes down, the architecture may actually be a distributed monolith.
 
-The team must explain the trade-off between:
+The team must explain the trade-offs between:
 
 ```text
 Synchronous Communication
@@ -1965,7 +1980,7 @@ Asynchronous Communication
 
 ---
 
-# 54. Anti-pattern � Too Many Services
+# 54. Anti-pattern – Too Many Services
 
 Do not split:
 
@@ -1979,23 +1994,23 @@ just to have more microservices.
 
 Service boundaries should be based on:
 
-- Business capability.
-- Data ownership.
-- Change frequency.
-- Scalability.
-- Team ownership.
+* Business capability.
+* Data ownership.
+* Change frequency.
+* Scalability.
+* Team ownership.
 
 ---
 
-# 55. Anti-pattern � Shared Business Logic
+# 55. Anti-pattern – Shared Business Logic
 
-Do not copy:
+Do not duplicate:
 
 ```text
 CalculateOrderTotal()
 ```
 
-into:
+in:
 
 ```text
 Order Service
@@ -2003,77 +2018,77 @@ Payment Service
 Invoice Service
 ```
 
-with a different implementation in each place.
+with different implementations in each place.
 
-Business ownership must be clear.
+Business ownership must be clearly defined.
 
 ---
 
 # 56. MVP
 
-The minimum MVP must have:
+The minimum MVP must include:
 
 ## Identity
 
-- Register.
-- Login.
-- JWT.
+* Register.
+* Login.
+* JWT.
 
 ## Product
 
-- Product CRUD.
-- Category.
-- Product detail.
+* Product CRUD.
+* Category.
+* Product detail.
 
 ## Cart
 
-- Add item.
-- Remove item.
-- Update quantity.
+* Add item.
+* Remove item.
+* Update quantity.
 
 ## Order
 
-- Create order.
-- Order history.
-- Order status.
+* Create order.
+* Order history.
+* Order status.
 
 ## Inventory
 
-- Stock.
-- Reservation.
+* Stock.
+* Reservation.
 
 ## Payment
 
-- Mock payment provider.
-- Payment success/failure.
+* Mock payment provider.
+* Payment success/failure.
 
 ## Communication
 
-- REST/gRPC for synchronous communication.
-- RabbitMQ or Kafka for asynchronous communication.
+* REST/gRPC for synchronous communication.
+* RabbitMQ or Kafka for asynchronous communication.
 
 ## Architecture
 
-- API Gateway.
-- Database per Service.
-- Docker.
+* API Gateway.
+* Database per Service.
+* Docker.
 
 ## Reliability
 
-- Idempotency.
-- Retry.
-- Timeout.
+* Idempotency.
+* Retry.
+* Timeout.
 
 ## Observability
 
-- Centralized logging.
-- Correlation ID.
+* Centralized logging.
+* Correlation ID.
 
 ---
 
 # 57. Extensions
 
-Teams may extend:
+Teams can extend the project with:
 
 ## Infrastructure
 
@@ -2135,9 +2150,9 @@ mTLS
 
 ---
 
-# 58. Architecture Scenario � Add Payment Provider
+# 58. Architecture Scenario – Add Payment Provider
 
-The instructor requires:
+The lecturer asks:
 
 > The system currently supports Stripe. Add VNPay.
 
@@ -2150,15 +2165,15 @@ IPaymentProvider
        +--- VNPayProvider
 ```
 
-We only need:
+Only:
 
 ```text
 VNPayProvider
 ```
 
-and registration.
+and its registration are required.
 
-No need to modify:
+There is no need to modify:
 
 ```text
 Order Service
@@ -2169,21 +2184,21 @@ Shipping Service
 
 ---
 
-# 59. Architecture Scenario � Replace Message Broker
+# 59. Architecture Scenario – Replace Message Broker
 
-Currently:
+Current:
 
 ```text
 RabbitMQ
 ```
 
-The instructor requires:
+The lecturer requests:
 
 ```text
 Kafka
 ```
 
-If the architecture is good:
+If the architecture is well designed:
 
 ```text
 IEventBus
@@ -2192,13 +2207,13 @@ IEventBus
     +--- KafkaEventBus
 ```
 
-Business logic does not depend directly on the RabbitMQ implementation.
+Business logic does not directly depend on the RabbitMQ implementation.
 
-The team must explain whether this abstraction is truly necessary and its trade-offs.
+The team must explain whether this abstraction is actually necessary and its trade-offs.
 
 ---
 
-# 60. Architecture Scenario � Scale Orders
+# 60. Architecture Scenario – Scale Orders
 
 Suppose:
 
@@ -2223,16 +2238,17 @@ Architecture with a queue:
               Order DB
 ```
 
-We can increase:
+The system can increase:
 
 ```text
-3 ? 10 ? 50 workers
+3 → 10 → 50 workers
 ```
 
-without changing business logic.
+without changing the business logic.
 
 ---
-# 61. Architecture Scenario � Product Search
+
+# 61. Architecture Scenario – Product Search
 
 Initially:
 
@@ -2240,7 +2256,7 @@ Initially:
 Product DB
 ```
 
-Later, we need:
+Later, the system needs:
 
 ```text
 Elasticsearch
@@ -2250,55 +2266,55 @@ Flow:
 
 ```text
 ProductUpdated
-      ?
+      ↓
 Message Broker
-      ?
+      ↓
 Search Indexer
-      ?
+      ↓
 Elasticsearch
 ```
 
-The Product Service still owns the product data.
+The Product Service continues to own product data.
 
 The Search Service owns the search index.
 
 ---
 
-# 62. Architecture Scenario � Payment Failure
+# 62. Architecture Scenario – Payment Failure
 
-The instructor requires:
+The lecturer asks:
 
-> The payment provider times out after Inventory has reserved.
+> The payment provider times out after Inventory has already been reserved.
 
-The system must:
+The system should handle:
 
 ```text
 OrderCreated
-      ?
+      ↓
 InventoryReserved
-      ?
+      ↓
 PaymentTimeout
-      ?
+      ↓
 Retry
-      ?
+      ↓
 PaymentFailed
-      ?
+      ↓
 ReleaseInventory
-      ?
+      ↓
 CancelOrder
 ```
 
 The team must explain:
 
-- Saga.
-- Compensation.
-- Idempotency.
-- Retry.
-- Timeout.
+* Saga.
+* Compensation.
+* Idempotency.
+* Retry.
+* Timeout.
 
 ---
 
-# 63. Architecture Scenario � Duplicate Payment Event
+# 63. Architecture Scenario – Duplicate Payment Event
 
 Suppose:
 
@@ -2309,7 +2325,7 @@ PaymentCompleted
 
 The Payment Service or Order Service must not create duplicate side effects.
 
-Must have:
+It should use:
 
 ```text
 EventId
@@ -2319,9 +2335,9 @@ IdempotencyKey
 
 ---
 
-# 64. Architecture Scenario � Service Down
+# 64. Architecture Scenario – Service Down
 
-The instructor turns off:
+The lecturer shuts down:
 
 ```text
 Notification Service
@@ -2329,25 +2345,25 @@ Notification Service
 
 Requirement:
 
-> The user must still be able to checkout.
+> The user must still be able to complete checkout.
 
 Good architecture:
 
 ```text
 Order
- ?
+ ↓
 OrderCreated
- ?
+ ↓
 Message Broker
- ?
+ ↓
 Notification Service
 ```
 
-A notification failure must not roll back the order if the business requirement allows notifications to be eventual.
+Notification failure should not roll back the order if the business requirement allows notification to be eventual.
 
 ---
 
-# 65. Architecture Scenario � Database Down
+# 65. Architecture Scenario – Database Down
 
 Example:
 
@@ -2361,21 +2377,21 @@ The Payment Service needs to:
 Fail gracefully
 ```
 
-It should not crash the entire API Gateway.
+The entire API Gateway should not crash.
 
 The team must present:
 
-- Timeout.
-- Circuit Breaker.
-- Health Check.
-- Retry.
-- Recovery.
+* Timeout.
+* Circuit Breaker.
+* Health Check.
+* Retry.
+* Recovery.
 
 ---
 
-# 66. A Complete Flow of the System
+# 66. Complete System Flow
 
-Example: a customer buys a product.
+Example of a customer purchasing a product.
 
 ### Step 1
 
@@ -2462,21 +2478,21 @@ ShipmentCreated
 Notification:
 
 ```text
-Order confirmed.
+Email sent
 ```
 
 ---
 
 # 67. Demo Scenario
 
-A good demo can go like this.
+A good demo can proceed as follows.
 
 ### Step 1
 
 Login:
 
 ```text
-User ? API Gateway ? Identity Service
+User → API Gateway → Identity Service
 ```
 
 ### Step 2
@@ -2484,7 +2500,7 @@ User ? API Gateway ? Identity Service
 Browse:
 
 ```text
-User ? Product Service
+User → Product Service
 ```
 
 ### Step 3
@@ -2492,15 +2508,15 @@ User ? Product Service
 Search:
 
 ```text
-"laptop gaming"
+"gaming laptop"
 ```
 
 ### Step 4
 
-Add cart:
+Add to cart:
 
 ```text
-Product ? Cart
+Product → Cart
 ```
 
 ### Step 5
@@ -2509,13 +2525,13 @@ Checkout:
 
 ```text
 Cart
- ?
+ ↓
 Order
 ```
 
 ### Step 6
 
-Screen displays:
+The screen displays:
 
 ```text
 Order #1001
@@ -2564,7 +2580,7 @@ Email sent
 
 ### Step 12
 
-Open observability dashboard:
+Open the observability dashboard:
 
 ```text
 Trace ID
@@ -2634,7 +2650,7 @@ Ratings
 
 # 69. Reproducibility
 
-An Order must know exactly:
+An order must know exactly:
 
 ```text
 OrderId
@@ -2648,7 +2664,7 @@ ShippingFee
 PaymentMethod
 ```
 
-We should not only reference the Product Service to get the current price.
+It should not only reference the Product Service to retrieve the current price.
 
 Example:
 
@@ -2662,13 +2678,13 @@ but the order was created when:
 Price = $1,000
 ```
 
-The Order must store the appropriate snapshot.
+The order must store an appropriate snapshot.
 
 ---
 
 # 70. API Versioning
 
-We may use:
+The system may use:
 
 ```text
 /api/v1/products
@@ -2681,7 +2697,7 @@ Later:
 /api/v2/products
 ```
 
-API contracts must have a backward compatibility strategy.
+The API contract must have a backward compatibility strategy.
 
 ---
 
@@ -2691,27 +2707,27 @@ Suggested pipeline:
 
 ```text
 Developer
-    ?
+    ↓
 Git Push
-    ?
+    ↓
 CI
-    ?
+    ↓
 Build
-    ?
+    ↓
 Unit Tests
-    ?
+    ↓
 Integration Tests
-    ?
+    ↓
 Contract Tests
-    ?
+    ↓
 Docker Build
-    ?
+    ↓
 Security Scan
-    ?
+    ↓
 Deploy
 ```
 
-May use:
+Possible technologies:
 
 ```text
 GitHub Actions
@@ -2759,7 +2775,7 @@ Each service should have:
 GET /health
 ```
 
-It may distinguish:
+The system can distinguish between:
 
 ```text
 Liveness
@@ -2775,13 +2791,13 @@ Product Service
     +-- Database healthy
 ```
 
-Not every dependency failure should be treated as a process failure if the business requirement does not require it.
+Not every dependency failure should be considered a process failure if the business requirement does not require it.
 
 ---
 
 # 74. Metrics
 
-Metrics that can be monitored:
+Possible metrics to monitor:
 
 ```text
 HTTP Request Count
@@ -2800,33 +2816,33 @@ Cache Hit Rate
 
 # 75. Central Architectural Questions
 
-In the report, the team must answer:
+The report must answer:
 
 1. Why choose microservices?
 2. How are service boundaries determined?
-3. Why are Order and Inventory two different services?
+3. Why are Order and Inventory separate services?
 4. Which service owns which data?
-5. When to use REST?
-6. When to use asynchronous messaging?
+5. When should REST be used?
+6. When should asynchronous messaging be used?
 7. Why use RabbitMQ or Kafka?
 8. How is the Saga designed?
-9. If payment fails, what is the compensation?
-10. How to prevent duplicate events?
-11. How to ensure the Outbox does not lose events?
+9. What happens when payment fails?
+10. How are duplicate events prevented?
+11. How is it ensured that Outbox events are not lost?
 12. What happens if Redis goes down?
 13. What happens if the Payment Provider goes down?
-14. How to scale the Order Service?
-15. How to trace a request across multiple services?
-16. How to add a payment provider?
-17. How to add a shipping provider?
-18. How to replace the message broker?
-19. How to ensure backward compatibility?
-20. How to deploy multiple instances?
+14. How is the Order Service scaled?
+15. How is a request traced across multiple services?
+16. How can a payment provider be added?
+17. How can a shipping provider be added?
+18. How can the message broker be replaced?
+19. How is backward compatibility maintained?
+20. How are multiple service instances deployed?
 21. Why not use a shared database?
-22. How to avoid a distributed monolith?
-23. Which service needs strong consistency?
-24. Which service can have eventual consistency?
-25. How to test distributed workflows?
+22. How is a distributed monolith avoided?
+23. Which services require strong consistency?
+24. Which services can use eventual consistency?
+25. How is a distributed workflow tested?
 
 ---
 
@@ -2855,7 +2871,7 @@ Demo
 
 ## 3. Architecture Document
 
-Minimum:
+At minimum:
 
 ```text
 System Context
@@ -2872,17 +2888,17 @@ Deployment Diagram
 
 ## 4. ADR
 
-Example:
+Examples:
 
 ```text
-ADR-001 � Why Microservices?
-ADR-002 � Why Database per Service?
-ADR-003 � Why RabbitMQ/Kafka?
-ADR-004 � Why Saga?
-ADR-005 � Why Outbox?
-ADR-006 � Why Redis?
-ADR-007 � Why API Gateway?
-ADR-008 � Why Elasticsearch?
+ADR-001 – Why Microservices?
+ADR-002 – Why Database per Service?
+ADR-003 – Why RabbitMQ/Kafka?
+ADR-004 – Why Saga?
+ADR-005 – Why Outbox?
+ADR-006 – Why Redis?
+ADR-007 – Why API Gateway?
+ADR-008 – Why Elasticsearch?
 ```
 
 ## 5. Testing Report
@@ -2900,7 +2916,7 @@ Load Tests
 
 ## 6. Demo
 
-Must demonstrate:
+The demo must demonstrate:
 
 ```text
 Login
@@ -2958,7 +2974,7 @@ Observability
 
 # 78. Advanced Extensions
 
-If the MVP is completed, we may research:
+After completing the MVP, the team can study:
 
 ```text
 Kubernetes
@@ -2998,9 +3014,9 @@ Multi-language
 
 ---
 
-# 79. Flash Sale � Advanced Scenario
+# 79. Flash Sale – Advanced Scenario
 
-A product:
+A product has:
 
 ```text
 Stock = 100
@@ -3012,35 +3028,35 @@ Traffic:
 100,000 users
 ```
 
-buying at the same time.
+trying to purchase at the same time.
 
 The architecture must handle:
 
 ```text
 100,000 requests
-       ?
+       ↓
 API Gateway
-       ?
+       ↓
 Queue
-       ?
+       ↓
 Inventory Workers
-       ?
+       ↓
 Atomic Reservation
 ```
 
-Must not sell:
+The system must not allow:
 
 ```text
 Stock < 0
 ```
 
-This is a good scenario to evaluate:
+This is a good scenario for evaluating:
 
-- Concurrency.
-- Queue.
-- Backpressure.
-- Rate limiting.
-- Inventory consistency.
+* Concurrency.
+* Queue.
+* Backpressure.
+* Rate limiting.
+* Inventory consistency.
 
 ---
 
@@ -3050,22 +3066,22 @@ Extension:
 
 ```text
 Customer
-   ?
+   ↓
 Marketplace
-   ?
+   ↓
 Seller A
 Seller B
 Seller C
 ```
 
-An order may contain:
+A single order may contain:
 
 ```text
 Seller A products
 Seller B products
 ```
 
-Needs to research:
+The system needs to study:
 
 ```text
 Order splitting
@@ -3078,23 +3094,23 @@ This is a more complex distributed system problem.
 
 ---
 
-# 81. The Ultimate Meaning of the Project
+# 81. Meaning of the Project
 
-Do not understand the project as:
+The project should not be understood as:
 
-> Building a shopping website with many backend projects.
+> Building an online shopping website with multiple backend projects.
 
-But understand it as:
+Instead, it should be understood as:
 
-> Designing a distributed system in which business capabilities can change, scale, deploy, and fail independently while the entire system still maintains correctness.
+> Designing a distributed system in which business capabilities can change, scale, deploy, and fail independently while the entire system maintains correctness.
 
-Example: today the system has:
+For example, today the system supports:
 
 ```text
 Stripe
 ```
 
-tomorrow it has:
+and tomorrow:
 
 ```text
 VNPay
@@ -3110,39 +3126,39 @@ Frontend
 
 do not need to be rewritten.
 
-Today it uses:
+Today the system uses:
 
 ```text
 RabbitMQ
 ```
 
-tomorrow we may research:
+and tomorrow it may study:
 
 ```text
 Kafka
 ```
 
-without business logic depending directly on it.
+without business logic being directly dependent on the broker implementation.
 
-Today it has:
+Today there is:
 
 ```text
 1 Order Worker
 ```
 
-tomorrow:
+and tomorrow:
 
 ```text
 50 Order Workers
 ```
 
-while the architecture remains the same.
+while the architecture remains unchanged.
 
 ---
 
-# 82. The Nature of the Project
+# 82. Core of the Project
 
-The project is a combination of:
+The project combines:
 
 ```text
 Microservices
@@ -3168,23 +3184,23 @@ Security
 CI/CD
 ```
 
-Central flow:
+Core flow:
 
 ```text
 Request
-   ?
+   ↓
 API Gateway
-   ?
+   ↓
 Service
-   ?
+   ↓
 Database
-   ?
+   ↓
 Event
-   ?
+   ↓
 Message Broker
-   ?
+   ↓
 Other Services
-   ?
+   ↓
 Eventual Consistency
 ```
 
@@ -3192,21 +3208,21 @@ The ultimate goal is to demonstrate that:
 
 ```text
 Business Requirement
-        ?
+        ↓
 Service Boundary
-        ?
+        ↓
 Independent Deployment
-        ?
+        ↓
 Asynchronous Communication
-        ?
+        ↓
 Failure Handling
-        ?
+        ↓
 Observability
-        ?
+        ↓
 Scalability
 ```
 
-can be designed in a systematic way.
+can be designed systematically.
 
 ---
 
@@ -3216,7 +3232,7 @@ A good architecture must demonstrate:
 
 ### Modifiability
 
-Add a new service/provider with minimal changes.
+New services/providers can be added with minimal changes.
 
 ### Scalability
 
@@ -3224,15 +3240,15 @@ Each service can be scaled independently.
 
 ### Reliability
 
-A dependency failure does not cause the whole system to collapse.
+A dependency failure does not bring down the entire system.
 
 ### Consistency
 
-Has a clear strategy for distributed transactions.
+There is a clear strategy for distributed transactions.
 
 ### Maintainability
 
-Business logic is divided by business capability.
+Business logic is organized according to business capabilities.
 
 ### Testability
 
@@ -3240,11 +3256,11 @@ Services can be tested independently.
 
 ### Observability
 
-Can determine where a request/event is failing.
+The system can identify where a request or event is failing.
 
 ### Security
 
-Authentication and authorization are designed at the correct boundary.
+Authentication and authorization are designed at the correct boundaries.
 
 ### Deployment
 
@@ -3254,47 +3270,47 @@ Services can be built and deployed independently.
 
 # 84. Final Demo
 
-Suggested final demo:
+The final demo should demonstrate:
 
 ```text
 1. Login
-       ?
+       ↓
 2. Browse products
-       ?
+       ↓
 3. Search product
-       ?
+       ↓
 4. Add to cart
-       ?
+       ↓
 5. Checkout
-       ?
+       ↓
 6. Create Order
-       ?
+       ↓
 7. Reserve Inventory
-       ?
+       ↓
 8. Process Payment
-       ?
+       ↓
 9. Confirm Order
-       ?
+       ↓
 10. Create Shipment
-       ?
+       ↓
 11. Send Notification
-       ?
+       ↓
 12. Show distributed trace
 ```
 
-Then demonstrate failure:
+Then demonstrate a failure:
 
 ```text
 Payment Provider DOWN
-       ?
+       ↓
 Timeout
-       ?
+       ↓
 Retry
-       ?
+       ↓
 Payment Failed
-       ?
+       ↓
 Release Inventory
-       ?
+       ↓
 Cancel Order
 ```
 
@@ -3302,9 +3318,9 @@ Finally, demonstrate scalability:
 
 ```text
 1 Worker
-   ?
+   ↓
 10 Workers
-   ?
+   ↓
 50 Workers
 ```
 
@@ -3316,38 +3332,38 @@ and prove that the system can scale without changing the business workflow.
 
 The goal of the project is not to prove that:
 
-> "Microservices are better than monoliths in every case."
+> "Microservices are better than monoliths in every situation."
 
-But to prove that the team understands:
+Instead, the team must demonstrate an understanding of:
 
-- When microservices are appropriate.
-- How to determine service boundaries.
-- How to manage data ownership.
-- How services communicate.
-- How to handle distributed transactions.
-- How to handle failure.
-- How to scale.
-- How to observe.
-- How to test.
-- How to deploy.
-- The trade-offs of each architectural decision.
+* When microservices are appropriate.
+* How to define service boundaries.
+* How to manage data ownership.
+* How services communicate.
+* How to handle distributed transactions.
+* How to handle failures.
+* How to scale.
+* How to observe the system.
+* How to test.
+* How to deploy.
+* The trade-offs of each architectural decision.
 
-A good system is not the one with the most technologies.
+A good system is not the system with the most technologies.
 
-A good system is the one where each architectural decision solves a real problem and can be clearly explained:
+A good system is one where every architectural decision solves a real problem and can be clearly explained:
 
 ```text
 Problem
-   ?
+   ↓
 Constraint
-   ?
+   ↓
 Architectural Decision
-   ?
+   ↓
 Trade-off
-   ?
+   ↓
 Implementation
-   ?
+   ↓
 Measurement
 ```
 
-That is the main goal of the E-Commerce Microservices Platform project.
+This is the main objective of the **E-Commerce Microservices Platform** final project.
