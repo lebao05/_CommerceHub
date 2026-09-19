@@ -1,0 +1,16 @@
+D:\_commercehub\src\Services\Product\Product.Infrastructure\bin\Debug\net10.0\Product.Infrastructure.deps.json
+D:\_commercehub\src\Services\Product\Product.Infrastructure\bin\Debug\net10.0\Product.Infrastructure.dll
+D:\_commercehub\src\Services\Product\Product.Infrastructure\bin\Debug\net10.0\Product.Infrastructure.pdb
+D:\_commercehub\src\Services\Product\Product.Infrastructure\bin\Debug\net10.0\Product.Domain.dll
+D:\_commercehub\src\Services\Product\Product.Infrastructure\bin\Debug\net10.0\Product.Domain.pdb
+D:\_commercehub\src\Services\Product\Product.Infrastructure\obj\Debug\net10.0\Product.Infrastructure.csproj.AssemblyReference.cache
+D:\_commercehub\src\Services\Product\Product.Infrastructure\obj\Debug\net10.0\Product.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\_commercehub\src\Services\Product\Product.Infrastructure\obj\Debug\net10.0\Product.Infrastructure.AssemblyInfoInputs.cache
+D:\_commercehub\src\Services\Product\Product.Infrastructure\obj\Debug\net10.0\Product.Infrastructure.AssemblyInfo.cs
+D:\_commercehub\src\Services\Product\Product.Infrastructure\obj\Debug\net10.0\Product.Infrastructure.csproj.CoreCompileInputs.cache
+D:\_commercehub\src\Services\Product\Product.Infrastructure\obj\Debug\net10.0\Product.Infrastructure.sourcelink.json
+D:\_commercehub\src\Services\Product\Product.Infrastructure\obj\Debug\net10.0\Product..29DFF9BD.Up2Date
+D:\_commercehub\src\Services\Product\Product.Infrastructure\obj\Debug\net10.0\Product.Infrastructure.dll
+D:\_commercehub\src\Services\Product\Product.Infrastructure\obj\Debug\net10.0\refint\Product.Infrastructure.dll
+D:\_commercehub\src\Services\Product\Product.Infrastructure\obj\Debug\net10.0\Product.Infrastructure.pdb
+D:\_commercehub\src\Services\Product\Product.Infrastructure\obj\Debug\net10.0\ref\Product.Infrastructure.dll

@@ -1,0 +1,12 @@
+D:\_commercehub\src\Services\Product\Product.Domain\bin\Debug\net10.0\Product.Domain.deps.json
+D:\_commercehub\src\Services\Product\Product.Domain\bin\Debug\net10.0\Product.Domain.dll
+D:\_commercehub\src\Services\Product\Product.Domain\bin\Debug\net10.0\Product.Domain.pdb
+D:\_commercehub\src\Services\Product\Product.Domain\obj\Debug\net10.0\Product.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\_commercehub\src\Services\Product\Product.Domain\obj\Debug\net10.0\Product.Domain.AssemblyInfoInputs.cache
+D:\_commercehub\src\Services\Product\Product.Domain\obj\Debug\net10.0\Product.Domain.AssemblyInfo.cs
+D:\_commercehub\src\Services\Product\Product.Domain\obj\Debug\net10.0\Product.Domain.csproj.CoreCompileInputs.cache
+D:\_commercehub\src\Services\Product\Product.Domain\obj\Debug\net10.0\Product.Domain.sourcelink.json
+D:\_commercehub\src\Services\Product\Product.Domain\obj\Debug\net10.0\Product.Domain.dll
+D:\_commercehub\src\Services\Product\Product.Domain\obj\Debug\net10.0\refint\Product.Domain.dll
+D:\_commercehub\src\Services\Product\Product.Domain\obj\Debug\net10.0\Product.Domain.pdb
+D:\_commercehub\src\Services\Product\Product.Domain\obj\Debug\net10.0\ref\Product.Domain.dll

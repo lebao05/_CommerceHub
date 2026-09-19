@@ -222,17 +222,59 @@
 
 ---
 
-### UC-PROD-012: Manage Brands
+### UC-PROD-012: Create Brand
 **Primary Actor**: Admin  
 **Precondition**: Admin has permission  
 **Main Flow**:
-1. Admin creates/updates brand
-2. System validates brand name unique
-3. System saves brand
-4. System publishes BrandCreated/Updated event
-5. System returns brand details
+1. Admin provides brand details (name, description, logo)
+2. System validates brand name is unique
+3. System validates logo file (if provided)
+4. System creates brand record
+5. System publishes BrandCreated event
+6. System returns brand details
 
-**Postcondition**: Brand managed
+**Alternative Flow**:
+- 2a. Brand name already exists → Return "Brand name must be unique"
+- 3a. Invalid logo format → Return "Logo must be jpg, png, or svg"
+
+**Postcondition**: Brand created
+
+---
+
+### UC-PROD-012a: Update Brand
+**Primary Actor**: Admin  
+**Precondition**: Brand exists  
+**Main Flow**:
+1. Admin provides brand ID and updated fields
+2. System retrieves existing brand
+3. System validates brand name unique (if changed)
+4. System updates brand
+5. System publishes BrandUpdated event
+6. System returns updated brand
+
+**Alternative Flow**:
+- 2a. Brand not found → Return 404
+- 3a. Brand name already taken → Return error
+
+**Postcondition**: Brand updated
+
+---
+
+### UC-PROD-012b: Delete Brand
+**Primary Actor**: Admin  
+**Precondition**: Brand exists  
+**Main Flow**:
+1. Admin provides brand ID
+2. System checks if brand has products
+3. If products exist → Prevent deletion
+4. System soft deletes brand
+5. System publishes BrandDeleted event
+6. System returns success
+
+**Alternative Flow**:
+- 3a. Brand has products → Return "Cannot delete brand with existing products"
+
+**Postcondition**: Brand deleted
 
 ---
 

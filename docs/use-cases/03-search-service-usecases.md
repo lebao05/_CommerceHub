@@ -69,7 +69,6 @@
 **Main Flow**:
 1. Customer applies filters:
    - Category
-   - Brand
    - Price range (min, max)
    - Rating (min stars)
    - Availability (in stock)

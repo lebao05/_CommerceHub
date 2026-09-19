@@ -1,0 +1,16 @@
+D:\_commercehub\src\Services\Product\Product.Application\bin\Debug\net10.0\Product.Application.deps.json
+D:\_commercehub\src\Services\Product\Product.Application\bin\Debug\net10.0\Product.Application.dll
+D:\_commercehub\src\Services\Product\Product.Application\bin\Debug\net10.0\Product.Application.pdb
+D:\_commercehub\src\Services\Product\Product.Application\bin\Debug\net10.0\Product.Domain.dll
+D:\_commercehub\src\Services\Product\Product.Application\bin\Debug\net10.0\Product.Domain.pdb
+D:\_commercehub\src\Services\Product\Product.Application\obj\Debug\net10.0\Product.Application.csproj.AssemblyReference.cache
+D:\_commercehub\src\Services\Product\Product.Application\obj\Debug\net10.0\Product.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\_commercehub\src\Services\Product\Product.Application\obj\Debug\net10.0\Product.Application.AssemblyInfoInputs.cache
+D:\_commercehub\src\Services\Product\Product.Application\obj\Debug\net10.0\Product.Application.AssemblyInfo.cs
+D:\_commercehub\src\Services\Product\Product.Application\obj\Debug\net10.0\Product.Application.csproj.CoreCompileInputs.cache
+D:\_commercehub\src\Services\Product\Product.Application\obj\Debug\net10.0\Product.Application.sourcelink.json
+D:\_commercehub\src\Services\Product\Product.Application\obj\Debug\net10.0\Product..7E280BC3.Up2Date
+D:\_commercehub\src\Services\Product\Product.Application\obj\Debug\net10.0\Product.Application.dll
+D:\_commercehub\src\Services\Product\Product.Application\obj\Debug\net10.0\refint\Product.Application.dll
+D:\_commercehub\src\Services\Product\Product.Application\obj\Debug\net10.0\Product.Application.pdb
+D:\_commercehub\src\Services\Product\Product.Application\obj\Debug\net10.0\ref\Product.Application.dll
