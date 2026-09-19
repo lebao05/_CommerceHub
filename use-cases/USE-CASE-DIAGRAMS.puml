@@ -1,0 +1,512 @@
+# Visual Use Case Diagrams - PlantUML
+
+This file contains PlantUML diagrams for key use cases in the E-Commerce Microservices Platform.
+
+## 1. Order Checkout Saga Flow (Choreography)
+
+```plantuml
+@startuml Order Checkout Saga
+!theme plain
+
+actor Customer
+participant "API Gateway" as Gateway
+participant "Order Service" as Order
+participant "Inventory Service" as Inventory
+participant "Payment Service" as Payment
+participant "Shipping Service" as Shipping
+participant "Notification Service" as Notification
+queue "Message Broker" as Broker
+
+Customer -> Gateway: POST /checkout
+Gateway -> Order: Create Order
+Order -> Order: Create Order (PENDING)
+Order -> Order: Write to Outbox
+Order -> Broker: Publish OrderCreated
+Order --> Gateway: OrderId
+Gateway --> Customer: Order Confirmation
+
+Broker -> Inventory: OrderCreated Event
+Inventory -> Inventory: Reserve Stock
+alt Inventory Available
+    Inventory -> Inventory: Update Stock
+    Inventory -> Broker: Publish InventoryReserved
+else Insufficient Stock
+    Inventory -> Broker: Publish InventoryReservationFailed
+    Broker -> Order: InventoryReservationFailed
+    Order -> Order: Cancel Order
+    Order --> Customer: Order Cancelled (Out of Stock)
+end
+
+Broker -> Payment: InventoryReserved Event
+Payment -> Payment: Process Payment
+alt Payment Success
+    Payment -> Payment: Charge Customer
+    Payment -> Broker: Publish PaymentCompleted
+else Payment Failed
+    Payment -> Broker: Publish PaymentFailed
+    Broker -> Inventory: PaymentFailed Event
+    Inventory -> Inventory: Release Reservation
+    Inventory -> Broker: Publish InventoryReleased
+    Broker -> Order: PaymentFailed Event
+    Order -> Order: Update Status (PAYMENT_FAILED)
+    Order -> Broker: Publish OrderCancelled
+end
+
+Broker -> Order: PaymentCompleted Event
+Order -> Order: Update Status (CONFIRMED)
+Order -> Broker: Publish OrderConfirmed
+
+Broker -> Shipping: OrderConfirmed Event
+Shipping -> Shipping: Create Shipment
+Shipping -> Broker: Publish ShipmentCreated
+
+Broker -> Notification: OrderCreated, PaymentCompleted, ShipmentCreated
+Notification -> Customer: Send Notifications
+
+@enduml
+```
+
+## 2. Complete Order State Machine
+
+```plantuml
+@startuml Order State Machine
+!theme plain
+
+[*] --> PENDING : Order Created
+
+PENDING --> INVENTORY_RESERVED : Inventory Reserved
+PENDING --> CANCELLED : Inventory Reservation Failed
+
+INVENTORY_RESERVED --> CONFIRMED : Payment Completed
+INVENTORY_RESERVED --> PAYMENT_FAILED : Payment Failed
+PAYMENT_FAILED --> CANCELLED : Compensation Completed
+
+CONFIRMED --> PROCESSING : Shipment Created
+PROCESSING --> SHIPPED : Package Dispatched
+SHIPPED --> DELIVERED : Package Delivered
+
+PENDING --> CANCELLED : Customer Cancels
+CONFIRMED --> CANCELLING : Customer Requests Cancel
+PROCESSING --> CANCELLING : Customer Requests Cancel
+CANCELLING --> CANCELLED : Refund & Compensation Done
+
+DELIVERED --> [*]
+CANCELLED --> [*]
+
+@enduml
+```
+
+## 3. Payment Service Integration
+
+```plantuml
+@startuml Payment Service Flow
+!theme plain
+
+actor Customer
+participant "Order Service" as Order
+participant "Payment Service" as Payment
+participant "Stripe Provider" as Stripe
+participant "VNPay Provider" as VNPay
+queue "Message Broker" as Broker
+database "Payment DB" as DB
+
+Order -> Broker: Publish InitiatePayment
+Broker -> Payment: InitiatePayment Event
+Payment -> Payment: Check Idempotency
+Payment -> DB: Create Payment (PENDING)
+
+Customer -> Payment: Submit Payment Details
+Payment -> Payment: Select Provider
+alt Credit Card (Stripe)
+    Payment -> Stripe: Process Payment
+    Stripe --> Payment: Transaction Result
+else E-Wallet (VNPay)
+    Payment -> VNPay: Generate Payment URL
+    VNPay --> Payment: Payment URL
+    Payment --> Customer: Redirect to VNPay
+    Customer -> VNPay: Authorize Payment
+    VNPay -> Payment: Webhook Callback
+end
+
+alt Payment Success
+    Payment -> DB: Update Payment (COMPLETED)
+    Payment -> Broker: Publish PaymentCompleted
+else Payment Failed
+    Payment -> DB: Update Payment (FAILED)
+    Payment -> Broker: Publish PaymentFailed
+end
+
+@enduml
+```
+
+## 4. Inventory Reservation with Locking
+
+```plantuml
+@startuml Inventory Reservation
+!theme plain
+
+participant "Order Service" as Order
+queue "Message Broker" as Broker
+participant "Inventory Service" as Inventory
+database "Inventory DB" as DB
+
+Order -> Broker: Publish OrderCreated
+Broker -> Inventory: OrderCreated Event
+
+Inventory -> Inventory: Check Idempotency
+Inventory -> DB: BEGIN TRANSACTION
+
+loop For Each Item
+    Inventory -> DB: SELECT ... FOR UPDATE (Lock Row)
+    Inventory -> DB: Check Available >= Requested
+    alt Sufficient Stock
+        Inventory -> DB: Available -= Quantity
+        Inventory -> DB: Reserved += Quantity
+        Inventory -> DB: Create Reservation Record
+    else Insufficient Stock
+        Inventory -> DB: ROLLBACK
+        Inventory -> Broker: Publish InventoryReservationFailed
+    end
+end
+
+Inventory -> DB: COMMIT TRANSACTION
+Inventory -> DB: Store EventId (Idempotency)
+Inventory -> Broker: Publish InventoryReserved
+
+@enduml
+```
+
+## 5. Outbox Pattern Implementation
+
+```plantuml
+@startuml Outbox Pattern
+!theme plain
+
+participant "Order Service" as Service
+database "Order DB" as DB
+participant "Outbox Publisher" as Publisher
+queue "Message Broker" as Broker
+
+Service -> DB: BEGIN TRANSACTION
+Service -> DB: INSERT INTO Orders (...)
+Service -> DB: INSERT INTO Outbox (EventId, EventType, Payload)
+Service -> DB: COMMIT TRANSACTION
+
+note right of DB
+  Both order and event
+  saved atomically
+end note
+
+Publisher -> DB: Poll Outbox Table
+DB --> Publisher: Unprocessed Events
+
+loop For Each Event
+    Publisher -> Broker: Publish Event
+    Broker --> Publisher: ACK
+    Publisher -> DB: UPDATE Outbox SET ProcessedAt = NOW()
+end
+
+note right of Publisher
+  Background job runs
+  every 5 seconds
+end note
+
+@enduml
+```
+
+## 6. API Gateway Request Flow
+
+```plantuml
+@startuml API Gateway Flow
+!theme plain
+
+actor Client
+participant "API Gateway" as Gateway
+participant "Redis Cache" as Redis
+participant "Identity Service" as Identity
+participant "Product Service" as Product
+
+Client -> Gateway: GET /api/products/123\nAuthorization: Bearer {token}
+
+Gateway -> Gateway: Extract JWT Token
+Gateway -> Gateway: Validate Token Signature
+Gateway -> Identity: Validate Token
+Identity --> Gateway: User Claims
+
+Gateway -> Gateway: Check Authorization
+Gateway -> Gateway: Generate Correlation ID
+Gateway -> Gateway: Apply Rate Limiting
+
+Gateway -> Redis: Check Cache
+alt Cache Hit
+    Redis --> Gateway: Cached Response
+    Gateway --> Client: 200 OK (X-Cache: HIT)
+else Cache Miss
+    Gateway -> Product: GET /products/123\nX-User-Id: 456\nX-Correlation-Id: abc123
+    Product --> Gateway: Product Data
+    Gateway -> Redis: Store in Cache (TTL: 5min)
+    Gateway --> Client: 200 OK (X-Cache: MISS)
+end
+
+Gateway -> Gateway: Log Request/Response
+
+@enduml
+```
+
+## 7. Search Service Event-Driven Indexing
+
+```plantuml
+@startuml Search Indexing
+!theme plain
+
+participant "Product Service" as Product
+database "Product DB" as ProductDB
+queue "Message Broker" as Broker
+participant "Search Service" as Search
+database "Elasticsearch" as ES
+
+Product -> ProductDB: Update Product Price
+Product -> ProductDB: INSERT INTO Outbox
+ProductDB --> Product: Success
+
+Broker -> Search: ProductUpdated Event
+Search -> Search: Check Idempotency
+Search -> Search: Transform to Search Document
+Search -> ES: Update Document
+ES --> Search: Indexed
+
+Search -> Search: Store EventId
+note right of Search
+  Search index eventually
+  consistent with Product DB
+end note
+
+@enduml
+```
+
+## 8. Circuit Breaker Pattern
+
+```plantuml
+@startuml Circuit Breaker States
+!theme plain
+
+state "CLOSED" as Closed {
+    Closed : All requests pass through
+    Closed : Track failure metrics
+}
+
+state "OPEN" as Open {
+    Open : Reject requests immediately
+    Open : Return fallback response
+    Open : Wait for timeout
+}
+
+state "HALF_OPEN" as HalfOpen {
+    HalfOpen : Allow limited requests
+    HalfOpen : Test if service recovered
+}
+
+[*] --> Closed
+
+Closed --> Open : Failure rate > threshold\n(e.g., 50% in 1 min)
+Open --> HalfOpen : After timeout\n(e.g., 30 seconds)
+HalfOpen --> Closed : Trial requests succeed
+HalfOpen --> Open : Trial requests fail
+
+note right of Open
+  Prevents cascading failures
+  Allows service to recover
+end note
+
+@enduml
+```
+
+## 9. Saga Orchestration Pattern
+
+```plantuml
+@startuml Saga Orchestrator
+!theme plain
+
+participant "Order Service\n(Orchestrator)" as Orchestrator
+participant "Inventory Service" as Inventory
+participant "Payment Service" as Payment
+participant "Shipping Service" as Shipping
+database "Saga State DB" as SagaDB
+
+Orchestrator -> SagaDB: Create Saga Instance
+Orchestrator -> SagaDB: State: STARTED
+
+Orchestrator -> Inventory: ReserveInventoryCommand
+Inventory --> Orchestrator: InventoryReserved
+Orchestrator -> SagaDB: Update: inventory_reserved
+
+Orchestrator -> Payment: ProcessPaymentCommand
+alt Payment Success
+    Payment --> Orchestrator: PaymentCompleted
+    Orchestrator -> SagaDB: Update: payment_completed
+    
+    Orchestrator -> Shipping: CreateShipmentCommand
+    Shipping --> Orchestrator: ShipmentCreated
+    Orchestrator -> SagaDB: State: COMPLETED
+else Payment Failed
+    Payment --> Orchestrator: PaymentFailed
+    Orchestrator -> SagaDB: State: COMPENSATING
+    
+    Orchestrator -> Inventory: ReleaseInventoryCommand (Compensate)
+    Inventory --> Orchestrator: InventoryReleased
+    
+    Orchestrator -> SagaDB: State: COMPENSATED
+end
+
+@enduml
+```
+
+## 10. Distributed Tracing Flow
+
+```plantuml
+@startuml Distributed Tracing
+!theme plain
+
+actor Customer
+participant "API Gateway" as Gateway
+participant "Order Service" as Order
+participant "Inventory Service" as Inventory
+participant "Payment Service" as Payment
+participant "Jaeger" as Tracer
+
+Customer -> Gateway: POST /orders
+Gateway -> Gateway: Generate TraceId: abc-123\nSpanId: span-1
+Gateway -> Tracer: Start Span (gateway)
+
+Gateway -> Order: Headers:\n  traceparent: abc-123-span-1
+Order -> Order: Extract Trace Context\nCreate Child Span: span-2
+Order -> Tracer: Start Span (order-service)
+
+Order -> Inventory: Headers:\n  traceparent: abc-123-span-2
+Inventory -> Inventory: Extract Trace Context\nCreate Child Span: span-3
+Inventory -> Tracer: Start Span (inventory-service)
+Inventory --> Order: Response
+Inventory -> Tracer: End Span (inventory-service)
+
+Order -> Payment: Headers:\n  traceparent: abc-123-span-2
+Payment -> Payment: Extract Trace Context\nCreate Child Span: span-4
+Payment -> Tracer: Start Span (payment-service)
+Payment --> Order: Response
+Payment -> Tracer: End Span (payment-service)
+
+Order --> Gateway: Response
+Order -> Tracer: End Span (order-service)
+
+Gateway --> Customer: Response
+Gateway -> Tracer: End Span (gateway)
+
+note right of Tracer
+  Complete trace shows:
+  Gateway (10ms)
+    └─ Order (250ms)
+       ├─ Inventory (40ms)
+       └─ Payment (200ms)
+end note
+
+@enduml
+```
+
+## 11. Review & Rating Aggregation
+
+```plantuml
+@startuml Review Rating Update
+!theme plain
+
+actor Customer
+participant "Review Service" as Review
+database "Review DB" as ReviewDB
+queue "Message Broker" as Broker
+participant "Product Service" as Product
+
+Customer -> Review: POST /reviews\n{rating: 5, comment: "Great!"}
+Review -> ReviewDB: Create Review (PENDING_MODERATION)
+Review -> Review: Auto-moderate
+
+alt Approved
+    Review -> ReviewDB: Update Status = APPROVED
+    Review -> Broker: Publish ReviewApproved\n{productId: 123, rating: 5}
+    
+    Broker -> Review: ReviewApproved Event
+    Review -> ReviewDB: Recalculate Aggregate
+    Review -> ReviewDB: UPDATE ProductRatings\nSET TotalReviews += 1,\n    RatingSum += 5,\n    AvgRating = RatingSum/TotalReviews
+    
+    Review -> Broker: Publish ProductRatingUpdated
+    
+    Broker -> Product: ProductRatingUpdated Event
+    Product -> Product: Invalidate Product Cache
+else Rejected
+    Review -> ReviewDB: Update Status = REJECTED
+    Review --> Customer: Review Rejected (reason)
+end
+
+@enduml
+```
+
+## 12. Notification Multi-Channel Flow
+
+```plantuml
+@startuml Notification Service
+!theme plain
+
+queue "Message Broker" as Broker
+participant "Notification Service" as Notification
+database "Notification DB" as DB
+participant "Email Provider\n(SendGrid)" as Email
+participant "SMS Provider\n(Twilio)" as SMS
+participant "Push Provider\n(Firebase)" as Push
+actor Customer
+
+Broker -> Notification: OrderCreated Event
+Notification -> Notification: Check Idempotency
+Notification -> DB: Retrieve Customer Preferences
+
+alt Email Enabled
+    Notification -> Email: Send Order Confirmation
+    Email --> Notification: Sent
+    Notification -> DB: Log Email Sent
+end
+
+alt SMS Enabled (Express Orders)
+    Notification -> SMS: Send SMS
+    SMS --> Notification: Sent
+    Notification -> DB: Log SMS Sent
+end
+
+alt Push Enabled
+    Notification -> Push: Send Push Notification
+    Push --> Notification: Sent
+    Notification -> DB: Log Push Sent
+end
+
+Notification -> DB: Store EventId (Idempotency)
+
+Email -> Customer: Order Confirmation Email
+SMS -> Customer: SMS Notification
+Push -> Customer: Push Notification
+
+@enduml
+```
+
+## Usage Instructions
+
+To render these diagrams:
+
+1. **Online**: Use [PlantUML Online Server](http://www.plantuml.com/plantuml/uml/)
+2. **VS Code**: Install "PlantUML" extension
+3. **IntelliJ**: Built-in PlantUML support
+4. **Command Line**: 
+   ```bash
+   java -jar plantuml.jar diagrams.puml
+   ```
+
+5. **Export as Images**:
+   ```bash
+   plantuml -tpng diagrams.puml
+   plantuml -tsvg diagrams.puml
+   ```
+
