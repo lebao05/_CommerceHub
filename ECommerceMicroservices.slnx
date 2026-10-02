@@ -7,4 +7,11 @@
       </Folder>
     </Folder>
   </Folder>
+  <Folder Name="/src/DotNet/" />
+  <Folder Name="/src/DotNet/ProductCatalog.Service/">
+    <Project Path="src/DotNet/ProductCatalog.Service/ProductCatalog.API/ProductCatalog.API.csproj" />
+    <Project Path="src/DotNet/ProductCatalog.Service/ProductCatalog.Application/ProductCatalog.Application.csproj" />
+    <Project Path="src/DotNet/ProductCatalog.Service/ProductCatalog.Domain/ProductCatalog.Domain.csproj" />
+    <Project Path="src/DotNet/ProductCatalog.Service/ProductCatalog.Infrastructure/ProductCatalog.Infrastructure.csproj" />
+  </Folder>
 </Solution>

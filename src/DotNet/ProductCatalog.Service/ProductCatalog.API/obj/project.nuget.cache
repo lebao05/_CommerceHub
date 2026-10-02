@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "K9KfO8hf88M=",
+  "success": true,
+  "projectFilePath": "D:\\_commercehub\\src\\DotNet\\ProductCatalog.Service\\ProductCatalog.API\\ProductCatalog.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\zalam\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.12\\microsoft.aspnetcore.openapi.10.0.12.nupkg.sha512",
+    "C:\\Users\\zalam\\.nuget\\packages\\microsoft.openapi\\2.12.0\\microsoft.openapi.2.12.0.nupkg.sha512"
+  ],
+  "logs": []
+}
