@@ -17,6 +17,7 @@ namespace BuildingBlocks.Core.Repositories
         ValueTask DeleteAsync(TEntity entity, bool autoSave = true, CancellationToken cancellationToken = default);
     }
 
+
     public interface IGridRepository<TEntity> where TEntity : IAggregateRoot
     {
         ValueTask<long> CountAsync(IGridSpecification<TEntity> spec, CancellationToken cancellationToken = default);

@@ -1,7 +1,7 @@
 # ProductCatalog Service - Database Design
 
 ## Overview
-The ProductCatalog service manages the complete product information including categories, brands, attributes, variants, images, and tags. It's designed to support complex e-commerce scenarios with flexible attribute systems and multi-level categorization.
+The ProductCatalog service manages the complete product information including categories, attributes, variants, images, and tags. It's designed to support complex e-commerce scenarios with flexible attribute systems and multi-level categorization.
 
 ## Database Schema
 
@@ -22,7 +22,6 @@ Main product information table.
 | CompareAtPrice | DECIMAL(18,2) | NULL | Original/compare price (for discounts) |
 | CostPrice | DECIMAL(18,2) | NULL | Cost price (for margin calculation) |
 | CategoryId | UNIQUEIDENTIFIER | NOT NULL, FK | Reference to Categories |
-| BrandId | UNIQUEIDENTIFIER | NULL, FK | Reference to Brands |
 | Type | INT | NOT NULL | ProductType enum (0=Simple, 1=Variant, 2=Digital, 3=Service) |
 | Status | INT | NOT NULL | ProductStatus enum (0=Draft, 1=Published, 2=Archived, 3=OutOfStock) |
 | IsFeatured | BIT | NOT NULL, DEFAULT(0) | Featured flag |
@@ -47,7 +46,6 @@ Main product information table.
 - `IX_Products_Slug` (UNIQUE) on Slug
 - `IX_Products_Sku` (UNIQUE) on Sku
 - `IX_Products_CategoryId` on CategoryId
-- `IX_Products_BrandId` on BrandId
 - `IX_Products_Status` on Status
 - `IX_Products_IsFeatured` on IsFeatured WHERE IsFeatured = 1
 - `IX_Products_IsNew` on IsNew WHERE IsNew = 1
@@ -92,60 +90,40 @@ Hierarchical product categorization with self-referencing structure.
 
 ---
 
-#### 3. Brands
-Product brand/manufacturer information.
+#### 3. ProductMedias
+Product media gallery supporting both images and videos.
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
-| Id | UNIQUEIDENTIFIER | PRIMARY KEY | Brand unique identifier |
-| Name | NVARCHAR(200) | NOT NULL | Brand name |
-| Slug | NVARCHAR(200) | NOT NULL, UNIQUE | URL-friendly identifier |
-| Description | NVARCHAR(1000) | NULL | Brand description |
-| LogoUrl | NVARCHAR(500) | NULL | Brand logo URL |
-| WebsiteUrl | NVARCHAR(500) | NULL | Brand website |
-| CountryCode | NVARCHAR(2) | NULL | ISO country code |
-| IsActive | BIT | NOT NULL, DEFAULT(1) | Active status |
-| DisplayOrder | INT | NOT NULL, DEFAULT(0) | Sort order |
-| MetaTitle | NVARCHAR(200) | NULL | SEO meta title |
-| MetaDescription | NVARCHAR(500) | NULL | SEO meta description |
-| CreatedAt | DATETIME2 | NOT NULL | Creation timestamp |
-| UpdatedAt | DATETIME2 | NOT NULL | Last update timestamp |
-
-**Indexes:**
-- `IX_Brands_Slug` (UNIQUE) on Slug
-- `IX_Brands_IsActive` on IsActive WHERE IsActive = 1
-- `IX_Brands_DisplayOrder` on DisplayOrder
-
----
-
-#### 4. ProductImages
-Product image gallery with multiple images per product.
-
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| Id | UNIQUEIDENTIFIER | PRIMARY KEY | Image unique identifier |
+| Id | UNIQUEIDENTIFIER | PRIMARY KEY | Media unique identifier |
 | ProductId | UNIQUEIDENTIFIER | NOT NULL, FK | Reference to Products |
-| Url | NVARCHAR(500) | NOT NULL | Image URL |
+| MediaType | INT | NOT NULL | MediaType enum (0=Image, 1=Video) |
+| Url | NVARCHAR(500) | NOT NULL | Media URL |
 | ThumbnailUrl | NVARCHAR(500) | NULL | Thumbnail URL |
-| AltText | NVARCHAR(200) | NULL | Image alt text for SEO |
+| AltText | NVARCHAR(200) | NULL | Media alt text for SEO |
+| Title | NVARCHAR(200) | NULL | Media title |
 | DisplayOrder | INT | NOT NULL, DEFAULT(0) | Sort order |
-| IsPrimary | BIT | NOT NULL, DEFAULT(0) | Primary image flag |
-| Width | INT | NULL | Image width in pixels |
-| Height | INT | NULL | Image height in pixels |
-| FileSize | INT | NULL | File size in bytes |
+| IsPrimary | BIT | NOT NULL, DEFAULT(0) | Primary media flag |
+| Width | INT | NULL | Media width in pixels |
+| Height | INT | NULL | Media height in pixels |
+| Duration | INT | NULL | Video duration in seconds (for videos) |
+| FileSize | BIGINT | NULL | File size in bytes |
+| MimeType | NVARCHAR(100) | NULL | MIME type (e.g., image/jpeg, video/mp4) |
 | CreatedAt | DATETIME2 | NOT NULL | Creation timestamp |
 
 **Indexes:**
-- `IX_ProductImages_ProductId` on ProductId
-- `IX_ProductImages_IsPrimary` on IsPrimary, ProductId WHERE IsPrimary = 1
-- `IX_ProductImages_DisplayOrder` on ProductId, DisplayOrder
+- `IX_ProductMedias_ProductId` on ProductId
+- `IX_ProductMedias_MediaType` on MediaType, ProductId
+- `IX_ProductMedias_IsPrimary` on IsPrimary, ProductId WHERE IsPrimary = 1
+- `IX_ProductMedias_DisplayOrder` on ProductId, DisplayOrder
 
 **Constraints:**
 - Only one IsPrimary = 1 per ProductId
+- CHECK: MediaType IN (0, 1)
 
 ---
 
-#### 5. ProductVariants
+#### 4. ProductVariants
 Product variants for configurable products (e.g., size, color variations).
 
 | Column | Type | Constraints | Description |
@@ -174,7 +152,7 @@ Product variants for configurable products (e.g., size, color variations).
 
 ### Attribute System Tables
 
-#### 6. Attributes
+#### 5. Attributes
 Attribute definitions (e.g., Color, Size, Material, CPU, RAM).
 
 | Column | Type | Constraints | Description |
@@ -199,7 +177,7 @@ Attribute definitions (e.g., Color, Size, Material, CPU, RAM).
 
 ---
 
-#### 7. AttributeValues
+#### 6. AttributeValues
 Predefined values for select/multiselect attributes (e.g., Red, Blue for Color).
 
 | Column | Type | Constraints | Description |
@@ -221,7 +199,7 @@ Predefined values for select/multiselect attributes (e.g., Red, Blue for Color).
 
 ---
 
-#### 8. ProductAttributes
+#### 7. ProductAttributes
 Links products to their attribute values (product-level attributes).
 
 | Column | Type | Constraints | Description |
@@ -243,7 +221,7 @@ Links products to their attribute values (product-level attributes).
 
 ---
 
-#### 9. VariantAttributes
+#### 8. VariantAttributes
 Links product variants to their specific attribute values (variant-level attributes).
 
 | Column | Type | Constraints | Description |
@@ -263,7 +241,7 @@ Links product variants to their specific attribute values (variant-level attribu
 
 ### Tagging System Tables
 
-#### 10. Tags
+#### 9. Tags
 Product tags for flexible categorization and filtering.
 
 | Column | Type | Constraints | Description |
@@ -284,7 +262,7 @@ Product tags for flexible categorization and filtering.
 
 ---
 
-#### 11. ProductTags
+#### 10. ProductTags
 Many-to-many relationship between products and tags.
 
 | Column | Type | Constraints | Description |
@@ -303,9 +281,8 @@ Many-to-many relationship between products and tags.
 
 ### One-to-Many Relationships
 - **Categories → Products**: One category has many products
-- **Brands → Products**: One brand has many products
 - **Categories → Categories**: One category has many subcategories (self-referencing)
-- **Products → ProductImages**: One product has many images
+- **Products → ProductMedias**: One product has many media files (images/videos)
 - **Products → ProductVariants**: One product has many variants
 - **Products → ProductAttributes**: One product has many attributes
 - **Attributes → AttributeValues**: One attribute has many values
@@ -319,10 +296,10 @@ Many-to-many relationship between products and tags.
 ## Entity Relationships Diagram (ERD)
 
 ```
-┌─────────────┐         ┌─────────────┐         ┌─────────────┐
-│ Categories  │◄────┐   │  Products   │────────►│   Brands    │
-│  (Self-Ref) │     │   │             │         │             │
-└─────────────┘     └───┤             │         └─────────────┘
+┌─────────────┐         ┌─────────────┐
+│ Categories  │◄────┐   │  Products   │
+│  (Self-Ref) │     │   │             │
+└─────────────┘     └───┤             │
                         │             │
                         │             │◄────┐
                         └──────┬──────┘     │
@@ -331,7 +308,7 @@ Many-to-many relationship between products and tags.
         │                      │            │               │
         ▼                      ▼            │               ▼
 ┌──────────────┐      ┌────────────────┐   │      ┌──────────────┐
-│ProductImages │      │ProductVariants │───┘      │ProductTags   │
+│ProductMedias │      │ProductVariants │───┘      │ProductTags   │
 └──────────────┘      └────────┬───────┘          └──────┬───────┘
                                │                         │
                                ▼                         ▼
@@ -362,11 +339,10 @@ Product:
 - Name: "Classic Cotton T-Shirt"
 - Type: Simple
 - Category: Men → Clothing → T-Shirts
-- Brand: "Nike"
 - Price: $29.99
 - Status: Published
 
-ProductImages (3 images):
+ProductMedias (3 images, 1 video):
 - Front view (Primary)
 - Back view
 - Side view
@@ -388,7 +364,6 @@ Product:
 - Name: "ThinkPad X1 Carbon"
 - Type: Variant
 - Category: Electronics → Computers → Laptops
-- Brand: "Lenovo"
 - BasePrice: $1,499.99
 
 ProductVariants (4 variants):
@@ -445,10 +420,9 @@ ProductAttributes:
 
 ### 1. Get Products by Category with Filters
 ```sql
-SELECT p.*, b.Name as BrandName, c.Name as CategoryName
+SELECT p.*, c.Name as CategoryName
 FROM Products p
 INNER JOIN Categories c ON p.CategoryId = c.Id
-LEFT JOIN Brands b ON p.BrandId = b.Id
 WHERE p.Status = 1 -- Published
   AND c.Path LIKE '/electronics%' -- Category hierarchy
   AND p.Price BETWEEN @MinPrice AND @MaxPrice
@@ -465,7 +439,7 @@ SELECT
     pa.AttributeId, a.Name as AttributeName, av.Value as AttributeValue,
     t.Name as TagName
 FROM Products p
-LEFT JOIN ProductImages pi ON p.Id = pi.ProductId
+LEFT JOIN ProductMedias pm ON p.Id = pm.ProductId
 LEFT JOIN ProductVariants pv ON p.Id = pv.ProductId
 LEFT JOIN ProductAttributes pa ON p.Id = pa.ProductId
 LEFT JOIN Attributes a ON pa.AttributeId = a.Id
@@ -542,30 +516,28 @@ ORDER BY Path;
 
 ### Caching Strategy
 1. **Category Tree**: Cache entire hierarchy (rarely changes)
-2. **Brand List**: Cache all brands (rarely changes)
-3. **Attribute Definitions**: Cache attributes and values
-4. **Featured Products**: Cache for 1 hour
-5. **Product Details**: Cache individual products for 15 minutes
+2. **Attribute Definitions**: Cache attributes and values
+3. **Featured Products**: Cache for 1 hour
+4. **Product Details**: Cache individual products for 15 minutes
 
 ### Partitioning Strategy
 For high-volume scenarios:
 - Partition Products table by Status and CreatedAt
-- Partition ProductImages by ProductId (file groups)
+- Partition ProductMedias by ProductId (file groups)
 - Archive old inactive products to separate table
 
 ### Full-Text Search
 Enable full-text indexing on:
 - Products: Name, ShortDescription, Description
 - Categories: Name, Description
-- Brands: Name, Description
 
 ---
 
 ## Migration Notes
 
 ### Phase 1: Core Tables
-1. Create Categories, Brands, Products
-2. Create ProductImages
+1. Create Categories, Products
+2. Create ProductMedias
 3. Create basic indexes
 
 ### Phase 2: Variant System
@@ -601,12 +573,16 @@ INSERT INTO Products (Id, Name, Slug, Sku, CategoryId, BrandId, Price, Type, Sta
 VALUES (@ProductId, 'iPhone 15 Pro', 'iphone-15-pro', 'IP15PRO', @CategoryId, @BrandId, 999.99, 0, 1, GETUTCDATE(), GETUTCDATE());
 
 -- Primary Image
-INSERT INTO ProductImages (Id, ProductId, Url, ThumbnailUrl, IsPrimary, DisplayOrder, CreatedAt)
-VALUES (NEWID(), @ProductId, '/images/iphone-15-pro-front.jpg', '/images/thumbs/iphone-15-pro-front.jpg', 1, 1, GETUTCDATE());
+INSERT INTO ProductMedias (Id, ProductId, MediaType, Url, ThumbnailUrl, MimeType, IsPrimary, DisplayOrder, CreatedAt)
+VALUES (NEWID(), @ProductId, 0, '/media/iphone-15-pro-front.jpg', '/media/thumbs/iphone-15-pro-front.jpg', 'image/jpeg', 1, 1, GETUTCDATE());
 
 -- Additional Images
-INSERT INTO ProductImages (Id, ProductId, Url, ThumbnailUrl, IsPrimary, DisplayOrder, CreatedAt)
-VALUES (NEWID(), @ProductId, '/images/iphone-15-pro-back.jpg', '/images/thumbs/iphone-15-pro-back.jpg', 0, 2, GETUTCDATE());
+INSERT INTO ProductMedias (Id, ProductId, MediaType, Url, ThumbnailUrl, MimeType, IsPrimary, DisplayOrder, CreatedAt)
+VALUES (NEWID(), @ProductId, 0, '/media/iphone-15-pro-back.jpg', '/media/thumbs/iphone-15-pro-back.jpg', 'image/jpeg', 0, 2, GETUTCDATE());
+
+-- Product Video
+INSERT INTO ProductMedias (Id, ProductId, MediaType, Url, ThumbnailUrl, MimeType, Duration, IsPrimary, DisplayOrder, CreatedAt)
+VALUES (NEWID(), @ProductId, 1, '/media/iphone-15-pro-demo.mp4', '/media/thumbs/iphone-15-pro-video-thumb.jpg', 'video/mp4', 45, 0, 3, GETUTCDATE());
 ```
 
 ---
@@ -630,7 +606,10 @@ VALUES (NEWID(), @ProductId, '/images/iphone-15-pro-back.jpg', '/images/thumbs/i
    - Index attributes for faceted search
 
 5. **Media Service**:
-   - Upload and process product images
+   - Upload and process product images and videos
+   - Generate thumbnails for images and video
+   - Transcode videos to multiple formats
+   - Handle media compression and optimization
    - Generate thumbnails
 
 ---
@@ -690,7 +669,7 @@ VALUES (NEWID(), @ProductId, '/images/iphone-15-pro-back.jpg', '/images/thumbs/i
 This database design provides a robust foundation for a comprehensive product catalog system with support for:
 - ✅ Hierarchical categories (3 levels)
 - ✅ Product variants with flexible attributes
-- ✅ Multiple product images
+- ✅ Multiple product media (images & videos)
 - ✅ Brand management
 - ✅ Flexible tagging system
 - ✅ SEO optimization

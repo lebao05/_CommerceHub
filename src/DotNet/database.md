@@ -95,7 +95,6 @@ Core product information.
 | slug | VARCHAR(280) | NOT NULL, UNIQUE | URL-friendly slug |
 | short_description | VARCHAR(500) | NULL | Brief description |
 | description | TEXT | NULL | Full product description |
-| brand | VARCHAR(100) | NULL | Brand name |
 | manufacturer | VARCHAR(100) | NULL | Manufacturer name |
 | base_price | DECIMAL(10,2) | NOT NULL | Base price |
 | sale_price | DECIMAL(10,2) | NULL | Sale/discounted price |

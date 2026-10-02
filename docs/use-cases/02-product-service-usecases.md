@@ -12,7 +12,7 @@
 **Primary Actor**: Seller, Admin  
 **Precondition**: User has permission to create products  
 **Main Flow**:
-1. User provides product details (name, description, price, category, brand)
+1. User provides product details (name, description, price, category)
 2. System validates required fields
 3. System validates price > 0
 4. System validates category exists
@@ -93,7 +93,7 @@
 **Primary Actor**: Customer  
 **Precondition**: None  
 **Main Flow**:
-1. Customer requests product list with filters (category, brand, price range)
+1. Customer requests product list with filters (category, price range, tags)
 2. System validates pagination parameters
 3. System applies filters
 4. System retrieves products from database
@@ -163,24 +163,25 @@
 
 ---
 
-### UC-PROD-009: Upload Product Images
+### UC-PROD-009: Upload Product Media
 **Primary Actor**: Seller, Admin  
 **Precondition**: Product exists, user has permission  
 **Main Flow**:
-1. User uploads image files for product
-2. System validates file type (jpg, png, webp)
-3. System validates file size < 5MB
+1. User uploads media files (images/videos) for product
+2. System validates file type (images: jpg, png, webp; videos: mp4, webm)
+3. System validates file size (images < 5MB, videos < 50MB)
 4. System generates unique filename
 5. System uploads to storage (S3, Azure Blob)
-6. System creates ProductImage record
-7. System publishes ProductImageAdded event
-8. System returns image URLs
+6. For videos: System generates thumbnail
+7. System creates ProductMedia record with MediaType
+8. System publishes ProductMediaAdded event
+9. System returns media URLs
 
 **Alternative Flow**:
-- 2a. Invalid file type → Return "Only jpg, png, webp allowed"
-- 3a. File too large → Return "File size must be < 5MB"
+- 2a. Invalid file type → Return "Only jpg, png, webp, mp4, webm allowed"
+- 3a. File too large → Return "Image must be < 5MB, Video must be < 50MB"
 
-**Postcondition**: Product images uploaded and linked
+**Postcondition**: Product media uploaded and linked
 
 ---
 
@@ -222,63 +223,7 @@
 
 ---
 
-### UC-PROD-012: Create Brand
-**Primary Actor**: Admin  
-**Precondition**: Admin has permission  
-**Main Flow**:
-1. Admin provides brand details (name, description, logo)
-2. System validates brand name is unique
-3. System validates logo file (if provided)
-4. System creates brand record
-5. System publishes BrandCreated event
-6. System returns brand details
-
-**Alternative Flow**:
-- 2a. Brand name already exists → Return "Brand name must be unique"
-- 3a. Invalid logo format → Return "Logo must be jpg, png, or svg"
-
-**Postcondition**: Brand created
-
----
-
-### UC-PROD-012a: Update Brand
-**Primary Actor**: Admin  
-**Precondition**: Brand exists  
-**Main Flow**:
-1. Admin provides brand ID and updated fields
-2. System retrieves existing brand
-3. System validates brand name unique (if changed)
-4. System updates brand
-5. System publishes BrandUpdated event
-6. System returns updated brand
-
-**Alternative Flow**:
-- 2a. Brand not found → Return 404
-- 3a. Brand name already taken → Return error
-
-**Postcondition**: Brand updated
-
----
-
-### UC-PROD-012b: Delete Brand
-**Primary Actor**: Admin  
-**Precondition**: Brand exists  
-**Main Flow**:
-1. Admin provides brand ID
-2. System checks if brand has products
-3. If products exist → Prevent deletion
-4. System soft deletes brand
-5. System publishes BrandDeleted event
-6. System returns success
-
-**Alternative Flow**:
-- 3a. Brand has products → Return "Cannot delete brand with existing products"
-
-**Postcondition**: Brand deleted
-
----
-
-### UC-PROD-013: Activate/Deactivate Product
+### UC-PROD-012: Activate/Deactivate Product
 **Primary Actor**: Seller, Admin  
 **Precondition**: Product exists  
 **Main Flow**:
