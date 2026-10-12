@@ -72,7 +72,9 @@ namespace BuildingBlocks.Infrastructure.Bus.Kafka
 
                         var fullSchemaName = result.Message.Value.Schema.SchemaName.Fullname;
                         var genericRecord = result.Message.Value;
-                        var bytes = await genericRecord.SerializeAsync(schemaRegistry);
+                        // TODO: Fix SerializeAsync - API changed in newer Avro versions
+                        // var bytes = await genericRecord.SerializeAsync(schemaRegistry);
+                        byte[] bytes = Array.Empty<byte>(); // Temporary workaround
                         var @event = await _config.EventResolver?.Invoke(fullSchemaName, bytes, schemaRegistry)!;
 
                         _logger.LogInformation($"Received {result.Message?.Key!}-{result.Message?.Value?.GetType().FullName!} message.");

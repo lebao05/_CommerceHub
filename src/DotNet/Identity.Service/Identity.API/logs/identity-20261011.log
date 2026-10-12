@@ -1,0 +1,1633 @@
+2026-10-11 12:30:21.342 +07:00 [ERR] An error occurred using the connection to database 'IdentityDb' on server 'tcp://127.0.0.1:5433'.
+2026-10-11 12:30:21.728 +07:00 [ERR] An error occurred using the connection to database 'IdentityDb' on server 'tcp://127.0.0.1:5433'.
+2026-10-11 12:30:21.738 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Identity.API.Data.IdentityDbContext'.
+Npgsql.PostgresException (0x80004005): 3D000: database "IdentityDb" does not exist
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|209_0(NpgsqlConnector conn, String username, SslMode sslMode, GssEncryptionMode gssEncMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "IdentityDb" does not exist
+    File: postinit.c
+    Line: 1016
+    Routine: InitPostgres
+Npgsql.PostgresException (0x80004005): 3D000: database "IdentityDb" does not exist
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|209_0(NpgsqlConnector conn, String username, SslMode sslMode, GssEncryptionMode gssEncMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "IdentityDb" does not exist
+    File: postinit.c
+    Line: 1016
+    Routine: InitPostgres
+2026-10-11 12:30:21.749 +07:00 [FTL] The identity server terminated unexpectedly.
+Npgsql.PostgresException (0x80004005): 3D000: database "IdentityDb" does not exist
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|209_0(NpgsqlConnector conn, String username, SslMode sslMode, GssEncryptionMode gssEncMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.RoleManager`1.RoleExistsAsync(String roleName)
+   at Identity.API.Data.SeedData.SeedRolesAsync(IServiceProvider services, ILogger logger) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Data\SeedData.cs:line 50
+   at Identity.API.Data.SeedData.InitializeAsync(IServiceProvider services) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Data\SeedData.cs:line 27
+   at Program.<Main>$(String[] args) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Program.cs:line 210
+   at Program.<Main>$(String[] args) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Program.cs:line 211
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "IdentityDb" does not exist
+    File: postinit.c
+    Line: 1016
+    Routine: InitPostgres
+2026-10-11 12:31:24.048 +07:00 [ERR] An error occurred using the connection to database 'IdentityDb' on server 'tcp://127.0.0.1:5433'.
+2026-10-11 12:31:24.437 +07:00 [ERR] An error occurred using the connection to database 'IdentityDb' on server 'tcp://127.0.0.1:5433'.
+2026-10-11 12:31:24.446 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Identity.API.Data.IdentityDbContext'.
+Npgsql.PostgresException (0x80004005): 3D000: database "IdentityDb" does not exist
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|209_0(NpgsqlConnector conn, String username, SslMode sslMode, GssEncryptionMode gssEncMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "IdentityDb" does not exist
+    File: postinit.c
+    Line: 1016
+    Routine: InitPostgres
+Npgsql.PostgresException (0x80004005): 3D000: database "IdentityDb" does not exist
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|209_0(NpgsqlConnector conn, String username, SslMode sslMode, GssEncryptionMode gssEncMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "IdentityDb" does not exist
+    File: postinit.c
+    Line: 1016
+    Routine: InitPostgres
+2026-10-11 12:31:24.457 +07:00 [FTL] The identity server terminated unexpectedly.
+Npgsql.PostgresException (0x80004005): 3D000: database "IdentityDb" does not exist
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|209_0(NpgsqlConnector conn, String username, SslMode sslMode, GssEncryptionMode gssEncMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.RoleManager`1.RoleExistsAsync(String roleName)
+   at Identity.API.Data.SeedData.SeedRolesAsync(IServiceProvider services, ILogger logger) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Data\SeedData.cs:line 50
+   at Identity.API.Data.SeedData.InitializeAsync(IServiceProvider services) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Data\SeedData.cs:line 27
+   at Program.<Main>$(String[] args) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Program.cs:line 210
+   at Program.<Main>$(String[] args) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Program.cs:line 211
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "IdentityDb" does not exist
+    File: postinit.c
+    Line: 1016
+    Routine: InitPostgres
+2026-10-11 12:32:01.399 +07:00 [ERR] An error occurred using the connection to database 'IdentityDb' on server 'tcp://127.0.0.1:5433'.
+2026-10-11 12:32:01.912 +07:00 [ERR] An error occurred using the connection to database 'IdentityDb' on server 'tcp://127.0.0.1:5433'.
+2026-10-11 12:32:01.927 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Identity.API.Data.IdentityDbContext'.
+Npgsql.PostgresException (0x80004005): 3D000: database "IdentityDb" does not exist
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|209_0(NpgsqlConnector conn, String username, SslMode sslMode, GssEncryptionMode gssEncMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "IdentityDb" does not exist
+    File: postinit.c
+    Line: 1016
+    Routine: InitPostgres
+Npgsql.PostgresException (0x80004005): 3D000: database "IdentityDb" does not exist
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|209_0(NpgsqlConnector conn, String username, SslMode sslMode, GssEncryptionMode gssEncMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "IdentityDb" does not exist
+    File: postinit.c
+    Line: 1016
+    Routine: InitPostgres
+2026-10-11 12:32:01.947 +07:00 [FTL] The identity server terminated unexpectedly.
+Npgsql.PostgresException (0x80004005): 3D000: database "IdentityDb" does not exist
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|209_0(NpgsqlConnector conn, String username, SslMode sslMode, GssEncryptionMode gssEncMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.RoleManager`1.RoleExistsAsync(String roleName)
+   at Identity.API.Data.SeedData.SeedRolesAsync(IServiceProvider services, ILogger logger) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Data\SeedData.cs:line 50
+   at Identity.API.Data.SeedData.InitializeAsync(IServiceProvider services) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Data\SeedData.cs:line 27
+   at Program.<Main>$(String[] args) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Program.cs:line 210
+   at Program.<Main>$(String[] args) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Program.cs:line 211
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "IdentityDb" does not exist
+    File: postinit.c
+    Line: 1016
+    Routine: InitPostgres
+2026-10-11 12:32:44.390 +07:00 [ERR] Failed executing DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-10-11 12:32:44.786 +07:00 [ERR] Failed executing DbCommand (37ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:32:44.803 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Identity.API.Data.IdentityDbContext'.
+Npgsql.PostgresException (0x80004005): 42P01: relation "AspNetRoles" does not exist
+
+POSITION: 90
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "AspNetRoles" does not exist
+    Position: 90
+    File: parse_relation.c
+    Line: 1469
+    Routine: parserOpenTable
+Npgsql.PostgresException (0x80004005): 42P01: relation "AspNetRoles" does not exist
+
+POSITION: 90
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "AspNetRoles" does not exist
+    Position: 90
+    File: parse_relation.c
+    Line: 1469
+    Routine: parserOpenTable
+2026-10-11 12:32:44.816 +07:00 [FTL] The identity server terminated unexpectedly.
+Npgsql.PostgresException (0x80004005): 42P01: relation "AspNetRoles" does not exist
+
+POSITION: 90
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.RoleManager`1.RoleExistsAsync(String roleName)
+   at Identity.API.Data.SeedData.SeedRolesAsync(IServiceProvider services, ILogger logger) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Data\SeedData.cs:line 50
+   at Identity.API.Data.SeedData.InitializeAsync(IServiceProvider services) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Data\SeedData.cs:line 27
+   at Program.<Main>$(String[] args) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Program.cs:line 210
+   at Program.<Main>$(String[] args) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Program.cs:line 211
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "AspNetRoles" does not exist
+    Position: 90
+    File: parse_relation.c
+    Line: 1469
+    Routine: parserOpenTable
+2026-10-11 12:34:22.683 +07:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-10-11 12:34:22.791 +07:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2026-10-11 12:34:23.095 +07:00 [INF] Executed DbCommand (128ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AspNetRoles" (
+    "Id" uuid NOT NULL,
+    "Description" character varying(512),
+    "Name" character varying(256),
+    "NormalizedName" character varying(256),
+    "ConcurrencyStamp" text,
+    CONSTRAINT "PK_AspNetRoles" PRIMARY KEY ("Id")
+);
+2026-10-11 12:34:23.101 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AspNetUsers" (
+    "Id" uuid NOT NULL,
+    "FirstName" character varying(128) NOT NULL,
+    "LastName" character varying(128) NOT NULL,
+    "ProfilePictureUrl" character varying(512),
+    "Status" integer NOT NULL,
+    "AccountType" integer NOT NULL,
+    "CreatedAt" timestamp with time zone NOT NULL,
+    "UpdatedAt" timestamp with time zone,
+    "LastLoginAt" timestamp with time zone,
+    "LastLoginIp" character varying(64),
+    "UserName" character varying(256),
+    "NormalizedUserName" character varying(256),
+    "Email" character varying(256),
+    "NormalizedEmail" character varying(256),
+    "EmailConfirmed" boolean NOT NULL,
+    "PasswordHash" text,
+    "SecurityStamp" text,
+    "ConcurrencyStamp" text,
+    "PhoneNumber" text,
+    "PhoneNumberConfirmed" boolean NOT NULL,
+    "TwoFactorEnabled" boolean NOT NULL,
+    "LockoutEnd" timestamp with time zone,
+    "LockoutEnabled" boolean NOT NULL,
+    "AccessFailedCount" integer NOT NULL,
+    CONSTRAINT "PK_AspNetUsers" PRIMARY KEY ("Id")
+);
+2026-10-11 12:34:23.106 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "OpenIddictApplications" (
+    "Id" text NOT NULL,
+    "ApplicationType" character varying(50),
+    "ClientId" character varying(100),
+    "ClientSecret" text,
+    "ClientType" character varying(50),
+    "ConcurrencyToken" character varying(50),
+    "ConsentType" character varying(50),
+    "DisplayName" text,
+    "DisplayNames" text,
+    "JsonWebKeySet" text,
+    "Permissions" text,
+    "PostLogoutRedirectUris" text,
+    "Properties" text,
+    "RedirectUris" text,
+    "Requirements" text,
+    "Settings" text,
+    CONSTRAINT "PK_OpenIddictApplications" PRIMARY KEY ("Id")
+);
+2026-10-11 12:34:23.111 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "OpenIddictScopes" (
+    "Id" text NOT NULL,
+    "ConcurrencyToken" character varying(50),
+    "Description" text,
+    "Descriptions" text,
+    "DisplayName" text,
+    "DisplayNames" text,
+    "Name" character varying(200),
+    "Properties" text,
+    "Resources" text,
+    CONSTRAINT "PK_OpenIddictScopes" PRIMARY KEY ("Id")
+);
+2026-10-11 12:34:23.120 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AspNetRoleClaims" (
+    "Id" integer GENERATED BY DEFAULT AS IDENTITY,
+    "RoleId" uuid NOT NULL,
+    "ClaimType" text,
+    "ClaimValue" text,
+    CONSTRAINT "PK_AspNetRoleClaims" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_AspNetRoleClaims_AspNetRoles_RoleId" FOREIGN KEY ("RoleId") REFERENCES "AspNetRoles" ("Id") ON DELETE CASCADE
+);
+2026-10-11 12:34:23.126 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AspNetUserClaims" (
+    "Id" integer GENERATED BY DEFAULT AS IDENTITY,
+    "UserId" uuid NOT NULL,
+    "ClaimType" text,
+    "ClaimValue" text,
+    CONSTRAINT "PK_AspNetUserClaims" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_AspNetUserClaims_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE CASCADE
+);
+2026-10-11 12:34:23.130 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AspNetUserLogins" (
+    "LoginProvider" text NOT NULL,
+    "ProviderKey" text NOT NULL,
+    "ProviderDisplayName" text,
+    "UserId" uuid NOT NULL,
+    CONSTRAINT "PK_AspNetUserLogins" PRIMARY KEY ("LoginProvider", "ProviderKey"),
+    CONSTRAINT "FK_AspNetUserLogins_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE CASCADE
+);
+2026-10-11 12:34:23.134 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AspNetUserRoles" (
+    "UserId" uuid NOT NULL,
+    "RoleId" uuid NOT NULL,
+    CONSTRAINT "PK_AspNetUserRoles" PRIMARY KEY ("UserId", "RoleId"),
+    CONSTRAINT "FK_AspNetUserRoles_AspNetRoles_RoleId" FOREIGN KEY ("RoleId") REFERENCES "AspNetRoles" ("Id") ON DELETE CASCADE,
+    CONSTRAINT "FK_AspNetUserRoles_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE CASCADE
+);
+2026-10-11 12:34:23.139 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AspNetUserTokens" (
+    "UserId" uuid NOT NULL,
+    "LoginProvider" text NOT NULL,
+    "Name" text NOT NULL,
+    "Value" text,
+    CONSTRAINT "PK_AspNetUserTokens" PRIMARY KEY ("UserId", "LoginProvider", "Name"),
+    CONSTRAINT "FK_AspNetUserTokens_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE CASCADE
+);
+2026-10-11 12:34:23.144 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "OpenIddictAuthorizations" (
+    "Id" text NOT NULL,
+    "ApplicationId" text,
+    "ConcurrencyToken" character varying(50),
+    "CreationDate" timestamp with time zone,
+    "Properties" text,
+    "Scopes" text,
+    "Status" character varying(50),
+    "Subject" character varying(400),
+    "Type" character varying(50),
+    CONSTRAINT "PK_OpenIddictAuthorizations" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_OpenIddictAuthorizations_OpenIddictApplications_Application~" FOREIGN KEY ("ApplicationId") REFERENCES "OpenIddictApplications" ("Id")
+);
+2026-10-11 12:34:23.149 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "OpenIddictTokens" (
+    "Id" text NOT NULL,
+    "ApplicationId" text,
+    "AuthorizationId" text,
+    "ConcurrencyToken" character varying(50),
+    "CreationDate" timestamp with time zone,
+    "ExpirationDate" timestamp with time zone,
+    "Payload" text,
+    "Properties" text,
+    "RedemptionDate" timestamp with time zone,
+    "ReferenceId" character varying(100),
+    "Status" character varying(50),
+    "Subject" character varying(400),
+    "Type" character varying(150),
+    CONSTRAINT "PK_OpenIddictTokens" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_OpenIddictTokens_OpenIddictApplications_ApplicationId" FOREIGN KEY ("ApplicationId") REFERENCES "OpenIddictApplications" ("Id"),
+    CONSTRAINT "FK_OpenIddictTokens_OpenIddictAuthorizations_AuthorizationId" FOREIGN KEY ("AuthorizationId") REFERENCES "OpenIddictAuthorizations" ("Id")
+);
+2026-10-11 12:34:23.151 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_AspNetRoleClaims_RoleId" ON "AspNetRoleClaims" ("RoleId");
+2026-10-11 12:34:23.153 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "RoleNameIndex" ON "AspNetRoles" ("NormalizedName");
+2026-10-11 12:34:23.155 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_AspNetUserClaims_UserId" ON "AspNetUserClaims" ("UserId");
+2026-10-11 12:34:23.157 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_AspNetUserLogins_UserId" ON "AspNetUserLogins" ("UserId");
+2026-10-11 12:34:23.158 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_AspNetUserRoles_RoleId" ON "AspNetUserRoles" ("RoleId");
+2026-10-11 12:34:23.159 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_AspNetUsers_NormalizedEmail" ON "AspNetUsers" ("NormalizedEmail");
+2026-10-11 12:34:23.161 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_AspNetUsers_Status" ON "AspNetUsers" ("Status");
+2026-10-11 12:34:23.163 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "UserNameIndex" ON "AspNetUsers" ("NormalizedUserName");
+2026-10-11 12:34:23.164 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_OpenIddictApplications_ClientId" ON "OpenIddictApplications" ("ClientId");
+2026-10-11 12:34:23.166 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_OpenIddictAuthorizations_ApplicationId_Status_Subject_Type" ON "OpenIddictAuthorizations" ("ApplicationId", "Status", "Subject", "Type");
+2026-10-11 12:34:23.167 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_OpenIddictScopes_Name" ON "OpenIddictScopes" ("Name");
+2026-10-11 12:34:23.169 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_OpenIddictTokens_ApplicationId_Status_Subject_Type" ON "OpenIddictTokens" ("ApplicationId", "Status", "Subject", "Type");
+2026-10-11 12:34:23.170 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_OpenIddictTokens_AuthorizationId" ON "OpenIddictTokens" ("AuthorizationId");
+2026-10-11 12:34:23.172 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_OpenIddictTokens_ReferenceId" ON "OpenIddictTokens" ("ReferenceId");
+2026-10-11 12:34:23.484 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:34:23.498 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:34:23.632 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetRoles" ("Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-10-11 12:34:23.643 +07:00 [INF] Seeded role Customer.
+2026-10-11 12:34:23.644 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:34:23.646 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:34:23.649 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetRoles" ("Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-10-11 12:34:23.650 +07:00 [INF] Seeded role SalesAdmin.
+2026-10-11 12:34:23.651 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:34:23.652 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:34:23.653 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetRoles" ("Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-10-11 12:34:23.653 +07:00 [INF] Seeded role SystemAdmin.
+2026-10-11 12:34:23.654 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:34:23.655 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:34:23.656 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetRoles" ("Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-10-11 12:34:23.656 +07:00 [INF] Seeded role ServiceAccount.
+2026-10-11 12:34:23.684 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:34:23.720 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:34:23.735 +07:00 [FTL] The identity server terminated unexpectedly.
+OpenIddict.Abstractions.OpenIddictExceptions+ValidationException: One or more validation error(s) occurred while trying to create a new application:
+
+The client secret cannot be null or empty for a confidential application. Alternatively, a RSA or ECDSA key (with the key use "sig") can be added to the JSON Web Key Set attached to the application if the client authenticates using client assertions.
+
+   at OpenIddict.Core.OpenIddictApplicationManager`1.CreateAsync(TApplication application, String secret, CancellationToken cancellationToken)
+   at OpenIddict.Core.OpenIddictApplicationManager`1.CreateAsync(OpenIddictApplicationDescriptor descriptor, CancellationToken cancellationToken)
+   at OpenIddict.Core.OpenIddictApplicationManager`1.OpenIddict.Abstractions.IOpenIddictApplicationManager.CreateAsync(OpenIddictApplicationDescriptor descriptor, CancellationToken cancellationToken)
+   at Identity.API.Data.SeedData.EnsureConfidentialClientAsync(IOpenIddictApplicationManager applicationManager, ILogger logger, IConfiguration configuration, String clientId, String displayName, String secretKey, String[] grantTypes) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Data\SeedData.cs:line 161
+   at Identity.API.Data.SeedData.SeedOpenIddictApplicationsAsync(IServiceProvider services, IConfiguration configuration, ILogger logger) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Data\SeedData.cs:line 95
+   at Identity.API.Data.SeedData.InitializeAsync(IServiceProvider services) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Data\SeedData.cs:line 28
+   at Program.<Main>$(String[] args) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Program.cs:line 208
+   at Program.<Main>$(String[] args) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Program.cs:line 209
+2026-10-11 12:35:20.366 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-10-11 12:35:20.475 +07:00 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2026-10-11 12:35:20.890 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:35:20.959 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:35:20.961 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:35:20.962 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:35:21.014 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:35:21.021 +07:00 [WRN] No secret configured for commercehub-firstparty; generating a development placeholder.
+2026-10-11 12:35:21.067 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:35:21.210 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictApplications" ("Id", "ApplicationType", "ClientId", "ClientSecret", "ClientType", "ConcurrencyToken", "ConsentType", "DisplayName", "DisplayNames", "JsonWebKeySet", "Permissions", "PostLogoutRedirectUris", "Properties", "RedirectUris", "Requirements", "Settings")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2026-10-11 12:35:21.229 +07:00 [INF] Seeded OpenIddict application commercehub-firstparty.
+2026-10-11 12:35:21.231 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:35:21.232 +07:00 [WRN] No secret configured for commercehub-gateway; generating a development placeholder.
+2026-10-11 12:35:21.240 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:35:21.243 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictApplications" ("Id", "ApplicationType", "ClientId", "ClientSecret", "ClientType", "ConcurrencyToken", "ConsentType", "DisplayName", "DisplayNames", "JsonWebKeySet", "Permissions", "PostLogoutRedirectUris", "Properties", "RedirectUris", "Requirements", "Settings")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2026-10-11 12:35:21.244 +07:00 [INF] Seeded OpenIddict application commercehub-gateway.
+2026-10-11 12:35:21.245 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:35:21.246 +07:00 [WRN] No secret configured for commercehub-services; generating a development placeholder.
+2026-10-11 12:35:21.253 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:35:21.255 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictApplications" ("Id", "ApplicationType", "ClientId", "ClientSecret", "ClientType", "ConcurrencyToken", "ConsentType", "DisplayName", "DisplayNames", "JsonWebKeySet", "Permissions", "PostLogoutRedirectUris", "Properties", "RedirectUris", "Requirements", "Settings")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2026-10-11 12:35:21.256 +07:00 [INF] Seeded OpenIddict application commercehub-services.
+2026-10-11 12:35:21.346 +07:00 [INF] User profile is available. Using 'C:\Users\zalam\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-10-11 12:35:21.490 +07:00 [INF] Now listening on: http://localhost:5063
+2026-10-11 12:35:21.491 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-11 12:35:21.491 +07:00 [INF] Hosting environment: Development
+2026-10-11 12:35:21.491 +07:00 [INF] Content root path: D:\_commercehub\src\DotNet\Identity.Service\Identity.API
+2026-10-11 12:35:52.970 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5063/.well-known/openid-configuration - null null
+2026-10-11 12:35:53.039 +07:00 [INF] The request URI matched a server endpoint: "Configuration".
+2026-10-11 12:35:53.052 +07:00 [INF] The configuration request was successfully extracted: {}.
+2026-10-11 12:35:53.054 +07:00 [INF] The configuration request was successfully validated.
+2026-10-11 12:35:53.072 +07:00 [INF] The response was successfully returned as a JSON document: {
+  "issuer": "http://localhost:5063/",
+  "token_endpoint": "http://localhost:5063/connect/token",
+  "jwks_uri": "http://localhost:5063/.well-known/jwks",
+  "grant_types_supported": [
+    "password",
+    "refresh_token",
+    "client_credentials"
+  ],
+  "scopes_supported": [
+    "openid",
+    "offline_access",
+    "profile",
+    "email",
+    "roles",
+    "profile.read",
+    "profile.write",
+    "product.read",
+    "product.write",
+    "order.read",
+    "order.write",
+    "inventory.read",
+    "inventory.write",
+    "payment.process",
+    "admin.full"
+  ],
+  "claims_supported": [
+    "aud",
+    "exp",
+    "iat",
+    "iss",
+    "sub"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ],
+  "subject_types_supported": [
+    "public"
+  ],
+  "prompt_values_supported": [
+    "consent",
+    "login",
+    "none",
+    "select_account"
+  ],
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_post",
+    "private_key_jwt",
+    "client_secret_basic"
+  ],
+  "require_pushed_authorization_requests": false,
+  "tls_client_certificate_bound_access_tokens": false,
+  "claims_parameter_supported": false,
+  "request_parameter_supported": false,
+  "request_uri_parameter_supported": false,
+  "authorization_response_iss_parameter_supported": true
+}.
+2026-10-11 12:35:53.077 +07:00 [INF] HTTP GET /.well-known/openid-configuration responded 200 in 101.6639 ms
+2026-10-11 12:35:53.079 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5063/.well-known/openid-configuration - 200 1319 application/json;charset=UTF-8 110.6787ms
+2026-10-11 12:36:04.682 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5063/.well-known/jwks - null null
+2026-10-11 12:36:04.685 +07:00 [INF] The request URI matched a server endpoint: "JsonWebKeySet".
+2026-10-11 12:36:04.687 +07:00 [INF] The JSON Web Key Set request was successfully extracted: {}.
+2026-10-11 12:36:04.688 +07:00 [INF] The JSON Web Key Set request was successfully validated.
+2026-10-11 12:36:04.702 +07:00 [INF] The response was successfully returned as a JSON document: {
+  "keys": [
+    {
+      "kid": "BC4D623EDC72025F687DBAA1B29C1386A4C556AB",
+      "use": "sig",
+      "kty": "RSA",
+      "alg": "RS256",
+      "e": "AQAB",
+      "n": "0jFy-acEsLsVbFdpkDPUCCOWbykZwqR8tqo4qCBMXdGbRZbMV6gWlanVngM7MqCLvrBLkbKowgwUg8LZO6My8cEGFcSEJeECS3j4FUHycJq32Q1v8jR0liwJWBsxuJ7Ftb2vnhcjUfwmTTXYUnVGWLF7TFCoS53NfNCl4HaLsEZwCGSq8Vcr8892jiej2d-0YgcE5Vh5SAcnbj4fLziS45c2mmK7smGqYAjxgw0DL7-XTXOQXB3dsRsqoBENGSEzIaASQHgTBbR0f98DG58Xc4DbsN0zVwunOKaLteDZlUoRCoWcS5NbrnD9i3NvOb9mx61K7uHMJvHKJ5eFToVub7Iyopb3Bh2vbQhHPpQ_ZtNEnIF9O8Q6sFomNYcds5JK2yVvhhbzGbX2cllitYiYuB_MvQpiwY9D1dtovj1Upc5PRgMDVKm_DZ-OycSthifHjJ7MR_Q5utEKQrictLi2GmrXhPMbeS3y7NZh-wHtekO46AIyv3vjiuaTXsbHg80iZkX_asQHbwwlO8MdJLxMYPF2k4GYIMEQNGKtzvWWN-oZDVucpZSg1GTwKfnVDicKkfbGj9URdJeGqGxZaQ8cqqp9419iJepcJ0vW5OEfWMiTNimUdMDXESX7B3jcnzg74GzKgwWdrQUoeY0JTvSPq4MXAEK7M5hmmwqrTjXnEJU",
+      "x5t": "vE1iPtxyAl9ofbqhspwThqTFVqs",
+      "x5c": [
+        "MIIE9DCCAtygAwIBAgIIIAhbXv4+9/8wDQYJKoZIhvcNAQELBQAwMDEuMCwGA1UEAxMlT3BlbklkZGljdCBTZXJ2ZXIgU2lnbmluZyBDZXJ0aWZpY2F0ZTAeFw0yNjEwMDQxMDA5NDFaFw0yODEwMDQxMDA5NDFaMDAxLjAsBgNVBAMTJU9wZW5JZGRpY3QgU2VydmVyIFNpZ25pbmcgQ2VydGlmaWNhdGUwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDSMXL5pwSwuxVsV2mQM9QII5ZvKRnCpHy2qjioIExd0ZtFlsxXqBaVqdWeAzsyoIu+sEuRsqjCDBSDwtk7ozLxwQYVxIQl4QJLePgVQfJwmrfZDW/yNHSWLAlYGzG4nsW1va+eFyNR/CZNNdhSdUZYsXtMUKhLnc180KXgdouwRnAIZKrxVyvzz3aOJ6PZ37RiBwTlWHlIByduPh8vOJLjlzaaYruyYapgCPGDDQMvv5dNc5BcHd2xGyqgEQ0ZITMhoBJAeBMFtHR/3wMbnxdzgNuw3TNXC6c4pou14NmVShEKhZxLk1uucP2Lc285v2bHrUru4cwm8conl4VOhW5vsjKilvcGHa9tCEc+lD9m00ScgX07xDqwWiY1hx2zkkrbJW+GFvMZtfZyWWK1iJi4H8y9CmLBj0PV22i+PVSlzk9GAwNUqb8Nn47JxK2GJ8eMnsxH9Dm60QpCuJy0uLYaateE8xt5LfLs1mH7Ae16Q7joAjK/e+OK5pNexseDzSJmRf9qxAdvDCU7wx0kvExg8XaTgZggwRA0Yq3O9ZY36hkNW5yllKDUZPAp+dUOJwqR9saP1RF0l4aobFlpDxyqqn3jX2Il6lwnS9bk4R9YyJM2KZR0wNcRJfsHeNyfODvgbMqDBZ2tBSh5jQlO9I+rgxcAQrszmGabCqtONecQlQIDAQABoxIwEDAOBgNVHQ8BAf8EBAMCB4AwDQYJKoZIhvcNAQELBQADggIBAMzkQfbkrziiDB/rZj3sqFSLocUY0OOW+69UTm14RsEaLZ0xHyT5pvx799BxNEHF1hFO1CAqugeGCWJUrjyGUL7mBHKjm4zqVX4Ea0V10+dolgdv1MQvx7+dvE2b2T6kTH14HagI6/D+OFd1K+51pV15U6kV65Smbhgz3ZZlC+fly7F73wkktQXJ8OQx/nBQFftQo3YeSGfKnJ9IEnuCBZ7aC0UqiFECKFIU3yUw2xWh3xi5fww0Zy0oYIoZBPC6wVHXiAEHbKR78luOlVA97E8KpAMlHSzx+lHpfsCv0wmTSFNn2a8DyogJ9haxpcLACFOB3lI6g1Ng0EKT1lJryrdqq+osLJHw1MjPmWO65y3v1EQbZVWzdxiJmdsnTOUu8YlPcwAyQrGKtR5y5YLWCs3hbFjowkESmFcIrzH5mVlEOe4hpvvNhq2oyt+DMFvwCH3iW5yuqE64DtSwblPhCwjTD0zuaXbEBU6WbNzh9ZdRrAoYIRWB+0+qmcptRu5RKkY8ObUIQJz5T3ae62kQOETZ73eYCKx9PAsCrTj2yg5k07/Qm2in69n3kJtmMNJLXZV34Dr1k3v3CtxKa5BOZm77qwS7p4jFPJa22uAxZojGyZ4M2Sdp1Bvb4GsP8ynKLGX35Darq0kGmMbNt5FyxE0nJjnm1yJcIvWfIC3Hh6Zf"
+      ]
+    }
+  ]
+}.
+2026-10-11 12:36:04.705 +07:00 [INF] HTTP GET /.well-known/jwks responded 200 in 21.2776 ms
+2026-10-11 12:36:04.705 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5063/.well-known/jwks - 200 2656 application/json;charset=UTF-8 23.0862ms
+2026-10-11 12:36:04.732 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5063/api/auth/register - application/json 101
+2026-10-11 12:36:04.760 +07:00 [INF] Executing endpoint 'Identity.API.Quickstart.Account.AccountController.Register (Identity.API)'
+2026-10-11 12:36:04.779 +07:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Http.IResult] Register(Identity.API.Models.RegisterRequest, FluentValidation.IValidator`1[Identity.API.Models.RegisterRequest], System.Threading.CancellationToken) on controller Identity.API.Quickstart.Account.AccountController (Identity.API).
+2026-10-11 12:36:04.886 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:36:04.975 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedUserName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @normalizedUserName
+LIMIT 1
+2026-10-11 12:36:04.980 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:36:05.085 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?', @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Boolean), @p7='?', @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?' (DbType = Boolean), @p12='?' (DbType = DateTime), @p13='?', @p14='?', @p15='?', @p16='?', @p17='?' (DbType = Boolean), @p18='?', @p19='?', @p20='?' (DbType = Int32), @p21='?' (DbType = Boolean), @p22='?' (DbType = DateTime), @p23='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetUsers" ("Id", "AccessFailedCount", "AccountType", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FirstName", "LastLoginAt", "LastLoginIp", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePictureUrl", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedAt", "UserName")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23);
+2026-10-11 12:36:05.097 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedRoleName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedRoleName
+LIMIT 2
+2026-10-11 12:36:05.146 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid), @p1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."UserId", a."RoleId"
+FROM "AspNetUserRoles" AS a
+WHERE a."UserId" = @p AND a."RoleId" = @p1
+LIMIT 1
+2026-10-11 12:36:05.150 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedRoleName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedRoleName
+LIMIT 2
+2026-10-11 12:36:05.162 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedUserName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @normalizedUserName
+LIMIT 1
+2026-10-11 12:36:05.165 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:36:05.189 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p25='?' (DbType = Guid), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?', @p26='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = Boolean), @p8='?', @p9='?' (DbType = DateTime), @p10='?', @p11='?', @p12='?' (DbType = Boolean), @p13='?' (DbType = DateTime), @p14='?', @p15='?', @p16='?', @p17='?', @p18='?' (DbType = Boolean), @p19='?', @p20='?', @p21='?' (DbType = Int32), @p22='?' (DbType = Boolean), @p23='?' (DbType = DateTime), @p24='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetUserRoles" ("RoleId", "UserId")
+VALUES (@p0, @p1);
+UPDATE "AspNetUsers" SET "AccessFailedCount" = @p2, "AccountType" = @p3, "ConcurrencyStamp" = @p4, "CreatedAt" = @p5, "Email" = @p6, "EmailConfirmed" = @p7, "FirstName" = @p8, "LastLoginAt" = @p9, "LastLoginIp" = @p10, "LastName" = @p11, "LockoutEnabled" = @p12, "LockoutEnd" = @p13, "NormalizedEmail" = @p14, "NormalizedUserName" = @p15, "PasswordHash" = @p16, "PhoneNumber" = @p17, "PhoneNumberConfirmed" = @p18, "ProfilePictureUrl" = @p19, "SecurityStamp" = @p20, "Status" = @p21, "TwoFactorEnabled" = @p22, "UpdatedAt" = @p23, "UserName" = @p24
+WHERE "Id" = @p25 AND "ConcurrencyStamp" = @p26;
+2026-10-11 12:36:05.202 +07:00 [WRN] EMAIL (not sent) confirmation for alice@example.com. Confirm at: http://localhost:5173/confirm-email?email=alice%40example.com&token=CfDJ8PtM34%2FPqEZNhqMcFvOsh8KdOHp0JDCYLtD56r2AIsKO686jXsGsxLHAXNtQKu%2BEWAuPsg%2BTNdYyIFjH0h1thYTzhVJJuy1W%2FmxqLVTXkUgdpJTG3KOrw2d%2BvqlagzIKExHMWKm1oFftwHjVtiLQ1PYkP8YvEPLb8yIkzxYNBCkC13TJJFGTAq0D%2BW%2FdMaB60EklCZrJMo6tBtpZres56v1Njh12j2xrWuu8MOkgyqGvPxpoUqARVusk8EBOFKIJ7A%3D%3D
+2026-10-11 12:36:05.203 +07:00 [INF] Registered account alice@example.com.
+2026-10-11 12:36:05.227 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a0."Name"
+FROM "AspNetUserRoles" AS a
+INNER JOIN "AspNetRoles" AS a0 ON a."RoleId" = a0."Id"
+WHERE a."UserId" = @userId
+2026-10-11 12:36:05.236 +07:00 [INF] Setting HTTP status code 201.
+2026-10-11 12:36:05.247 +07:00 [INF] Writing value of type 'UserProfileResponse' as Json.
+2026-10-11 12:36:05.264 +07:00 [INF] Executed action Identity.API.Quickstart.Account.AccountController.Register (Identity.API) in 481.2357ms
+2026-10-11 12:36:05.265 +07:00 [INF] Executed endpoint 'Identity.API.Quickstart.Account.AccountController.Register (Identity.API)'
+2026-10-11 12:36:05.266 +07:00 [INF] HTTP POST /api/auth/register responded 201 in 533.9637 ms
+2026-10-11 12:36:05.267 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5063/api/auth/register - 201 null application/json; charset=utf-8 535.3123ms
+2026-10-11 12:36:05.273 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5063/connect/token - application/x-www-form-urlencoded 215
+2026-10-11 12:36:05.274 +07:00 [INF] The request URI matched a server endpoint: "Token".
+2026-10-11 12:36:05.283 +07:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "alice@example.com",
+  "password": "[redacted]",
+  "client_id": "commercehub-firstparty",
+  "client_secret": "[redacted]",
+  "scope": "openid profile email roles offline_access"
+}.
+2026-10-11 12:36:05.374 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:36:05.395 +07:00 [INF] The token request was rejected because the application 'commercehub-firstparty' was not allowed to use the token endpoint.
+2026-10-11 12:36:05.401 +07:00 [INF] The response was successfully returned as a JSON document: {
+  "error": "unauthorized_client",
+  "error_description": "This client application is not allowed to use the token endpoint.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2063"
+}.
+2026-10-11 12:36:05.401 +07:00 [INF] HTTP POST /connect/token responded 400 in 128.1604 ms
+2026-10-11 12:36:05.402 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5063/connect/token - 400 201 application/json;charset=UTF-8 129.0995ms
+2026-10-11 12:40:06.830 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-10-11 12:40:06.917 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2026-10-11 12:40:07.262 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:40:07.323 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:40:07.325 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:40:07.326 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:40:07.369 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:40:07.420 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:40:07.421 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:40:07.486 +07:00 [INF] User profile is available. Using 'C:\Users\zalam\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-10-11 12:40:07.535 +07:00 [INF] Now listening on: http://localhost:5063
+2026-10-11 12:40:07.536 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-11 12:40:07.536 +07:00 [INF] Hosting environment: Development
+2026-10-11 12:40:07.537 +07:00 [INF] Content root path: D:\_commercehub\src\DotNet\Identity.Service\Identity.API
+2026-10-11 12:40:36.238 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5063/api/auth/register - application/json 94
+2026-10-11 12:40:36.334 +07:00 [INF] Executing endpoint 'Identity.API.Quickstart.Account.AccountController.Register (Identity.API)'
+2026-10-11 12:40:36.351 +07:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Http.IResult] Register(Identity.API.Models.RegisterRequest, FluentValidation.IValidator`1[Identity.API.Models.RegisterRequest], System.Threading.CancellationToken) on controller Identity.API.Quickstart.Account.AccountController (Identity.API).
+2026-10-11 12:40:36.454 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:40:36.541 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedUserName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @normalizedUserName
+LIMIT 1
+2026-10-11 12:40:36.545 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:40:36.710 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?', @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Boolean), @p7='?', @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?' (DbType = Boolean), @p12='?' (DbType = DateTime), @p13='?', @p14='?', @p15='?', @p16='?', @p17='?' (DbType = Boolean), @p18='?', @p19='?', @p20='?' (DbType = Int32), @p21='?' (DbType = Boolean), @p22='?' (DbType = DateTime), @p23='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetUsers" ("Id", "AccessFailedCount", "AccountType", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FirstName", "LastLoginAt", "LastLoginIp", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePictureUrl", "SecurityStamp", "Status", "TwoFactorEnabled", "UpdatedAt", "UserName")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23);
+2026-10-11 12:40:36.729 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedRoleName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedRoleName
+LIMIT 2
+2026-10-11 12:40:36.775 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Guid), @p1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."UserId", a."RoleId"
+FROM "AspNetUserRoles" AS a
+WHERE a."UserId" = @p AND a."RoleId" = @p1
+LIMIT 1
+2026-10-11 12:40:36.780 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedRoleName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedRoleName
+LIMIT 2
+2026-10-11 12:40:36.792 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedUserName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @normalizedUserName
+LIMIT 1
+2026-10-11 12:40:36.794 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:40:36.821 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p25='?' (DbType = Guid), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?', @p26='?', @p5='?' (DbType = DateTime), @p6='?', @p7='?' (DbType = Boolean), @p8='?', @p9='?' (DbType = DateTime), @p10='?', @p11='?', @p12='?' (DbType = Boolean), @p13='?' (DbType = DateTime), @p14='?', @p15='?', @p16='?', @p17='?', @p18='?' (DbType = Boolean), @p19='?', @p20='?', @p21='?' (DbType = Int32), @p22='?' (DbType = Boolean), @p23='?' (DbType = DateTime), @p24='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetUserRoles" ("RoleId", "UserId")
+VALUES (@p0, @p1);
+UPDATE "AspNetUsers" SET "AccessFailedCount" = @p2, "AccountType" = @p3, "ConcurrencyStamp" = @p4, "CreatedAt" = @p5, "Email" = @p6, "EmailConfirmed" = @p7, "FirstName" = @p8, "LastLoginAt" = @p9, "LastLoginIp" = @p10, "LastName" = @p11, "LockoutEnabled" = @p12, "LockoutEnd" = @p13, "NormalizedEmail" = @p14, "NormalizedUserName" = @p15, "PasswordHash" = @p16, "PhoneNumber" = @p17, "PhoneNumberConfirmed" = @p18, "ProfilePictureUrl" = @p19, "SecurityStamp" = @p20, "Status" = @p21, "TwoFactorEnabled" = @p22, "UpdatedAt" = @p23, "UserName" = @p24
+WHERE "Id" = @p25 AND "ConcurrencyStamp" = @p26;
+2026-10-11 12:40:36.834 +07:00 [WRN] EMAIL (not sent) confirmation for bob@example.com. Confirm at: http://localhost:5173/confirm-email?email=bob%40example.com&token=CfDJ8PtM34%2FPqEZNhqMcFvOsh8LHsjS%2BXSSw2rG85PprGCZAx3C3sQTqS6peaIptDHr8hZq4ciYyu2jmDMIPSo9DmAW6YTlnHQwhca2Hqb4n6l81G5I%2FP4XnXWnEh5mKrzysa0z6Og9o8jiSIHIy%2BZEsWH1rT%2BZODOBNZ4bJ5C96ZUHbpmP4myVvMSAN0lZ7%2FltVQfYBAsJSpTMDMrLqcG%2F%2BFWlUs1W6b5pRGtEPVWGTPoL4Owrxd4K638fyWPT79kwsQQ%3D%3D
+2026-10-11 12:40:36.835 +07:00 [INF] Registered account bob@example.com.
+2026-10-11 12:40:36.859 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a0."Name"
+FROM "AspNetUserRoles" AS a
+INNER JOIN "AspNetRoles" AS a0 ON a."RoleId" = a0."Id"
+WHERE a."UserId" = @userId
+2026-10-11 12:40:36.867 +07:00 [INF] Setting HTTP status code 201.
+2026-10-11 12:40:36.878 +07:00 [INF] Writing value of type 'UserProfileResponse' as Json.
+2026-10-11 12:40:36.895 +07:00 [INF] Executed action Identity.API.Quickstart.Account.AccountController.Register (Identity.API) in 541.0595ms
+2026-10-11 12:40:36.896 +07:00 [INF] Executed endpoint 'Identity.API.Quickstart.Account.AccountController.Register (Identity.API)'
+2026-10-11 12:40:36.899 +07:00 [INF] HTTP POST /api/auth/register responded 201 in 655.0497 ms
+2026-10-11 12:40:36.902 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5063/api/auth/register - 201 null application/json; charset=utf-8 665.0453ms
+2026-10-11 12:40:36.910 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5063/connect/token - application/x-www-form-urlencoded 213
+2026-10-11 12:40:36.913 +07:00 [INF] The request URI matched a server endpoint: "Token".
+2026-10-11 12:40:36.930 +07:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "bob@example.com",
+  "password": "[redacted]",
+  "client_id": "commercehub-firstparty",
+  "client_secret": "[redacted]",
+  "scope": "openid profile email roles offline_access"
+}.
+2026-10-11 12:40:37.019 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:40:37.041 +07:00 [INF] The token request was rejected because the application 'commercehub-firstparty' was not allowed to use the token endpoint.
+2026-10-11 12:40:37.049 +07:00 [INF] The response was successfully returned as a JSON document: {
+  "error": "unauthorized_client",
+  "error_description": "This client application is not allowed to use the token endpoint.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2063"
+}.
+2026-10-11 12:40:37.051 +07:00 [INF] HTTP POST /connect/token responded 400 in 140.5861 ms
+2026-10-11 12:40:37.051 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5063/connect/token - 400 201 application/json;charset=UTF-8 141.7608ms
+2026-10-11 12:42:09.086 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-10-11 12:42:09.175 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2026-10-11 12:42:09.504 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:42:09.562 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:42:09.564 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:42:09.565 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:42:09.605 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:42:09.611 +07:00 [WRN] No secret configured for commercehub-firstparty; generating a development placeholder.
+2026-10-11 12:42:09.649 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:42:09.758 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictApplications" ("Id", "ApplicationType", "ClientId", "ClientSecret", "ClientType", "ConcurrencyToken", "ConsentType", "DisplayName", "DisplayNames", "JsonWebKeySet", "Permissions", "PostLogoutRedirectUris", "Properties", "RedirectUris", "Requirements", "Settings")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2026-10-11 12:42:09.772 +07:00 [INF] Seeded OpenIddict application commercehub-firstparty.
+2026-10-11 12:42:09.773 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:42:09.774 +07:00 [WRN] No secret configured for commercehub-gateway; generating a development placeholder.
+2026-10-11 12:42:09.780 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:42:09.782 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictApplications" ("Id", "ApplicationType", "ClientId", "ClientSecret", "ClientType", "ConcurrencyToken", "ConsentType", "DisplayName", "DisplayNames", "JsonWebKeySet", "Permissions", "PostLogoutRedirectUris", "Properties", "RedirectUris", "Requirements", "Settings")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2026-10-11 12:42:09.783 +07:00 [INF] Seeded OpenIddict application commercehub-gateway.
+2026-10-11 12:42:09.783 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:42:09.784 +07:00 [WRN] No secret configured for commercehub-services; generating a development placeholder.
+2026-10-11 12:42:09.789 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:42:09.791 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?', @p14='?', @p15='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictApplications" ("Id", "ApplicationType", "ClientId", "ClientSecret", "ClientType", "ConcurrencyToken", "ConsentType", "DisplayName", "DisplayNames", "JsonWebKeySet", "Permissions", "PostLogoutRedirectUris", "Properties", "RedirectUris", "Requirements", "Settings")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2026-10-11 12:42:09.791 +07:00 [INF] Seeded OpenIddict application commercehub-services.
+2026-10-11 12:42:09.853 +07:00 [INF] User profile is available. Using 'C:\Users\zalam\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-10-11 12:42:09.901 +07:00 [INF] Now listening on: http://localhost:5063
+2026-10-11 12:42:09.901 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-11 12:42:09.902 +07:00 [INF] Hosting environment: Development
+2026-10-11 12:42:09.902 +07:00 [INF] Content root path: D:\_commercehub\src\DotNet\Identity.Service\Identity.API
+2026-10-11 12:42:46.737 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5063/connect/token - application/x-www-form-urlencoded 213
+2026-10-11 12:42:46.803 +07:00 [INF] The request URI matched a server endpoint: "Token".
+2026-10-11 12:42:46.831 +07:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "bob@example.com",
+  "password": "[redacted]",
+  "client_id": "commercehub-firstparty",
+  "client_secret": "[redacted]",
+  "scope": "openid profile email roles offline_access"
+}.
+2026-10-11 12:42:46.872 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:42:46.902 +07:00 [INF] The token request was successfully validated.
+2026-10-11 12:42:46.927 +07:00 [INF] Executing endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:42:46.943 +07:00 [INF] Route matched with {action = "Exchange", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Exchange(System.Threading.CancellationToken) on controller Identity.API.Quickstart.Account.AuthController (Identity.API).
+2026-10-11 12:42:46.972 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:42:47.121 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedUserName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @normalizedUserName
+LIMIT 1
+2026-10-11 12:42:47.126 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:42:47.170 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p23='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?', @p24='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?', @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?' (DbType = Boolean), @p11='?' (DbType = DateTime), @p12='?', @p13='?', @p14='?', @p15='?', @p16='?' (DbType = Boolean), @p17='?', @p18='?', @p19='?' (DbType = Int32), @p20='?' (DbType = Boolean), @p21='?' (DbType = DateTime), @p22='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "AspNetUsers" SET "AccessFailedCount" = @p0, "AccountType" = @p1, "ConcurrencyStamp" = @p2, "CreatedAt" = @p3, "Email" = @p4, "EmailConfirmed" = @p5, "FirstName" = @p6, "LastLoginAt" = @p7, "LastLoginIp" = @p8, "LastName" = @p9, "LockoutEnabled" = @p10, "LockoutEnd" = @p11, "NormalizedEmail" = @p12, "NormalizedUserName" = @p13, "PasswordHash" = @p14, "PhoneNumber" = @p15, "PhoneNumberConfirmed" = @p16, "ProfilePictureUrl" = @p17, "SecurityStamp" = @p18, "Status" = @p19, "TwoFactorEnabled" = @p20, "UpdatedAt" = @p21, "UserName" = @p22
+WHERE "Id" = @p23 AND "ConcurrencyStamp" = @p24;
+2026-10-11 12:42:47.174 +07:00 [INF] Issued password-grant tokens for bob@example.com.
+2026-10-11 12:42:47.228 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a0."Name"
+FROM "AspNetUserRoles" AS a
+INNER JOIN "AspNetRoles" AS a0 ON a."RoleId" = a0."Id"
+WHERE a."UserId" = @userId
+2026-10-11 12:42:47.236 +07:00 [INF] Executing SignInResult with authentication scheme (OpenIddict.Server.AspNetCore) and the following principal: System.Security.Claims.ClaimsPrincipal.
+2026-10-11 12:42:47.344 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?', @p7='?', @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictTokens" ("Id", "ApplicationId", "AuthorizationId", "ConcurrencyToken", "CreationDate", "ExpirationDate", "Payload", "Properties", "RedemptionDate", "ReferenceId", "Status", "Subject", "Type")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-10-11 12:42:47.420 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?', @p7='?', @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictTokens" ("Id", "ApplicationId", "AuthorizationId", "ConcurrencyToken", "CreationDate", "ExpirationDate", "Payload", "Properties", "RedemptionDate", "ReferenceId", "Status", "Subject", "Type")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-10-11 12:42:47.436 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?', @p7='?', @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictTokens" ("Id", "ApplicationId", "AuthorizationId", "ConcurrencyToken", "CreationDate", "ExpirationDate", "Payload", "Properties", "RedemptionDate", "ReferenceId", "Status", "Subject", "Type")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-10-11 12:42:47.450 +07:00 [INF] The response was successfully returned as a JSON document: {
+  "access_token": "[redacted]",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "scope": "openid profile email roles offline_access profile.read profile.write product.read product.write order.read order.write inventory.read inventory.write payment.process admin.full",
+  "id_token": "[redacted]",
+  "refresh_token": "[redacted]"
+}.
+2026-10-11 12:42:47.457 +07:00 [INF] Executed action Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API) in 510.8831ms
+2026-10-11 12:42:47.458 +07:00 [INF] Executed endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:42:47.461 +07:00 [INF] HTTP POST /connect/token responded 200 in 719.3984 ms
+2026-10-11 12:42:47.464 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5063/connect/token - 200 7409 application/json;charset=UTF-8 729.8885ms
+2026-10-11 12:42:47.649 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5063/connect/token - application/x-www-form-urlencoded 150
+2026-10-11 12:42:47.651 +07:00 [INF] The request URI matched a server endpoint: "Token".
+2026-10-11 12:42:47.653 +07:00 [INF] The token request was successfully extracted: {
+  "grant_type": "client_credentials",
+  "client_id": "commercehub-services",
+  "client_secret": "[redacted]",
+  "scope": "order.read product.read"
+}.
+2026-10-11 12:42:47.729 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:42:47.737 +07:00 [INF] The token request was successfully validated.
+2026-10-11 12:42:47.741 +07:00 [INF] Executing endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:42:47.741 +07:00 [INF] Route matched with {action = "Exchange", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Exchange(System.Threading.CancellationToken) on controller Identity.API.Quickstart.Account.AuthController (Identity.API).
+2026-10-11 12:42:47.745 +07:00 [INF] Executing SignInResult with authentication scheme (OpenIddict.Server.AspNetCore) and the following principal: System.Security.Claims.ClaimsPrincipal.
+2026-10-11 12:42:47.750 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?', @p7='?', @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictTokens" ("Id", "ApplicationId", "AuthorizationId", "ConcurrencyToken", "CreationDate", "ExpirationDate", "Payload", "Properties", "RedemptionDate", "ReferenceId", "Status", "Subject", "Type")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-10-11 12:42:47.756 +07:00 [INF] The response was successfully returned as a JSON document: {
+  "access_token": "[redacted]",
+  "token_type": "Bearer",
+  "expires_in": 3599
+}.
+2026-10-11 12:42:47.757 +07:00 [INF] Executed action Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API) in 14.8419ms
+2026-10-11 12:42:47.757 +07:00 [INF] Executed endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:42:47.757 +07:00 [INF] HTTP POST /connect/token responded 200 in 107.7768 ms
+2026-10-11 12:42:47.758 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5063/connect/token - 200 2626 application/json;charset=UTF-8 108.7016ms
+2026-10-11 12:42:47.854 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5063/connect/token - application/x-www-form-urlencoded 3160
+2026-10-11 12:42:47.857 +07:00 [INF] The request URI matched a server endpoint: "Token".
+2026-10-11 12:42:47.859 +07:00 [INF] The token request was successfully extracted: {
+  "grant_type": "refresh_token",
+  "refresh_token": "[redacted]",
+  "client_id": "commercehub-firstparty",
+  "client_secret": "[redacted]"
+}.
+2026-10-11 12:42:47.868 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:42:48.026 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@key='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationId", o."AuthorizationId", o."ConcurrencyToken", o."CreationDate", o."ExpirationDate", o."Payload", o."Properties", o."RedemptionDate", o."ReferenceId", o."Status", o."Subject", o."Type", o0."Id", o0."ApplicationType", o0."ClientId", o0."ClientSecret", o0."ClientType", o0."ConcurrencyToken", o0."ConsentType", o0."DisplayName", o0."DisplayNames", o0."JsonWebKeySet", o0."Permissions", o0."PostLogoutRedirectUris", o0."Properties", o0."RedirectUris", o0."Requirements", o0."Settings", o1."Id", o1."ApplicationId", o1."ConcurrencyToken", o1."CreationDate", o1."Properties", o1."Scopes", o1."Status", o1."Subject", o1."Type"
+FROM "OpenIddictTokens" AS o
+LEFT JOIN "OpenIddictApplications" AS o0 ON o."ApplicationId" = o0."Id"
+LEFT JOIN "OpenIddictAuthorizations" AS o1 ON o."AuthorizationId" = o1."Id"
+WHERE o."Id" = @key
+LIMIT 1
+2026-10-11 12:42:48.052 +07:00 [INF] The token request was successfully validated.
+2026-10-11 12:42:48.057 +07:00 [INF] Executing endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:42:48.058 +07:00 [INF] Route matched with {action = "Exchange", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Exchange(System.Threading.CancellationToken) on controller Identity.API.Quickstart.Account.AuthController (Identity.API).
+2026-10-11 12:42:48.079 +07:00 [INF] Executed action Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API) in 20.6501ms
+2026-10-11 12:42:48.079 +07:00 [INF] Executed endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:42:48.080 +07:00 [ERR] HTTP POST /connect/token responded 500 in 225.0637 ms
+System.InvalidOperationException: Refresh grant request had no subject.
+   at Identity.API.Quickstart.Account.AuthController.HandleRefreshGrantAsync(OpenIddictRequest request, CancellationToken cancellationToken) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Quickstart\Account\AuthController.cs:line 128
+   at Identity.API.Quickstart.Account.AuthController.Exchange(CancellationToken cancellationToken) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Quickstart\Account\AuthController.cs:line 57
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-10-11 12:42:48.121 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Refresh grant request had no subject.
+   at Identity.API.Quickstart.Account.AuthController.HandleRefreshGrantAsync(OpenIddictRequest request, CancellationToken cancellationToken) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Quickstart\Account\AuthController.cs:line 128
+   at Identity.API.Quickstart.Account.AuthController.Exchange(CancellationToken cancellationToken) in D:\_commercehub\src\DotNet\Identity.Service\Identity.API\Quickstart\Account\AuthController.cs:line 57
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-10-11 12:42:48.126 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5063/connect/token - 500 null text/plain; charset=utf-8 272.1664ms
+2026-10-11 12:42:48.137 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5063/api/auth/me - null null
+2026-10-11 12:42:48.168 +07:00 [INF] Executing endpoint 'Identity.API.Quickstart.Account.AccountController.Me (Identity.API)'
+2026-10-11 12:42:48.175 +07:00 [INF] Route matched with {action = "Me", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Http.IResult] Me(System.Threading.CancellationToken) on controller Identity.API.Quickstart.Account.AccountController (Identity.API).
+2026-10-11 12:42:48.193 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."Id" = @p
+LIMIT 1
+2026-10-11 12:42:48.198 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a0."Name"
+FROM "AspNetUserRoles" AS a
+INNER JOIN "AspNetRoles" AS a0 ON a."RoleId" = a0."Id"
+WHERE a."UserId" = @userId
+2026-10-11 12:42:48.203 +07:00 [INF] Setting HTTP status code 200.
+2026-10-11 12:42:48.232 +07:00 [INF] Writing value of type 'UserProfileResponse' as Json.
+2026-10-11 12:42:48.249 +07:00 [INF] Executed action Identity.API.Quickstart.Account.AccountController.Me (Identity.API) in 73.0935ms
+2026-10-11 12:42:48.249 +07:00 [INF] Executed endpoint 'Identity.API.Quickstart.Account.AccountController.Me (Identity.API)'
+2026-10-11 12:42:48.249 +07:00 [INF] HTTP GET /api/auth/me responded 200 in 111.9846 ms
+2026-10-11 12:42:48.250 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5063/api/auth/me - 200 null application/json; charset=utf-8 112.7413ms
+2026-10-11 12:43:55.006 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-10-11 12:43:55.089 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2026-10-11 12:43:55.407 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:43:55.465 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:43:55.467 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:43:55.468 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Description", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @normalizedName
+LIMIT 1
+2026-10-11 12:43:55.509 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:43:55.554 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:43:55.555 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:43:55.614 +07:00 [INF] User profile is available. Using 'C:\Users\zalam\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-10-11 12:43:55.661 +07:00 [INF] Now listening on: http://localhost:5063
+2026-10-11 12:43:55.663 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-11 12:43:55.663 +07:00 [INF] Hosting environment: Development
+2026-10-11 12:43:55.663 +07:00 [INF] Content root path: D:\_commercehub\src\DotNet\Identity.Service\Identity.API
+2026-10-11 12:44:05.996 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5063/connect/token - application/x-www-form-urlencoded 213
+2026-10-11 12:44:06.083 +07:00 [INF] The request URI matched a server endpoint: "Token".
+2026-10-11 12:44:06.115 +07:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "bob@example.com",
+  "password": "[redacted]",
+  "client_id": "commercehub-firstparty",
+  "client_secret": "[redacted]",
+  "scope": "openid profile email roles offline_access"
+}.
+2026-10-11 12:44:06.164 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:44:06.198 +07:00 [INF] The token request was successfully validated.
+2026-10-11 12:44:06.226 +07:00 [INF] Executing endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:44:06.246 +07:00 [INF] Route matched with {action = "Exchange", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Exchange(System.Threading.CancellationToken) on controller Identity.API.Quickstart.Account.AuthController (Identity.API).
+2026-10-11 12:44:06.277 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:44:06.455 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedUserName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @normalizedUserName
+LIMIT 1
+2026-10-11 12:44:06.464 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:44:06.611 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@p23='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?', @p24='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?', @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?' (DbType = Boolean), @p11='?' (DbType = DateTime), @p12='?', @p13='?', @p14='?', @p15='?', @p16='?' (DbType = Boolean), @p17='?', @p18='?', @p19='?' (DbType = Int32), @p20='?' (DbType = Boolean), @p21='?' (DbType = DateTime), @p22='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "AspNetUsers" SET "AccessFailedCount" = @p0, "AccountType" = @p1, "ConcurrencyStamp" = @p2, "CreatedAt" = @p3, "Email" = @p4, "EmailConfirmed" = @p5, "FirstName" = @p6, "LastLoginAt" = @p7, "LastLoginIp" = @p8, "LastName" = @p9, "LockoutEnabled" = @p10, "LockoutEnd" = @p11, "NormalizedEmail" = @p12, "NormalizedUserName" = @p13, "PasswordHash" = @p14, "PhoneNumber" = @p15, "PhoneNumberConfirmed" = @p16, "ProfilePictureUrl" = @p17, "SecurityStamp" = @p18, "Status" = @p19, "TwoFactorEnabled" = @p20, "UpdatedAt" = @p21, "UserName" = @p22
+WHERE "Id" = @p23 AND "ConcurrencyStamp" = @p24;
+2026-10-11 12:44:06.626 +07:00 [INF] Issued password-grant tokens for bob@example.com.
+2026-10-11 12:44:06.698 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a0."Name"
+FROM "AspNetUserRoles" AS a
+INNER JOIN "AspNetRoles" AS a0 ON a."RoleId" = a0."Id"
+WHERE a."UserId" = @userId
+2026-10-11 12:44:06.708 +07:00 [INF] Executing SignInResult with authentication scheme (OpenIddict.Server.AspNetCore) and the following principal: System.Security.Claims.ClaimsPrincipal.
+2026-10-11 12:44:06.866 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?', @p7='?', @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictTokens" ("Id", "ApplicationId", "AuthorizationId", "ConcurrencyToken", "CreationDate", "ExpirationDate", "Payload", "Properties", "RedemptionDate", "ReferenceId", "Status", "Subject", "Type")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-10-11 12:44:06.952 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?', @p7='?', @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictTokens" ("Id", "ApplicationId", "AuthorizationId", "ConcurrencyToken", "CreationDate", "ExpirationDate", "Payload", "Properties", "RedemptionDate", "ReferenceId", "Status", "Subject", "Type")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-10-11 12:44:06.975 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?', @p7='?', @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictTokens" ("Id", "ApplicationId", "AuthorizationId", "ConcurrencyToken", "CreationDate", "ExpirationDate", "Payload", "Properties", "RedemptionDate", "ReferenceId", "Status", "Subject", "Type")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-10-11 12:44:06.991 +07:00 [INF] The response was successfully returned as a JSON document: {
+  "access_token": "[redacted]",
+  "token_type": "Bearer",
+  "expires_in": 3599,
+  "scope": "openid profile email roles offline_access profile.read profile.write product.read product.write order.read order.write inventory.read inventory.write payment.process admin.full",
+  "id_token": "[redacted]",
+  "refresh_token": "[redacted]"
+}.
+2026-10-11 12:44:07.001 +07:00 [INF] Executed action Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API) in 750.7732ms
+2026-10-11 12:44:07.002 +07:00 [INF] Executed endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:44:07.005 +07:00 [INF] HTTP POST /connect/token responded 200 in 1001.8810 ms
+2026-10-11 12:44:07.009 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5063/connect/token - 200 7409 application/json;charset=UTF-8 1014.7534ms
+2026-10-11 12:44:07.020 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5063/connect/token - application/x-www-form-urlencoded 3160
+2026-10-11 12:44:07.022 +07:00 [INF] The request URI matched a server endpoint: "Token".
+2026-10-11 12:44:07.024 +07:00 [INF] The token request was successfully extracted: {
+  "grant_type": "refresh_token",
+  "refresh_token": "[redacted]",
+  "client_id": "commercehub-firstparty",
+  "client_secret": "[redacted]"
+}.
+2026-10-11 12:44:07.108 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:44:07.255 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@key='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationId", o."AuthorizationId", o."ConcurrencyToken", o."CreationDate", o."ExpirationDate", o."Payload", o."Properties", o."RedemptionDate", o."ReferenceId", o."Status", o."Subject", o."Type", o0."Id", o0."ApplicationType", o0."ClientId", o0."ClientSecret", o0."ClientType", o0."ConcurrencyToken", o0."ConsentType", o0."DisplayName", o0."DisplayNames", o0."JsonWebKeySet", o0."Permissions", o0."PostLogoutRedirectUris", o0."Properties", o0."RedirectUris", o0."Requirements", o0."Settings", o1."Id", o1."ApplicationId", o1."ConcurrencyToken", o1."CreationDate", o1."Properties", o1."Scopes", o1."Status", o1."Subject", o1."Type"
+FROM "OpenIddictTokens" AS o
+LEFT JOIN "OpenIddictApplications" AS o0 ON o."ApplicationId" = o0."Id"
+LEFT JOIN "OpenIddictAuthorizations" AS o1 ON o."AuthorizationId" = o1."Id"
+WHERE o."Id" = @key
+LIMIT 1
+2026-10-11 12:44:07.278 +07:00 [INF] The token request was successfully validated.
+2026-10-11 12:44:07.283 +07:00 [INF] Executing endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:44:07.283 +07:00 [INF] Route matched with {action = "Exchange", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Exchange(System.Threading.CancellationToken) on controller Identity.API.Quickstart.Account.AuthController (Identity.API).
+2026-10-11 12:44:07.308 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."Id" = @p
+LIMIT 1
+2026-10-11 12:44:07.311 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT a0."Name"
+FROM "AspNetUserRoles" AS a
+INNER JOIN "AspNetRoles" AS a0 ON a."RoleId" = a0."Id"
+WHERE a."UserId" = @userId
+2026-10-11 12:44:07.312 +07:00 [INF] Executing SignInResult with authentication scheme (OpenIddict.Server.AspNetCore) and the following principal: System.Security.Claims.ClaimsPrincipal.
+2026-10-11 12:44:07.324 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p12='?', @p0='?', @p1='?', @p2='?', @p13='?', @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?', @p6='?', @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?', @p11='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "OpenIddictTokens" SET "ApplicationId" = @p0, "AuthorizationId" = @p1, "ConcurrencyToken" = @p2, "CreationDate" = @p3, "ExpirationDate" = @p4, "Payload" = @p5, "Properties" = @p6, "RedemptionDate" = @p7, "ReferenceId" = @p8, "Status" = @p9, "Subject" = @p10, "Type" = @p11
+WHERE "Id" = @p12 AND "ConcurrencyToken" = @p13;
+2026-10-11 12:44:07.329 +07:00 [INF] The token '609f30aa-8089-4a19-b92b-1332a491424a' was successfully marked as redeemed.
+2026-10-11 12:44:07.334 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?', @p7='?', @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictTokens" ("Id", "ApplicationId", "AuthorizationId", "ConcurrencyToken", "CreationDate", "ExpirationDate", "Payload", "Properties", "RedemptionDate", "ReferenceId", "Status", "Subject", "Type")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-10-11 12:44:07.342 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?', @p7='?', @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictTokens" ("Id", "ApplicationId", "AuthorizationId", "ConcurrencyToken", "CreationDate", "ExpirationDate", "Payload", "Properties", "RedemptionDate", "ReferenceId", "Status", "Subject", "Type")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-10-11 12:44:07.367 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?', @p7='?', @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "OpenIddictTokens" ("Id", "ApplicationId", "AuthorizationId", "ConcurrencyToken", "CreationDate", "ExpirationDate", "Payload", "Properties", "RedemptionDate", "ReferenceId", "Status", "Subject", "Type")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-10-11 12:44:07.374 +07:00 [INF] The response was successfully returned as a JSON document: {
+  "access_token": "[redacted]",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "scope": "openid profile email roles offline_access profile.read profile.write product.read product.write order.read order.write inventory.read inventory.write payment.process admin.full",
+  "id_token": "[redacted]",
+  "refresh_token": "[redacted]"
+}.
+2026-10-11 12:44:07.375 +07:00 [INF] Executed action Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API) in 91.0464ms
+2026-10-11 12:44:07.375 +07:00 [INF] Executed endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:44:07.376 +07:00 [INF] HTTP POST /connect/token responded 200 in 355.7472 ms
+2026-10-11 12:44:07.376 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5063/connect/token - 200 7409 application/json;charset=UTF-8 356.6659ms
+2026-10-11 12:44:27.295 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5063/connect/token - application/x-www-form-urlencoded 136
+2026-10-11 12:44:27.299 +07:00 [INF] The request URI matched a server endpoint: "Token".
+2026-10-11 12:44:27.301 +07:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "bob@example.com",
+  "password": "[redacted]",
+  "client_id": "commercehub-firstparty",
+  "client_secret": "[redacted]",
+  "scope": "openid"
+}.
+2026-10-11 12:44:27.314 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:44:27.322 +07:00 [INF] Client authentication failed for commercehub-firstparty.
+2026-10-11 12:44:27.323 +07:00 [INF] The authentication demand was rejected because the confidential application 'commercehub-firstparty' didn't specify valid client credentials.
+2026-10-11 12:44:27.327 +07:00 [INF] The response was successfully returned as a JSON document: {
+  "error": "invalid_client",
+  "error_description": "The specified client credentials are invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2055"
+}.
+2026-10-11 12:44:27.327 +07:00 [INF] HTTP POST /connect/token responded 401 in 31.3191 ms
+2026-10-11 12:44:27.328 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5063/connect/token - 401 176 application/json;charset=UTF-8 33.2755ms
+2026-10-11 12:44:27.519 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5063/connect/token - application/x-www-form-urlencoded 180
+2026-10-11 12:44:27.519 +07:00 [INF] The request URI matched a server endpoint: "Token".
+2026-10-11 12:44:27.520 +07:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "ghost@example.com",
+  "password": "[redacted]",
+  "client_id": "commercehub-firstparty",
+  "client_secret": "[redacted]",
+  "scope": "openid"
+}.
+2026-10-11 12:44:27.522 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:44:27.534 +07:00 [INF] The token request was successfully validated.
+2026-10-11 12:44:27.539 +07:00 [INF] Executing endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:44:27.540 +07:00 [INF] Route matched with {action = "Exchange", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Exchange(System.Threading.CancellationToken) on controller Identity.API.Quickstart.Account.AuthController (Identity.API).
+2026-10-11 12:44:27.557 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:44:27.559 +07:00 [INF] Executing ForbidResult with authentication schemes (["OpenIddict.Server.AspNetCore"]).
+2026-10-11 12:44:27.571 +07:00 [INF] The response was successfully returned as a JSON document: {
+  "error": "invalid_grant",
+  "error_description": "The username or password is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2024"
+}.
+2026-10-11 12:44:27.571 +07:00 [INF] AuthenticationScheme: OpenIddict.Server.AspNetCore was forbidden.
+2026-10-11 12:44:27.572 +07:00 [INF] Executed action Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API) in 31.4535ms
+2026-10-11 12:44:27.572 +07:00 [INF] Executed endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:44:27.572 +07:00 [INF] HTTP POST /connect/token responded 400 in 53.1830 ms
+2026-10-11 12:44:27.572 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5063/connect/token - 400 166 application/json;charset=UTF-8 53.8825ms
+2026-10-11 12:44:27.578 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5063/api/auth/me - null null
+2026-10-11 12:44:27.590 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-10-11 12:44:27.600 +07:00 [INF] The response was successfully returned as a challenge response: {
+  "error": "missing_token",
+  "error_description": "The security token is missing.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2000"
+}.
+2026-10-11 12:44:27.601 +07:00 [INF] AuthenticationScheme: OpenIddict.Validation.AspNetCore was challenged.
+2026-10-11 12:44:27.601 +07:00 [INF] HTTP GET /api/auth/me responded 401 in 22.9760 ms
+2026-10-11 12:44:27.602 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5063/api/auth/me - 401 0 null 23.9599ms
+2026-10-11 12:44:27.609 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5063/.well-known/openid-configuration - null null
+2026-10-11 12:44:27.609 +07:00 [INF] The request URI matched a server endpoint: "Configuration".
+2026-10-11 12:44:27.611 +07:00 [INF] The configuration request was successfully extracted: {}.
+2026-10-11 12:44:27.613 +07:00 [INF] The configuration request was successfully validated.
+2026-10-11 12:44:27.625 +07:00 [INF] The response was successfully returned as a JSON document: {
+  "issuer": "http://localhost:5063/",
+  "token_endpoint": "http://localhost:5063/connect/token",
+  "jwks_uri": "http://localhost:5063/.well-known/jwks",
+  "grant_types_supported": [
+    "password",
+    "refresh_token",
+    "client_credentials"
+  ],
+  "scopes_supported": [
+    "openid",
+    "offline_access",
+    "profile",
+    "email",
+    "roles",
+    "profile.read",
+    "profile.write",
+    "product.read",
+    "product.write",
+    "order.read",
+    "order.write",
+    "inventory.read",
+    "inventory.write",
+    "payment.process",
+    "admin.full"
+  ],
+  "claims_supported": [
+    "aud",
+    "exp",
+    "iat",
+    "iss",
+    "sub"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ],
+  "subject_types_supported": [
+    "public"
+  ],
+  "prompt_values_supported": [
+    "consent",
+    "login",
+    "none",
+    "select_account"
+  ],
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_post",
+    "private_key_jwt",
+    "client_secret_basic"
+  ],
+  "require_pushed_authorization_requests": false,
+  "tls_client_certificate_bound_access_tokens": false,
+  "claims_parameter_supported": false,
+  "request_parameter_supported": false,
+  "request_uri_parameter_supported": false,
+  "authorization_response_iss_parameter_supported": true
+}.
+2026-10-11 12:44:27.627 +07:00 [INF] HTTP GET /.well-known/openid-configuration responded 200 in 17.9280 ms
+2026-10-11 12:44:27.627 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5063/.well-known/openid-configuration - 200 1319 application/json;charset=UTF-8 18.6213ms
+2026-10-11 12:44:38.752 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5063/connect/token - application/x-www-form-urlencoded 174
+2026-10-11 12:44:38.753 +07:00 [INF] The request URI matched a server endpoint: "Token".
+2026-10-11 12:44:38.754 +07:00 [INF] The token request was successfully extracted: {
+  "grant_type": "password",
+  "username": "bob@example.com",
+  "password": "[redacted]",
+  "client_id": "commercehub-firstparty",
+  "client_secret": "[redacted]",
+  "scope": "openid"
+}.
+2026-10-11 12:44:38.756 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@identifier='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT o."Id", o."ApplicationType", o."ClientId", o."ClientSecret", o."ClientType", o."ConcurrencyToken", o."ConsentType", o."DisplayName", o."DisplayNames", o."JsonWebKeySet", o."Permissions", o."PostLogoutRedirectUris", o."Properties", o."RedirectUris", o."Requirements", o."Settings"
+FROM "OpenIddictApplications" AS o
+WHERE o."ClientId" = @identifier
+LIMIT 1
+2026-10-11 12:44:38.761 +07:00 [INF] The token request was successfully validated.
+2026-10-11 12:44:38.761 +07:00 [INF] Executing endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:44:38.761 +07:00 [INF] Route matched with {action = "Exchange", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Exchange(System.Threading.CancellationToken) on controller Identity.API.Quickstart.Account.AuthController (Identity.API).
+2026-10-11 12:44:38.763 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:44:38.836 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@normalizedUserName='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @normalizedUserName
+LIMIT 1
+2026-10-11 12:44:38.838 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@normalizedEmail='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."AccountType", a."ConcurrencyStamp", a."CreatedAt", a."Email", a."EmailConfirmed", a."FirstName", a."LastLoginAt", a."LastLoginIp", a."LastName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfilePictureUrl", a."SecurityStamp", a."Status", a."TwoFactorEnabled", a."UpdatedAt", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @normalizedEmail
+LIMIT 2
+2026-10-11 12:44:38.841 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p23='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?', @p24='?', @p3='?' (DbType = DateTime), @p4='?', @p5='?' (DbType = Boolean), @p6='?', @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?' (DbType = Boolean), @p11='?' (DbType = DateTime), @p12='?', @p13='?', @p14='?', @p15='?', @p16='?' (DbType = Boolean), @p17='?', @p18='?', @p19='?' (DbType = Int32), @p20='?' (DbType = Boolean), @p21='?' (DbType = DateTime), @p22='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "AspNetUsers" SET "AccessFailedCount" = @p0, "AccountType" = @p1, "ConcurrencyStamp" = @p2, "CreatedAt" = @p3, "Email" = @p4, "EmailConfirmed" = @p5, "FirstName" = @p6, "LastLoginAt" = @p7, "LastLoginIp" = @p8, "LastName" = @p9, "LockoutEnabled" = @p10, "LockoutEnd" = @p11, "NormalizedEmail" = @p12, "NormalizedUserName" = @p13, "PasswordHash" = @p14, "PhoneNumber" = @p15, "PhoneNumberConfirmed" = @p16, "ProfilePictureUrl" = @p17, "SecurityStamp" = @p18, "Status" = @p19, "TwoFactorEnabled" = @p20, "UpdatedAt" = @p21, "UserName" = @p22
+WHERE "Id" = @p23 AND "ConcurrencyStamp" = @p24;
+2026-10-11 12:44:38.843 +07:00 [INF] Executing ForbidResult with authentication schemes (["OpenIddict.Server.AspNetCore"]).
+2026-10-11 12:44:38.844 +07:00 [INF] The response was successfully returned as a JSON document: {
+  "error": "invalid_grant",
+  "error_description": "The username or password is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2024"
+}.
+2026-10-11 12:44:38.845 +07:00 [INF] AuthenticationScheme: OpenIddict.Server.AspNetCore was forbidden.
+2026-10-11 12:44:38.845 +07:00 [INF] Executed action Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API) in 83.0377ms
+2026-10-11 12:44:38.845 +07:00 [INF] Executed endpoint 'Identity.API.Quickstart.Account.AuthController.Exchange (Identity.API)'
+2026-10-11 12:44:38.845 +07:00 [INF] HTTP POST /connect/token responded 400 in 92.3058 ms
+2026-10-11 12:44:38.845 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5063/connect/token - 400 166 application/json;charset=UTF-8 93.784ms

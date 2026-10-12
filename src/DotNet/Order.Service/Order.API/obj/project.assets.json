@@ -107,6 +107,42 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Order.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Order.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Order.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Order.Application.dll": {}
+        }
+      },
+      "Order.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Order.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Order.Domain.dll": {}
+        }
+      },
+      "Order.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Order.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Order.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Order.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -473,11 +509,28 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Order.Application/1.0.0": {
+      "type": "project",
+      "path": "../Order.Application/Order.Application.csproj",
+      "msbuildProject": "../Order.Application/Order.Application.csproj"
+    },
+    "Order.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Order.Domain/Order.Domain.csproj",
+      "msbuildProject": "../Order.Domain/Order.Domain.csproj"
+    },
+    "Order.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Order.Infrastructure/Order.Infrastructure.csproj",
+      "msbuildProject": "../Order.Infrastructure/Order.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNetCore.OpenApi >= 8.0.28",
+      "Order.Application >= 1.0.0",
+      "Order.Infrastructure >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
@@ -488,11 +541,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\_commercehub\\src\\DotNet\\Order.Service\\Order.API\\Order.API\\Order.API.csproj",
+      "projectUniqueName": "D:\\_commercehub\\src\\DotNet\\Order.Service\\Order.API\\Order.API.csproj",
       "projectName": "Order.API",
-      "projectPath": "D:\\_commercehub\\src\\DotNet\\Order.Service\\Order.API\\Order.API\\Order.API.csproj",
+      "projectPath": "D:\\_commercehub\\src\\DotNet\\Order.Service\\Order.API\\Order.API.csproj",
       "packagesPath": "C:\\Users\\zalam\\.nuget\\packages\\",
-      "outputPath": "D:\\_commercehub\\src\\DotNet\\Order.Service\\Order.API\\Order.API\\obj\\",
+      "outputPath": "D:\\_commercehub\\src\\DotNet\\Order.Service\\Order.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -513,7 +566,14 @@
         "net8.0": {
           "framework": "net8.0",
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\_commercehub\\src\\DotNet\\Order.Service\\Order.Application\\Order.Application.csproj": {
+              "projectPath": "D:\\_commercehub\\src\\DotNet\\Order.Service\\Order.Application\\Order.Application.csproj"
+            },
+            "D:\\_commercehub\\src\\DotNet\\Order.Service\\Order.Infrastructure\\Order.Infrastructure.csproj": {
+              "projectPath": "D:\\_commercehub\\src\\DotNet\\Order.Service\\Order.Infrastructure\\Order.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -553,6 +613,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.31, 8.0.31]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.31, 8.0.31]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.31, 8.0.31]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.31, 8.0.31]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -561,7 +639,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400-preview.0.26322.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

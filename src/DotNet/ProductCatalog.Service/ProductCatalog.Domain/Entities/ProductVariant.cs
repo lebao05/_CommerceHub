@@ -2,93 +2,79 @@ using BuildingBlocks.Core.Domain;
 
 namespace ProductCatalog.Domain.Entities;
 
-public class ProductVariant : Entity
+public class ProductVariant : EntityBase
 {
     public Guid ProductId { get; private set; }
-    public string Sku { get; private set; } = string.Empty;
-    public string? Name { get; private set; }
-    public decimal? Price { get; private set; }
+    public decimal Price { get; private set; }
     public decimal? CompareAtPrice { get; private set; }
-    public decimal? CostPrice { get; private set; }
-    public decimal? Weight { get; private set; }
-    public string? Barcode { get; private set; }
     public bool IsActive { get; private set; }
-    public string? ImageUrl { get; private set; }
     public int DisplayOrder { get; private set; }
 
-    // Navigation properties
-    public Product Product { get; private set; } = null!;
-    private readonly List<VariantAttribute> _attributes = new();
-    public IReadOnlyCollection<VariantAttribute> Attributes => _attributes.AsReadOnly();
+    private readonly List<ProductVariantOption> _options = new();
+    public IReadOnlyCollection<ProductVariantOption> Options => _options.AsReadOnly();
 
-    private ProductVariant() { } // EF Core
+    private ProductVariant() { }
 
-    public ProductVariant(
+    public static ProductVariant Create(
         Guid productId,
-        string sku,
-        string? name = null,
-        decimal? price = null)
+        decimal price,
+        decimal? compareAtPrice = null,
+        bool isActive = true,
+        int displayOrder = 0)
     {
-        Id = Guid.NewGuid();
-        ProductId = productId;
-        Sku = sku;
-        Name = name;
-        Price = price;
-        IsActive = true;
-        DisplayOrder = 0;
-        CreatedAt = DateTime.UtcNow;
-        UpdatedAt = DateTime.UtcNow;
+        var variant = new ProductVariant
+        {
+            ProductId = productId,
+            Price = price,
+            CompareAtPrice = compareAtPrice,
+            IsActive = isActive,
+            DisplayOrder = displayOrder
+        };
+        variant.Updated = DateTime.UtcNow;
+        return variant;
     }
 
-    public void Update(string sku, string? name, decimal? price, decimal? compareAtPrice, decimal? costPrice)
+    public void UpdatePrice(decimal price, decimal? compareAtPrice = null)
     {
-        Sku = sku;
-        Name = name;
         Price = price;
         CompareAtPrice = compareAtPrice;
-        CostPrice = costPrice;
-        UpdatedAt = DateTime.UtcNow;
+        Updated = DateTime.UtcNow;
     }
 
-    public void SetWeight(decimal? weight)
+    public void SetActive(bool isActive)
     {
-        Weight = weight;
-        UpdatedAt = DateTime.UtcNow;
+        IsActive = isActive;
+        Updated = DateTime.UtcNow;
     }
 
-    public void SetBarcode(string? barcode)
+    public void UpdateDisplayOrder(int displayOrder)
     {
-        Barcode = barcode;
-        UpdatedAt = DateTime.UtcNow;
+        DisplayOrder = displayOrder;
+        Updated = DateTime.UtcNow;
     }
 
-    public void SetImage(string? imageUrl)
+    public void AddOption(Guid optionValueId)
     {
-        ImageUrl = imageUrl;
-        UpdatedAt = DateTime.UtcNow;
+        if (!_options.Any(o => o.OptionValueId == optionValueId))
+        {
+            _options.Add(new ProductVariantOption(Id, optionValueId));
+            Updated = DateTime.UtcNow;
+        }
     }
 
-    public void SetDisplayOrder(int order)
+    public void RemoveOption(Guid optionValueId)
     {
-        DisplayOrder = order;
-        UpdatedAt = DateTime.UtcNow;
+        var option = _options.FirstOrDefault(o => o.OptionValueId == optionValueId);
+        if (option != null)
+        {
+            _options.Remove(option);
+            Updated = DateTime.UtcNow;
+        }
     }
 
-    public void Activate()
+    public void ClearOptions()
     {
-        IsActive = true;
-        UpdatedAt = DateTime.UtcNow;
-    }
-
-    public void Deactivate()
-    {
-        IsActive = false;
-        UpdatedAt = DateTime.UtcNow;
-    }
-
-    public void AddAttribute(VariantAttribute attribute)
-    {
-        _attributes.Add(attribute);
-        UpdatedAt = DateTime.UtcNow;
+        _options.Clear();
+        Updated = DateTime.UtcNow;
     }
 }

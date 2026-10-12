@@ -1,7 +1,21 @@
+using MediatR;
+using BuildingBlocks.Infrastructure.Responses;
+using ProductCatalog.Application;
+using ProductCatalog.Application.Commands.CreateCategory;
+using ProductCatalog.Application.Commands.UpdateCategory;
+using ProductCatalog.Application.Commands.DeleteCategory;
+using ProductCatalog.Application.Queries.GetAllCategories;
+using ProductCatalog.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+var connectionString = builder.Configuration.GetConnectionString("ProductCatalogDb")
+    ?? throw new InvalidOperationException("Connection string 'ProductCatalogDb' not found.");
+
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(connectionString);
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
@@ -14,28 +28,74 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+// Category Minimal APIs
+var categories = app.MapGroup("/api/categories").WithTags("Categories");
 
-app.MapGet("/weatherforecast", () =>
+categories.MapGet("/", async (IMediator mediator) =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
+    var query = new GetAllCategoriesQuery();
+    var result = await mediator.Send(query);
+
+    return result.ToHttpResult();
 })
-.WithName("GetWeatherForecast");
+.WithName("GetAllCategories")
+.WithOpenApi();
+
+categories.MapPost("/", async (CreateCategoryRequest request, IMediator mediator) =>
+{
+    var command = new CreateCategoryCommandTx(
+        request.Name,
+        request.ParentId,
+        request.Description,
+        request.IsActive
+    );
+
+    var result = await mediator.Send(command);
+
+    return result.ToHttpResult(categoryId =>
+        Results.Created($"/api/categories/{categoryId}", new { id = categoryId }));
+})
+.WithName("CreateCategory")
+.WithOpenApi();
+
+categories.MapPut("/{id}", async (Guid id, UpdateCategoryRequest request, IMediator mediator) =>
+{
+    var command = new UpdateCategoryCommandTx(
+        id,
+        request.Name,
+        request.Description,
+        request.IsActive
+    );
+
+    var result = await mediator.Send(command);
+
+    return result.ToHttpResult();
+})
+.WithName("UpdateCategory")
+.WithOpenApi();
+
+categories.MapDelete("/{id}", async (Guid id, IMediator mediator) =>
+{
+    var command = new DeleteCategoryCommandTx(id);
+    var result = await mediator.Send(command);
+
+    return result.ToHttpResult();
+})
+.WithName("DeleteCategory")
+.WithOpenApi();
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+// Request DTOs
+public record CreateCategoryRequest(
+    string Name,
+    Guid? ParentId,
+    string? Description,
+    bool IsActive = true
+);
+
+public record UpdateCategoryRequest(
+    string Name,
+    string? Description,
+    bool IsActive
+);

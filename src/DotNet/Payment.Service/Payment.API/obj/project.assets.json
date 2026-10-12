@@ -107,6 +107,42 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Payment.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Payment.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Payment.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Payment.Application.dll": {}
+        }
+      },
+      "Payment.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Payment.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Payment.Domain.dll": {}
+        }
+      },
+      "Payment.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Payment.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Payment.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Payment.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -473,11 +509,28 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Payment.Application/1.0.0": {
+      "type": "project",
+      "path": "../Payment.Application/Payment.Application.csproj",
+      "msbuildProject": "../Payment.Application/Payment.Application.csproj"
+    },
+    "Payment.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Payment.Domain/Payment.Domain.csproj",
+      "msbuildProject": "../Payment.Domain/Payment.Domain.csproj"
+    },
+    "Payment.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Payment.Infrastructure/Payment.Infrastructure.csproj",
+      "msbuildProject": "../Payment.Infrastructure/Payment.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNetCore.OpenApi >= 8.0.28",
+      "Payment.Application >= 1.0.0",
+      "Payment.Infrastructure >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
@@ -488,11 +541,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\_commercehub\\src\\DotNet\\Payment.Service\\Payment.API\\Payment.API\\Payment.API.csproj",
+      "projectUniqueName": "D:\\_commercehub\\src\\DotNet\\Payment.Service\\Payment.API\\Payment.API.csproj",
       "projectName": "Payment.API",
-      "projectPath": "D:\\_commercehub\\src\\DotNet\\Payment.Service\\Payment.API\\Payment.API\\Payment.API.csproj",
+      "projectPath": "D:\\_commercehub\\src\\DotNet\\Payment.Service\\Payment.API\\Payment.API.csproj",
       "packagesPath": "C:\\Users\\zalam\\.nuget\\packages\\",
-      "outputPath": "D:\\_commercehub\\src\\DotNet\\Payment.Service\\Payment.API\\Payment.API\\obj\\",
+      "outputPath": "D:\\_commercehub\\src\\DotNet\\Payment.Service\\Payment.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -513,7 +566,14 @@
         "net8.0": {
           "framework": "net8.0",
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\_commercehub\\src\\DotNet\\Payment.Service\\Payment.Application\\Payment.Application.csproj": {
+              "projectPath": "D:\\_commercehub\\src\\DotNet\\Payment.Service\\Payment.Application\\Payment.Application.csproj"
+            },
+            "D:\\_commercehub\\src\\DotNet\\Payment.Service\\Payment.Infrastructure\\Payment.Infrastructure.csproj": {
+              "projectPath": "D:\\_commercehub\\src\\DotNet\\Payment.Service\\Payment.Infrastructure\\Payment.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -553,6 +613,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.31, 8.0.31]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.31, 8.0.31]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.31, 8.0.31]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.31, 8.0.31]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -561,7 +639,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400-preview.0.26322.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

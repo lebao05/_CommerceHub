@@ -16,8 +16,6 @@ namespace BuildingBlocks.Core.Domain
         public HashSet<EventBase> DomainEvents { get; }
     }
 
-    public interface ITxRequest { }
-
     public abstract class EntityRootBase : EntityBase, IAggregateRoot
     {
         public HashSet<EventBase> DomainEvents { get; private set; }

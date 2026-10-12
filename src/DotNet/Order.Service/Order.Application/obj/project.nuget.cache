@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wmZ95WbF6uw=",
+  "dgSpecHash": "yFfHhZQ7Tgo=",
   "success": true,
-  "projectFilePath": "D:\\_commercehub\\src\\DotNet\\Order.Service\\Order.Application\\Order.Application\\Order.Application.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\_commercehub\\src\\DotNet\\Order.Service\\Order.Application\\Order.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\zalam\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.31\\microsoft.netcore.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\zalam\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.31\\microsoft.windowsdesktop.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\zalam\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.31\\microsoft.aspnetcore.app.ref.8.0.31.nupkg.sha512"
+  ],
   "logs": []
 }

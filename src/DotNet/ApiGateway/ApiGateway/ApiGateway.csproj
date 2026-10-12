@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ApiGateway</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- The reverse proxy itself. Everything this gateway does to a request on its way to a
+         downstream service, namely routing, header transforms and per-route authorization, is
+         YARP's. -->
+    <PackageReference Include="Yarp.ReverseProxy" Version="2.3.0" />
+
+    <!-- Token validation only. The gateway never issues tokens, so it takes the validation packages
+         and not OpenIddict.Server.AspNetCore, which would pull the whole authorization server in. -->
+    <PackageReference Include="OpenIddict.Validation.AspNetCore" Version="7.7.1" />
+
+    <!-- The identity server is a separate process, so its discovery document and signing keys have
+         to be fetched over HTTP. SystemNetHttp is that fetcher; UseLocalServer() would compile here
+         and then fail every request, because there is no local OpenIddict server in this process. -->
+    <PackageReference Include="OpenIddict.Validation.SystemNetHttp" Version="7.7.1" />
+
+    <!-- Brings Serilog plus the console, debug and rolling-file sinks transitively, so the sinks do
+         not each need their own reference. -->
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+
+    <!-- The other services in this solution pin Swashbuckle 6.2.3/6.6.2, which predate net10.0.
+         This project references only the modern major so the gateway is not held back by them. -->
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.7" />
+
+    <!-- Distributed cache for session storage. Versioned for net10.0; BuildingBlocks.Infrastructure
+         pins an older 6.x reference that targets net6.0 and would not resolve correctly under
+         this project. The gateway uses the abstraction only, never StackExchange.Redis directly,
+         so swapping the backing later (memory, NCache, etc.) needs no other code change. -->
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.0" />
+
+    <!-- Swashbuckle 10.1.7 declares Microsoft.OpenApi as ">= 2.4.1", and NuGet resolves a
+         dependency range to its lowest satisfying version. That lands on 2.4.1, which is inside the
+         range fixed for CVE-2026-49451 (a circular $ref in a parsed OpenAPI document terminating the
+         process). Naming a patched version here is what actually moves the resolved graph off
+         2.4.1; the transitive reference alone does not. -->
+    <PackageReference Include="Microsoft.OpenApi" Version="2.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Only for ResultModel<T>, the JSON error envelope every other service in this solution
+         already returns. BuildingBlocks.Infrastructure is deliberately not referenced: it drags in
+         EF Core, Kafka, Redis and MediatR, none of which a gateway should need. -->
+    <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks.Core\BuildingBlocks.Core.csproj" />
+  </ItemGroup>
+
+</Project>

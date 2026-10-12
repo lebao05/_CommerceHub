@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\_commercehub\\src\\DotNet\\Inventory.Service\\Inventory.Domain\\Inventory.Domain\\Inventory.Domain.csproj",
+      "projectUniqueName": "D:\\_commercehub\\src\\DotNet\\Inventory.Service\\Inventory.Domain\\Inventory.Domain.csproj",
       "projectName": "Inventory.Domain",
-      "projectPath": "D:\\_commercehub\\src\\DotNet\\Inventory.Service\\Inventory.Domain\\Inventory.Domain\\Inventory.Domain.csproj",
+      "projectPath": "D:\\_commercehub\\src\\DotNet\\Inventory.Service\\Inventory.Domain\\Inventory.Domain.csproj",
       "packagesPath": "C:\\Users\\zalam\\.nuget\\packages\\",
-      "outputPath": "D:\\_commercehub\\src\\DotNet\\Inventory.Service\\Inventory.Domain\\Inventory.Domain\\obj\\",
+      "outputPath": "D:\\_commercehub\\src\\DotNet\\Inventory.Service\\Inventory.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,12 +69,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.31, 8.0.31]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.31, 8.0.31]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.31, 8.0.31]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400-preview.0.26322.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

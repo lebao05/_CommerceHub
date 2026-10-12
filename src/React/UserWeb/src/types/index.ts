@@ -2,7 +2,12 @@ export interface User {
   id: string;
   email: string;
   name: string;
-  role: 'customer' | 'seller' | 'admin';
+  /**
+   * Mirrors `Identity.Domain.Enums.AccountType`, which is what the `account_type` claim carries.
+   * The identity server stamps it into every access token, and the gateway forwards it downstream
+   * as `X-Account-Type`.
+   */
+  role: 'Customer' | 'SalesAdmin' | 'SystemAdmin';
   createdAt: string;
 }
 

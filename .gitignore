@@ -1,0 +1,15 @@
+# .NET / Visual Studio build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# Local secret-bearing settings — never commit these. They contain
+# Jwt:Secret and other dev-only credentials. The convention here is the
+# standard .NET one: "appsettings.<Environment>.json" is for non-secret
+# environment overrides and may be committed; "*.local.json" is for
+# machine-local secrets and must be excluded.
+appsettings.Development.json
+appsettings.*.local.json
+secrets.json
