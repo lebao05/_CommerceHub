@@ -34,7 +34,7 @@ namespace BuildingBlocks.Core.Domain
 
     public abstract class EntityBase : IEntity
     {
-        public Guid Id { get; } = Guid.NewGuid();
+        public Guid Id { get; protected set; } = Guid.NewGuid();
         public DateTime Created { get; } = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc);
         public DateTime? Updated { get; protected set; }
     }

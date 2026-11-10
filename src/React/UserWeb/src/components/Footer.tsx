@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Mail } from 'lucide-react';
+import { useTranslation } from '../i18n/context';
 
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer style={{
       backgroundColor: 'var(--color-primary)',
@@ -41,25 +44,25 @@ function Footer() {
               gap: 'var(--spacing-md)',
               marginTop: 'var(--spacing-md)',
             }}>
-              <a href="#" style={{
+              <a href="#" aria-label="Facebook" style={{
                 color: 'var(--color-background)',
                 opacity: 0.8,
               }}>
                 <Facebook size={20} />
               </a>
-              <a href="#" style={{
+              <a href="#" aria-label="Twitter / X" style={{
                 color: 'var(--color-background)',
                 opacity: 0.8,
               }}>
                 <Twitter size={20} />
               </a>
-              <a href="#" style={{
+              <a href="#" aria-label="Instagram" style={{
                 color: 'var(--color-background)',
                 opacity: 0.8,
               }}>
                 <Instagram size={20} />
               </a>
-              <a href="#" style={{
+              <a href="#" aria-label={t('footerContact')} style={{
                 color: 'var(--color-background)',
                 opacity: 0.8,
               }}>
@@ -75,7 +78,7 @@ function Footer() {
               fontWeight: 600,
               marginBottom: 'var(--spacing-md)',
             }}>
-              Quick Links
+              {t('products')}
             </h4>
             <ul style={{
               listStyle: 'none',
@@ -88,7 +91,7 @@ function Footer() {
                   textDecoration: 'none',
                   fontSize: '14px',
                 }}>
-                  Shop All Products
+                  {t('viewAll')}
                 </Link>
               </li>
               <li style={{ marginBottom: 'var(--spacing-sm)' }}>
@@ -97,7 +100,7 @@ function Footer() {
                   textDecoration: 'none',
                   fontSize: '14px',
                 }}>
-                  Track Orders
+                  {t('orderHistory')}
                 </Link>
               </li>
               <li style={{ marginBottom: 'var(--spacing-sm)' }}>
@@ -106,7 +109,7 @@ function Footer() {
                   textDecoration: 'none',
                   fontSize: '14px',
                 }}>
-                  My Account
+                  {t('myAccount')}
                 </Link>
               </li>
               <li style={{ marginBottom: 'var(--spacing-sm)' }}>
@@ -115,7 +118,7 @@ function Footer() {
                   textDecoration: 'none',
                   fontSize: '14px',
                 }}>
-                  Shopping Cart
+                  {t('yourCart')}
                 </Link>
               </li>
             </ul>
@@ -128,7 +131,7 @@ function Footer() {
               fontWeight: 600,
               marginBottom: 'var(--spacing-md)',
             }}>
-              Customer Service
+              {t('help')}
             </h4>
             <ul style={{
               listStyle: 'none',
@@ -141,7 +144,7 @@ function Footer() {
                   textDecoration: 'none',
                   fontSize: '14px',
                 }}>
-                  Contact Us
+                  {t('footerContact')}
                 </a>
               </li>
               <li style={{ marginBottom: 'var(--spacing-sm)' }}>
@@ -150,7 +153,7 @@ function Footer() {
                   textDecoration: 'none',
                   fontSize: '14px',
                 }}>
-                  FAQ
+                  {t('footerFAQ')}
                 </a>
               </li>
               <li style={{ marginBottom: 'var(--spacing-sm)' }}>
@@ -159,7 +162,7 @@ function Footer() {
                   textDecoration: 'none',
                   fontSize: '14px',
                 }}>
-                  Shipping Info
+                  {t('footerShipping')}
                 </a>
               </li>
               <li style={{ marginBottom: 'var(--spacing-sm)' }}>
@@ -168,7 +171,7 @@ function Footer() {
                   textDecoration: 'none',
                   fontSize: '14px',
                 }}>
-                  Returns & Refunds
+                  {t('footerReturns')}
                 </a>
               </li>
             </ul>
@@ -194,7 +197,7 @@ function Footer() {
                   textDecoration: 'none',
                   fontSize: '14px',
                 }}>
-                  Privacy Policy
+                  {t('footerPrivacy')}
                 </a>
               </li>
               <li style={{ marginBottom: 'var(--spacing-sm)' }}>
@@ -203,7 +206,7 @@ function Footer() {
                   textDecoration: 'none',
                   fontSize: '14px',
                 }}>
-                  Terms of Service
+                  {t('footerTerms')}
                 </a>
               </li>
               <li style={{ marginBottom: 'var(--spacing-sm)' }}>
@@ -230,7 +233,7 @@ function Footer() {
             fontSize: '14px',
             margin: 0,
           }}>
-            © {new Date().getFullYear()} CommerceHub. All rights reserved.
+            © {new Date().getFullYear()} CommerceHub. {t('footerRights')}
           </p>
         </div>
       </div>

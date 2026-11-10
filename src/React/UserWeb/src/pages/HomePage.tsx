@@ -1,93 +1,14 @@
 import MainLayout from '../layouts/MainLayout';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Star, TrendingUp, Package } from 'lucide-react';
+import HeroCarousel from '../components/HeroCarousel';
+import { HOME_SLIDES } from '../data/homeSlides';
 
 function HomePage() {
   return (
     <MainLayout>
-      {/* Hero Section */}
-      <section style={{
-        backgroundColor: 'var(--color-primary)',
-        color: 'var(--color-background)',
-        padding: 'var(--spacing-3xl) var(--spacing-md)',
-      }}>
-        <div style={{
-          maxWidth: '1280px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 'var(--spacing-2xl)',
-          alignItems: 'center',
-        }}>
-          <div>
-            <h1 style={{
-              fontSize: '48px',
-              fontWeight: 700,
-              marginBottom: 'var(--spacing-md)',
-              lineHeight: 1.2,
-            }}>
-              Shop Smart, Live Better
-            </h1>
-            <p style={{
-              fontSize: '18px',
-              marginBottom: 'var(--spacing-xl)',
-              opacity: 0.9,
-              lineHeight: 1.6,
-            }}>
-              Discover thousands of quality products at unbeatable prices. 
-              Fast shipping, secure payments, and exceptional customer service.
-            </p>
-            <div style={{
-              display: 'flex',
-              gap: 'var(--spacing-md)',
-            }}>
-              <Link to="/products" style={{
-                backgroundColor: 'var(--color-accent-warm)',
-                color: 'white',
-                padding: '14px 32px',
-                borderRadius: 'var(--radius-md)',
-                textDecoration: 'none',
-                fontWeight: 600,
-                fontSize: '16px',
-                display: 'inline-block',
-              }}>
-                Shop Now
-              </Link>
-              <Link to="/products" style={{
-                backgroundColor: 'transparent',
-                color: 'var(--color-background)',
-                padding: '14px 32px',
-                borderRadius: 'var(--radius-md)',
-                textDecoration: 'none',
-                fontWeight: 600,
-                fontSize: '16px',
-                display: 'inline-block',
-                border: '2px solid var(--color-background)',
-              }}>
-                Browse Categories
-              </Link>
-            </div>
-          </div>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-            <div style={{
-              width: '400px',
-              height: '400px',
-              backgroundColor: 'var(--color-accent-cool)',
-              borderRadius: 'var(--radius-lg)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              opacity: 0.2,
-            }}>
-              <ShoppingBag size={120} />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Banner Carousel */}
+      <HeroCarousel slides={HOME_SLIDES} />
 
       {/* Features Section */}
       <section style={{

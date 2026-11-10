@@ -147,14 +147,29 @@ select:focus {
   transform: translateY(-2px);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  :root {
-    --spacing-3xl: 48px;
-    --spacing-2xl: 32px;
-  }
-  
-  body {
-    font-size: 14px;
-  }
+/* Dark theme overrides — applied when data-theme="dark" on <html> */
+[data-theme='dark'] {
+  --color-primary: #0ea5e9;
+  --color-primary-light: #38bdf8;
+  --color-accent-cool: #38bdf8;
+  --color-accent-warm: #fb923c;
+  --color-background: #0f172a;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-border: #1e293b;
+  --color-success: #34d399;
+  --color-error: #f87171;
+  --color-warning: #fbbf24;
+
+  /* Carousel dark background */
+  --color-carousel-bg: #0a0e1a;
+}
+
+/* Carousel background (always dark image strip) */
+:root {
+  --color-carousel-bg: #000;
+}
+
+[data-theme='dark'] {
+  --color-carousel-bg: #000;
 }

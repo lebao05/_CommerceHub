@@ -88,7 +88,7 @@
 
 **Postcondition**: Order list displayed
 
----
+---      
 
 ### UC-ORD-004: Handle Inventory Reserved Event
 **Primary Actor**: System (Inventory Service)  
