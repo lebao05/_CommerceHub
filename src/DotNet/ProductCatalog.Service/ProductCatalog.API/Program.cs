@@ -2,6 +2,7 @@ using MediatR;
 using BuildingBlocks.Infrastructure.Responses;
 using ProductCatalog.Application;
 using ProductCatalog.Application.Commands.CreateCategory;
+using ProductCatalog.Application.Commands.CreateProduct;
 using ProductCatalog.Application.Commands.UpdateCategory;
 using ProductCatalog.Application.Commands.DeleteCategory;
 using ProductCatalog.Application.Queries.GetAllCategories;
@@ -84,6 +85,26 @@ categories.MapDelete("/{id}", async (Guid id, IMediator mediator) =>
 .WithName("DeleteCategory")
 .WithOpenApi();
 
+// Product Minimal APIs (products only)
+var products = app.MapGroup("/api/products").WithTags("Products");
+
+products.MapPost("/", async (CreateProductRequest request, IMediator mediator) =>
+{
+    var command = new CreateProductCommandTx(
+        request.Name,
+        request.Slug,
+        request.CategoryId,
+        request.Description
+    );
+
+    var result = await mediator.Send(command);
+
+    return result.ToHttpResult(productId =>
+        Results.Created($"/api/products/{productId}", new { id = productId }));
+})
+.WithName("CreateProduct")
+.WithOpenApi();
+
 app.Run();
 
 // Request DTOs
@@ -98,4 +119,11 @@ public record UpdateCategoryRequest(
     string Name,
     string? Description,
     bool IsActive
+);
+
+public record CreateProductRequest(
+    string Name,
+    string Slug,
+    Guid CategoryId,
+    string? Description = null
 );

@@ -13,3 +13,6 @@ obj/
 appsettings.Development.json
 appsettings.*.local.json
 secrets.json
+
+# Node.js dependencies — never commit these; restore with npm install.
+node_modules/
