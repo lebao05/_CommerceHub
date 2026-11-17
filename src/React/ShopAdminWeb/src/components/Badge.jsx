@@ -7,6 +7,6 @@ export function badgeTone(status) {
   return 'neutral';
 }
 
-export default function Badge({ value }) {
-  return <span className={`badge ${badgeTone(value)}`}>{value}</span>;
+export default function Badge({ value, tone }) {
+  return <span className={`badge ${tone ?? badgeTone(value)}`}>{value}</span>;
 }

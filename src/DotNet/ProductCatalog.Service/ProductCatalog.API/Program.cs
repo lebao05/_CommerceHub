@@ -16,8 +16,14 @@ var connectionString = builder.Configuration.GetConnectionString("ProductCatalog
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(connectionString);
-
+builder.Services.AddHealthChecks();
 builder.Services.AddOpenApi();
+
+builder.Services
+    .AddEndpointsApiExplorer()
+    .AddHttpContextAccessor()
+    .AddSwaggerGen()
+    .AddHealthChecks();
 
 var app = builder.Build();
 
@@ -36,7 +42,6 @@ categories.MapGet("/", async (IMediator mediator) =>
 {
     var query = new GetAllCategoriesQuery();
     var result = await mediator.Send(query);
-
     return result.ToHttpResult();
 })
 .WithName("GetAllCategories")

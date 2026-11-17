@@ -2,6 +2,8 @@ import MainLayout from '../layouts/MainLayout';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Star, TrendingUp, Package } from 'lucide-react';
 import HeroCarousel from '../components/HeroCarousel';
+import BrandShowcase from '../components/BrandShowcase';
+import NewsSection from '../components/NewsSection';
 import { HOME_SLIDES } from '../data/homeSlides';
 
 function HomePage() {
@@ -9,6 +11,9 @@ function HomePage() {
     <MainLayout>
       {/* Hero Banner Carousel */}
       <HeroCarousel slides={HOME_SLIDES} />
+
+      {/* News Section */}
+      <NewsSection />
 
       {/* Features Section */}
       <section style={{
@@ -256,6 +261,9 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Brands Section */}
+      <BrandShowcase />
 
       {/* CTA Section */}
       <section style={{

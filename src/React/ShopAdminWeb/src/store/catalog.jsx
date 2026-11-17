@@ -33,6 +33,10 @@ function enrichSeeds() {
     description: `${p.name} — mockup description. Replace with full product copy.`,
     status: p.status,
     featured: p.featured,
+    sku: p.sku,
+    price: p.price,
+    seller: p.seller,
+    stock: p.stock ?? 0,
     options: p.id === 'p1' ? [
       { id: 'opt-p1-color', name: 'Color', values: [
         { id: 'val-p1-black', value: 'Black' },
@@ -61,12 +65,15 @@ export function CatalogProvider({ children }) {
   const slugExists = (slug, ignoreId) =>
     products.some((p) => p.slug === slug && p.id !== ignoreId);
 
-  const addProduct = ({ name, slug, categoryId, description }) => {
+  const addProduct = ({ name, slug, categoryId, description, stock }) => {
     const cleanSlug = (slug || '').trim() || slugify(name);
     if (!name.trim()) throw new Error('Product name is required.');
     if (!cleanSlug) throw new Error('Product slug is required.');
     if (slugExists(cleanSlug)) throw new Error('A product with the same slug already exists.');
     if (!flatCategories.some((c) => c.id === categoryId)) throw new Error('The specified category was not found.');
+    const qty = stock === undefined || stock === '' ? 0 : Number(stock);
+    if (!Number.isInteger(qty)) throw new Error('Stock must be a whole number.');
+    if (qty < 0) throw new Error('Stock cannot be negative.');
     const product = {
       id: `p-${Date.now()}`,
       name: name.trim(),
@@ -75,14 +82,15 @@ export function CatalogProvider({ children }) {
       description: description?.trim() || '',
       status: 'Draft',
       featured: false,
+      stock: qty,
       options: [],
     };
     setProducts((prev) => [product, ...prev]);
     return product;
   };
 
-  const addProductWithOptions = ({ name, slug, categoryId, description, options }) => {
-    const product = addProduct({ name, slug, categoryId, description });
+  const addProductWithOptions = ({ name, slug, categoryId, description, stock, options }) => {
+    const product = addProduct({ name, slug, categoryId, description, stock });
     if (options?.length) {
       setProducts((prev) => prev.map((p) => {
         if (p.id !== product.id) return p;
@@ -141,9 +149,17 @@ export function CatalogProvider({ children }) {
     }));
   };
 
+  const updateStock = (productId, stock) => {
+    const qty = Number(stock);
+    if (!Number.isInteger(qty)) throw new Error('Stock must be a whole number.');
+    if (qty < 0) throw new Error('Stock cannot be negative.');
+    setProducts((prev) => prev.map((p) =>
+      p.id === productId ? { ...p, stock: qty } : p));
+  };
+
   const value = {
     products, flatCategories, categoryName, slugExists,
-    addProduct, addProductWithOptions, addOption, removeOption, addOptionValue, removeOptionValue,
+    addProduct, addProductWithOptions, addOption, removeOption, addOptionValue, removeOptionValue, updateStock,
     getProduct: (id) => products.find((p) => p.id === id),
   };
   return <CatalogContext.Provider value={value}>{children}</CatalogContext.Provider>;

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - CommerceHub Identity</title>
+    <link rel="stylesheet" href="~/site.css" />
+</head>
+<body>
+    <main>
+        <header>
+            <a asp-controller="Home" asp-action="Index">CommerceHub Identity</a>
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <a asp-controller="Grants" asp-action="Index">Authorized applications</a>
+            }
+        </header>
+        @RenderBody()
+    </main>
+</body>
+</html>

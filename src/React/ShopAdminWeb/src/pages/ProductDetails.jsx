@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useCatalog } from '../store/catalog.jsx';
 import Badge from '../components/Badge.jsx';
@@ -6,11 +6,17 @@ import Badge from '../components/Badge.jsx';
 export default function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { getProduct, categoryName, addOption, removeOption, addOptionValue, removeOptionValue } = useCatalog();
+  const { getProduct, categoryName, addOption, removeOption, addOptionValue, removeOptionValue, updateStock } = useCatalog();
   const product = getProduct(id);
   const [optionName, setOptionName] = useState('');
   const [valueInputs, setValueInputs] = useState({});
   const [error, setError] = useState('');
+  const [stockDraft, setStockDraft] = useState('');
+  const [stockSaved, setStockSaved] = useState(false);
+
+  useEffect(() => {
+    if (product) setStockDraft(String(product.stock ?? 0));
+  }, [product?.id, product?.stock]);
 
   if (!product) {
     return (
@@ -39,6 +45,15 @@ export default function ProductDetails() {
     } catch (e) { setError(e.message); }
   };
 
+  const saveStock = () => {
+    setError('');
+    try {
+      updateStock(product.id, stockDraft);
+      setStockSaved(true);
+      setTimeout(() => setStockSaved(false), 1500);
+    } catch (e) { setError(e.message); }
+  };
+
   return (
     <>
       <div className="toolbar">
@@ -56,6 +71,25 @@ export default function ProductDetails() {
           <code className="mono">{product.slug}</code> · {categoryName(product.categoryId)} {product.featured ? '· ★ Featured' : ''}
         </div>
         <p style={{ marginBottom: 0 }}>{product.description || 'No description.'}</p>
+      </div>
+      <div className="card" style={{ marginBottom: 16 }}>
+        <h3>Stock</h3>
+        <p style={{ fontSize: 13, color: '#64748B', marginTop: 0 }}>
+          Current on-hand quantity. Stock of 0 shows as out of stock, under 20 shows as low.
+        </p>
+        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <input
+            type="number"
+            min={0}
+            step={1}
+            value={stockDraft}
+            onChange={(e) => setStockDraft(e.target.value)}
+            onKeyDown={(e) => { if (e.key === 'Enter') saveStock(); }}
+            style={{ width: 140 }}
+          />
+          <button className="btn primary" onClick={saveStock}>Update Stock</button>
+          {stockSaved && <span style={{ fontSize: 13, color: '#166534' }}>Stock updated to {product.stock}.</span>}
+        </div>
       </div>
       <div className="card" style={{ marginBottom: 16 }}>
         <h3>Create ProductOption</h3>

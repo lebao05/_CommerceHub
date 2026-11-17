@@ -9,7 +9,7 @@
     <Project Path="src/DotNet/ApiGateway/ApiGateway/ApiGateway.csproj" />
   </Folder>
   <Folder Name="/src/DotNet/Identity.Service/">
-    <Project Path="src/DotNet/Identity.Service/Identity.API/Identity.API.csproj" />
+    <Project Path="src/DotNet/Identity.Service/Identity.Server/Identity.Server.csproj" />
   </Folder>
   <Folder Name="/src/DotNet/ProductCatalog.Service/">
     <Project Path="src/DotNet/ProductCatalog.Service/ProductCatalog.API/ProductCatalog.API.csproj" />

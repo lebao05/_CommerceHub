@@ -13,6 +13,38 @@ function Header() {
   const [accountOpen, setAccountOpen] = useState(false);
   const localeRef = useRef<HTMLDivElement>(null);
   const accountRef = useRef<HTMLDivElement>(null);
+  const accountCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Clear any pending delayed close (e.g. on unmount)
+  useEffect(() => {
+    return () => {
+      if (accountCloseTimer.current) {
+        clearTimeout(accountCloseTimer.current);
+        accountCloseTimer.current = null;
+      }
+    };
+  }, []);
+
+  // Delay closing so the menu stays usable when the pointer travels away
+  const scheduleAccountClose = () => {
+    if (accountCloseTimer.current) clearTimeout(accountCloseTimer.current);
+    accountCloseTimer.current = setTimeout(() => {
+      setAccountOpen(false);
+      accountCloseTimer.current = null;
+    }, 3000);
+  };
+
+  const cancelAccountClose = () => {
+    if (accountCloseTimer.current) {
+      clearTimeout(accountCloseTimer.current);
+      accountCloseTimer.current = null;
+    }
+  };
+
+  const closeAccountNow = () => {
+    cancelAccountClose();
+    setAccountOpen(false);
+  };
 
   // Close locale dropdown when clicking outside
   useEffect(() => {
@@ -21,6 +53,7 @@ function Header() {
         setLocaleOpen(false);
       }
       if (accountRef.current && !accountRef.current.contains(e.target as Node)) {
+        cancelAccountClose();
         setAccountOpen(false);
       }
     };
@@ -288,8 +321,8 @@ function Header() {
             <div
               ref={accountRef}
               style={{ position: 'relative' }}
-              onMouseEnter={() => setAccountOpen(true)}
-              onMouseLeave={() => setAccountOpen(false)}
+              onMouseEnter={() => { cancelAccountClose(); setAccountOpen(true); }}
+              onMouseLeave={scheduleAccountClose}
             >
               <button
                 onClick={() => setAccountOpen(o => !o)}
@@ -329,7 +362,7 @@ function Header() {
                   <Link
                     to="/my-account"
                     role="menuitem"
-                    onClick={() => setAccountOpen(false)}
+                    onClick={closeAccountNow}
                     style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -348,7 +381,7 @@ function Header() {
                   <Link
                     to="/my-orders"
                     role="menuitem"
-                    onClick={() => setAccountOpen(false)}
+                    onClick={closeAccountNow}
                     style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -369,7 +402,7 @@ function Header() {
                     type="button"
                     role="menuitem"
                     onClick={() => {
-                      setAccountOpen(false);
+                      closeAccountNow();
                       // TODO: clear auth state / redirect to /login
                       window.location.href = '/login';
                     }}

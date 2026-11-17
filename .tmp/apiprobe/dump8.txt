@@ -1,0 +1,717 @@
+TYPE Duende.IdentityServer.EntityFramework.DbContexts.ConfigurationDbContext
+  ctor   (DbContextOptions`1 options)
+
+TYPE Duende.IdentityServer.EntityFramework.DbContexts.ConfigurationDbContext`1
+  ctor   (DbContextOptions`1 options)
+  prop  DbSet`1 ApiResources { get; set; }
+  prop  DbSet`1 ApiScopes { get; set; }
+  prop  DbSet`1 ClientCorsOrigins { get; set; }
+  prop  DbSet`1 Clients { get; set; }
+  prop  DbSet`1 IdentityProviders { get; set; }
+  prop  DbSet`1 IdentityResources { get; set; }
+  prop  DbSet`1 SamlServiceProviders { get; set; }
+  prop  ConfigurationStoreOptions StoreOptions { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.DbContexts.PersistedGrantDbContext
+  ctor   (DbContextOptions`1 options)
+
+TYPE Duende.IdentityServer.EntityFramework.DbContexts.PersistedGrantDbContext`1
+  ctor   (DbContextOptions options)
+  prop  DbSet`1 DeviceFlowCodes { get; set; }
+  prop  DbSet`1 Keys { get; set; }
+  prop  DbSet`1 PersistedGrants { get; set; }
+  prop  DbSet`1 PushedAuthorizationRequests { get; set; }
+  prop  DbSet`1 SamlLogoutSessionRequestIndices { get; set; }
+  prop  DbSet`1 SamlLogoutSessions { get; set; }
+  prop  DbSet`1 SamlSigninStates { get; set; }
+  prop  DbSet`1 ServerSideSessions { get; set; }
+  prop  OperationalStoreOptions StoreOptions { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ApiResource
+  ctor   ()
+  prop  String AllowedAccessTokenSigningAlgorithms { get; set; }
+  prop  DateTime Created { get; set; }
+  prop  String Description { get; set; }
+  prop  String DisplayName { get; set; }
+  prop  Boolean Enabled { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  Nullable`1 LastAccessed { get; set; }
+  prop  String Name { get; set; }
+  prop  Boolean NonEditable { get; set; }
+  prop  List`1 Properties { get; set; }
+  prop  Boolean RequireResourceIndicator { get; set; }
+  prop  List`1 Scopes { get; set; }
+  prop  List`1 Secrets { get; set; }
+  prop  Boolean ShowInDiscoveryDocument { get; set; }
+  prop  Nullable`1 Updated { get; set; }
+  prop  List`1 UserClaims { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ApiResourceClaim
+  ctor   ()
+  prop  ApiResource ApiResource { get; set; }
+  prop  Int32 ApiResourceId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ApiResourceProperty
+  ctor   ()
+  prop  ApiResource ApiResource { get; set; }
+  prop  Int32 ApiResourceId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ApiResourceScope
+  ctor   ()
+  prop  ApiResource ApiResource { get; set; }
+  prop  Int32 ApiResourceId { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  String Scope { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ApiResourceSecret
+  ctor   ()
+  prop  ApiResource ApiResource { get; set; }
+  prop  Int32 ApiResourceId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ApiScope
+  ctor   ()
+  prop  DateTime Created { get; set; }
+  prop  String Description { get; set; }
+  prop  String DisplayName { get; set; }
+  prop  Boolean Emphasize { get; set; }
+  prop  Boolean Enabled { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  Nullable`1 LastAccessed { get; set; }
+  prop  String Name { get; set; }
+  prop  Boolean NonEditable { get; set; }
+  prop  List`1 Properties { get; set; }
+  prop  Boolean Required { get; set; }
+  prop  Boolean ShowInDiscoveryDocument { get; set; }
+  prop  Nullable`1 Updated { get; set; }
+  prop  List`1 UserClaims { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ApiScopeClaim
+  ctor   ()
+  prop  ApiScope Scope { get; set; }
+  prop  Int32 ScopeId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ApiScopeProperty
+  ctor   ()
+  prop  ApiScope Scope { get; set; }
+  prop  Int32 ScopeId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.Client
+  ctor   ()
+  prop  Int32 AbsoluteRefreshTokenLifetime { get; set; }
+  prop  Int32 AccessTokenLifetime { get; set; }
+  prop  Int32 AccessTokenType { get; set; }
+  prop  Boolean AllowAccessTokensViaBrowser { get; set; }
+  prop  List`1 AllowedCorsOrigins { get; set; }
+  prop  List`1 AllowedGrantTypes { get; set; }
+  prop  String AllowedIdentityTokenSigningAlgorithms { get; set; }
+  prop  List`1 AllowedScopes { get; set; }
+  prop  Boolean AllowOfflineAccess { get; set; }
+  prop  Boolean AllowPlainTextPkce { get; set; }
+  prop  Boolean AllowRememberConsent { get; set; }
+  prop  Boolean AlwaysIncludeUserClaimsInIdToken { get; set; }
+  prop  Boolean AlwaysSendClientClaims { get; set; }
+  prop  Int32 AuthorizationCodeLifetime { get; set; }
+  prop  Boolean BackChannelLogoutSessionRequired { get; set; }
+  prop  String BackChannelLogoutUri { get; set; }
+  prop  Nullable`1 CibaLifetime { get; set; }
+  prop  List`1 Claims { get; set; }
+  prop  String ClientClaimsPrefix { get; set; }
+  prop  String ClientId { get; set; }
+  prop  String ClientName { get; set; }
+  prop  List`1 ClientSecrets { get; set; }
+  prop  String ClientUri { get; set; }
+  prop  Nullable`1 ConsentLifetime { get; set; }
+  prop  Nullable`1 CoordinateLifetimeWithUserSession { get; set; }
+  prop  DateTime Created { get; set; }
+  prop  String Description { get; set; }
+  prop  Int32 DeviceCodeLifetime { get; set; }
+  prop  TimeSpan DPoPClockSkew { get; set; }
+  prop  DPoPTokenExpirationValidationMode DPoPValidationMode { get; set; }
+  prop  Boolean Enabled { get; set; }
+  prop  Boolean EnableLocalLogin { get; set; }
+  prop  Boolean FrontChannelLogoutSessionRequired { get; set; }
+  prop  String FrontChannelLogoutUri { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  List`1 IdentityProviderRestrictions { get; set; }
+  prop  Int32 IdentityTokenLifetime { get; set; }
+  prop  Boolean IncludeJwtId { get; set; }
+  prop  String InitiateLoginUri { get; set; }
+  prop  Nullable`1 LastAccessed { get; set; }
+  prop  String LogoUri { get; set; }
+  prop  Boolean NonEditable { get; set; }
+  prop  String PairWiseSubjectSalt { get; set; }
+  prop  Nullable`1 PollingInterval { get; set; }
+  prop  List`1 PostLogoutRedirectUris { get; set; }
+  prop  List`1 Properties { get; set; }
+  prop  String ProtocolType { get; set; }
+  prop  Nullable`1 PushedAuthorizationLifetime { get; set; }
+  prop  List`1 RedirectUris { get; set; }
+  prop  Int32 RefreshTokenExpiration { get; set; }
+  prop  Int32 RefreshTokenUsage { get; set; }
+  prop  Boolean RequireClientSecret { get; set; }
+  prop  Boolean RequireConsent { get; set; }
+  prop  Boolean RequireDPoP { get; set; }
+  prop  Boolean RequirePkce { get; set; }
+  prop  Boolean RequirePushedAuthorization { get; set; }
+  prop  Boolean RequireRequestObject { get; set; }
+  prop  Int32 SlidingRefreshTokenLifetime { get; set; }
+  prop  Boolean UpdateAccessTokenClaimsOnRefresh { get; set; }
+  prop  Nullable`1 Updated { get; set; }
+  prop  String UserCodeType { get; set; }
+  prop  Nullable`1 UserSsoLifetime { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ClientClaim
+  ctor   ()
+  prop  Client Client { get; set; }
+  prop  Int32 ClientId { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  String Type { get; set; }
+  prop  String Value { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ClientCorsOrigin
+  ctor   ()
+  prop  Client Client { get; set; }
+  prop  Int32 ClientId { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  String Origin { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ClientGrantType
+  ctor   ()
+  prop  Client Client { get; set; }
+  prop  Int32 ClientId { get; set; }
+  prop  String GrantType { get; set; }
+  prop  Int32 Id { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ClientIdPRestriction
+  ctor   ()
+  prop  Client Client { get; set; }
+  prop  Int32 ClientId { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  String Provider { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ClientPostLogoutRedirectUri
+  ctor   ()
+  prop  Client Client { get; set; }
+  prop  Int32 ClientId { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  String PostLogoutRedirectUri { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ClientProperty
+  ctor   ()
+  prop  Client Client { get; set; }
+  prop  Int32 ClientId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ClientRedirectUri
+  ctor   ()
+  prop  Client Client { get; set; }
+  prop  Int32 ClientId { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  String RedirectUri { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ClientScope
+  ctor   ()
+  prop  Client Client { get; set; }
+  prop  Int32 ClientId { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  String Scope { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ClientSecret
+  ctor   ()
+  prop  Client Client { get; set; }
+  prop  Int32 ClientId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.DeviceFlowCodes
+  ctor   ()
+  prop  String ClientId { get; set; }
+  prop  DateTime CreationTime { get; set; }
+  prop  String Data { get; set; }
+  prop  String Description { get; set; }
+  prop  String DeviceCode { get; set; }
+  prop  Nullable`1 Expiration { get; set; }
+  prop  String SessionId { get; set; }
+  prop  String SubjectId { get; set; }
+  prop  String UserCode { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.IdentityProvider
+  ctor   ()
+  prop  DateTime Created { get; set; }
+  prop  String DisplayName { get; set; }
+  prop  Boolean Enabled { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  Nullable`1 LastAccessed { get; set; }
+  prop  Boolean NonEditable { get; set; }
+  prop  String Properties { get; set; }
+  prop  String Scheme { get; set; }
+  prop  String Type { get; set; }
+  prop  Nullable`1 Updated { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.IdentityResource
+  ctor   ()
+  prop  DateTime Created { get; set; }
+  prop  String Description { get; set; }
+  prop  String DisplayName { get; set; }
+  prop  Boolean Emphasize { get; set; }
+  prop  Boolean Enabled { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  String Name { get; set; }
+  prop  Boolean NonEditable { get; set; }
+  prop  List`1 Properties { get; set; }
+  prop  Boolean Required { get; set; }
+  prop  Boolean ShowInDiscoveryDocument { get; set; }
+  prop  Nullable`1 Updated { get; set; }
+  prop  List`1 UserClaims { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.IdentityResourceClaim
+  ctor   ()
+  prop  IdentityResource IdentityResource { get; set; }
+  prop  Int32 IdentityResourceId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.IdentityResourceProperty
+  ctor   ()
+  prop  IdentityResource IdentityResource { get; set; }
+  prop  Int32 IdentityResourceId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.Key
+  ctor   ()
+  prop  String Algorithm { get; set; }
+  prop  DateTime Created { get; set; }
+  prop  String Data { get; set; }
+  prop  Boolean DataProtected { get; set; }
+  prop  String Id { get; set; }
+  prop  Boolean IsX509Certificate { get; set; }
+  prop  String Use { get; set; }
+  prop  Int32 Version { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.PersistedGrant
+  ctor   ()
+  prop  String ClientId { get; set; }
+  prop  Nullable`1 ConsumedTime { get; set; }
+  prop  DateTime CreationTime { get; set; }
+  prop  String Data { get; set; }
+  prop  String Description { get; set; }
+  prop  Nullable`1 Expiration { get; set; }
+  prop  Int64 Id { get; set; }
+  prop  String Key { get; set; }
+  prop  String SessionId { get; set; }
+  prop  String SubjectId { get; set; }
+  prop  String Type { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.Property
+  prop  Int32 Id { get; set; }
+  prop  String Key { get; set; }
+  prop  String Value { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.PushedAuthorizationRequest
+  ctor   ()
+  prop  DateTime ExpiresAtUtc { get; set; }
+  prop  Int64 Id { get; set; }
+  prop  String Parameters { get; set; }
+  prop  String ReferenceValueHash { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.SamlAllowedScope
+  ctor   ()
+  prop  Int32 Id { get; set; }
+  prop  SamlServiceProvider SamlServiceProvider { get; set; }
+  prop  Int32 SamlServiceProviderId { get; set; }
+  prop  String Scope { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.SamlAssertionConsumerService
+  ctor   ()
+  prop  String Binding { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  Int32 Index { get; set; }
+  prop  Boolean IsDefault { get; set; }
+  prop  String Location { get; set; }
+  prop  SamlServiceProvider SamlServiceProvider { get; set; }
+  prop  Int32 SamlServiceProviderId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.SamlAuthnContextMapping
+  ctor   ()
+  prop  Int32 Id { get; set; }
+  prop  String OidcValue { get; set; }
+  prop  String SamlAuthnContextClassRef { get; set; }
+  prop  SamlServiceProvider SamlServiceProvider { get; set; }
+  prop  Int32 SamlServiceProviderId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.SamlCertificate
+  ctor   ()
+  prop  String Data { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  SamlServiceProvider SamlServiceProvider { get; set; }
+  prop  Int32 SamlServiceProviderId { get; set; }
+  prop  Int32 Use { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.SamlClaimMapping
+  ctor   ()
+  prop  String ClaimType { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  String SamlAttributeName { get; set; }
+  prop  SamlServiceProvider SamlServiceProvider { get; set; }
+  prop  Int32 SamlServiceProviderId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.SamlLogoutSession
+  ctor   ()
+  prop  DateTime ExpiresAtUtc { get; set; }
+  prop  Int64 Id { get; set; }
+  prop  String LogoutId { get; set; }
+  prop  ICollection`1 RequestIndices { get; set; }
+  prop  String SerializedSession { get; set; }
+  prop  UInt32 Version { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.SamlLogoutSessionRequestIndex
+  ctor   ()
+  prop  Int64 Id { get; set; }
+  prop  String RequestId { get; set; }
+  prop  SamlLogoutSession SamlLogoutSession { get; set; }
+  prop  Int64 SamlLogoutSessionId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.SamlRequestedClaimType
+  ctor   ()
+  prop  String ClaimType { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  SamlServiceProvider SamlServiceProvider { get; set; }
+  prop  Int32 SamlServiceProviderId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.SamlServiceProvider
+  ctor   ()
+  prop  List`1 AllowedScopes { get; set; }
+  prop  List`1 AllowedSignatureAlgorithms { get; set; }
+  prop  Boolean AllowIdpInitiated { get; set; }
+  prop  List`1 AssertionConsumerServiceUrls { get; set; }
+  prop  Nullable`1 AssertionLifetimeSeconds { get; set; }
+  prop  List`1 AuthnContextMappings { get; set; }
+  prop  List`1 Certificates { get; set; }
+  prop  List`1 ClaimMappings { get; set; }
+  prop  Nullable`1 ClockSkewSeconds { get; set; }
+  prop  DateTime Created { get; set; }
+  prop  String DefaultNameIdFormat { get; set; }
+  prop  String Description { get; set; }
+  prop  String DisplayName { get; set; }
+  prop  String EmailNameIdClaimType { get; set; }
+  prop  Boolean Enabled { get; set; }
+  prop  String EntityId { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  Nullable`1 LastAccessed { get; set; }
+  prop  Boolean NonEditable { get; set; }
+  prop  List`1 RequestedClaimTypes { get; set; }
+  prop  Nullable`1 RequestMaxAgeSeconds { get; set; }
+  prop  Nullable`1 RequireSignedAuthnRequests { get; set; }
+  prop  Nullable`1 RequireSignedLogoutResponses { get; set; }
+  prop  Nullable`1 SigningBehavior { get; set; }
+  prop  List`1 SingleLogoutServiceUrls { get; set; }
+  prop  Nullable`1 Updated { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.SamlSigninState
+  ctor   ()
+  prop  DateTime ExpiresAtUtc { get; set; }
+  prop  Int64 Id { get; set; }
+  prop  String SerializedState { get; set; }
+  prop  String ServiceProviderEntityId { get; set; }
+  prop  Guid StateId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.SamlSingleLogoutService
+  ctor   ()
+  prop  String Binding { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  String Location { get; set; }
+  prop  SamlServiceProvider SamlServiceProvider { get; set; }
+  prop  Int32 SamlServiceProviderId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.Secret
+  prop  DateTime Created { get; set; }
+  prop  String Description { get; set; }
+  prop  Nullable`1 Expiration { get; set; }
+  prop  Int32 Id { get; set; }
+  prop  String Type { get; set; }
+  prop  String Value { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.ServerSideSession
+  ctor   ()
+  prop  DateTime Created { get; set; }
+  prop  String Data { get; set; }
+  prop  String DisplayName { get; set; }
+  prop  Nullable`1 Expires { get; set; }
+  prop  Int64 Id { get; set; }
+  prop  String Key { get; set; }
+  prop  DateTime Renewed { get; set; }
+  prop  String Scheme { get; set; }
+  prop  String SessionId { get; set; }
+  prop  String SubjectId { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Entities.UserClaim
+  prop  Int32 Id { get; set; }
+  prop  String Type { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Extensions.DbContextExtensions
+  method Task`1 SaveChangesWithConcurrencyCheckAsync(IPersistedGrantDbContext context, ILogger logger, CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.Extensions.ModelBuilderExtensions
+  method Void ConfigureClientContext(ModelBuilder modelBuilder, ConfigurationStoreOptions storeOptions)
+  method Void ConfigureIdentityProviderContext(ModelBuilder modelBuilder, ConfigurationStoreOptions storeOptions)
+  method Void ConfigurePersistedGrantContext(ModelBuilder modelBuilder, OperationalStoreOptions storeOptions)
+  method Void ConfigureResourcesContext(ModelBuilder modelBuilder, ConfigurationStoreOptions storeOptions)
+  method Void ConfigureSamlServiceProviderContext(ModelBuilder modelBuilder, ConfigurationStoreOptions storeOptions)
+
+TYPE Duende.IdentityServer.EntityFramework.Interfaces.IConfigurationDbContext
+  prop  DbSet`1 ApiResources { get; set; }
+  prop  DbSet`1 ApiScopes { get; set; }
+  prop  DbSet`1 ClientCorsOrigins { get; set; }
+  prop  DbSet`1 Clients { get; set; }
+  prop  DbSet`1 IdentityProviders { get; set; }
+  prop  DbSet`1 IdentityResources { get; set; }
+  prop  DbSet`1 SamlServiceProviders { get; set; }
+  method Task`1 SaveChangesAsync(CancellationToken ct)
+  method Task`1 SaveChangesAsync()
+
+TYPE Duende.IdentityServer.EntityFramework.Interfaces.IPersistedGrantDbContext
+  prop  DbSet`1 DeviceFlowCodes { get; set; }
+  prop  DbSet`1 Keys { get; set; }
+  prop  DbSet`1 PersistedGrants { get; set; }
+  prop  DbSet`1 PushedAuthorizationRequests { get; set; }
+  prop  DbSet`1 SamlLogoutSessionRequestIndices { get; set; }
+  prop  DbSet`1 SamlLogoutSessions { get; set; }
+  prop  DbSet`1 SamlSigninStates { get; set; }
+  method Task`1 SaveChangesAsync(CancellationToken ct)
+  method Task`1 SaveChangesAsync()
+  prop  DbSet`1 ServerSideSessions { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.IOperationalStoreNotification
+  method Task DeviceCodesRemovedAsync(IEnumerable`1 deviceCodes, CancellationToken ct)
+  method Task PersistedGrantsRemovedAsync(IEnumerable`1 persistedGrants, CancellationToken ct)
+  method Task SamlLogoutSessionsRemovedAsync(IEnumerable`1 samlLogoutSessions, CancellationToken ct)
+  method Task SamlSigninStatesRemovedAsync(IEnumerable`1 samlSigninStates, CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.ITokenCleanupService
+  method Task CleanupGrantsAsync(CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.Mappers.ApiResourceMappers
+  method ApiResource ToEntity(ApiResource model)
+  method ApiResource ToModel(ApiResource entity)
+
+TYPE Duende.IdentityServer.EntityFramework.Mappers.ClientMappers
+  method Client ToEntity(Client model)
+  method Client ToModel(Client entity)
+
+TYPE Duende.IdentityServer.EntityFramework.Mappers.DefaultSamlSigninStateSerializer
+  ctor   ()
+  method SamlAuthenticationState Deserialize(String serializedState)
+  method String Serialize(SamlAuthenticationState state)
+
+TYPE Duende.IdentityServer.EntityFramework.Mappers.IdentityProviderMappers
+  method IdentityProvider ToEntity(IdentityProvider model)
+  method IdentityProvider ToModel(IdentityProvider entity)
+
+TYPE Duende.IdentityServer.EntityFramework.Mappers.IdentityResourceMappers
+  method IdentityResource ToEntity(IdentityResource model)
+  method IdentityResource ToModel(IdentityResource entity)
+
+TYPE Duende.IdentityServer.EntityFramework.Mappers.PersistedGrantMappers
+  method PersistedGrant ToEntity(PersistedGrant model)
+  method PersistedGrant ToModel(PersistedGrant entity)
+  method Void UpdateEntity(PersistedGrant model, PersistedGrant entity)
+
+TYPE Duende.IdentityServer.EntityFramework.Mappers.PushedAuthorizationRequestMappers
+  method PushedAuthorizationRequest ToEntity(PushedAuthorizationRequest model)
+  method PushedAuthorizationRequest ToModel(PushedAuthorizationRequest entity)
+
+TYPE Duende.IdentityServer.EntityFramework.Mappers.SamlLogoutSessionMappers
+  field  JsonSerializerOptions JsonOptions
+  method SamlLogoutSession ToEntity(SamlLogoutSession model, DateTime expiresAtUtc)
+  method SamlLogoutSession ToModel(SamlLogoutSession entity)
+
+TYPE Duende.IdentityServer.EntityFramework.Mappers.SamlServiceProviderMappers
+  method SamlServiceProvider ToEntity(SamlServiceProvider model)
+  method SamlServiceProvider ToModel(SamlServiceProvider entity)
+
+TYPE Duende.IdentityServer.EntityFramework.Mappers.SamlSigninStateMappers
+  method SamlSigninState ToEntity(SamlAuthenticationState model, Guid stateId, DateTime expiresAtUtc, ISamlSigninStateSerializer serializer)
+  method SamlAuthenticationState ToModel(SamlSigninState entity, ISamlSigninStateSerializer serializer)
+
+TYPE Duende.IdentityServer.EntityFramework.Mappers.ScopeMappers
+  method ApiScope ToEntity(ApiScope model)
+  method ApiScope ToModel(ApiScope entity)
+
+TYPE Duende.IdentityServer.EntityFramework.Options.ConfigurationStoreOptions
+  ctor   ()
+  prop  TableConfiguration ApiResource { get; set; }
+  prop  TableConfiguration ApiResourceClaim { get; set; }
+  prop  TableConfiguration ApiResourceProperty { get; set; }
+  prop  TableConfiguration ApiResourceScope { get; set; }
+  prop  TableConfiguration ApiResourceSecret { get; set; }
+  prop  TableConfiguration ApiScope { get; set; }
+  prop  TableConfiguration ApiScopeClaim { get; set; }
+  prop  TableConfiguration ApiScopeProperty { get; set; }
+  prop  TableConfiguration Client { get; set; }
+  prop  TableConfiguration ClientClaim { get; set; }
+  prop  TableConfiguration ClientCorsOrigin { get; set; }
+  prop  TableConfiguration ClientGrantType { get; set; }
+  prop  TableConfiguration ClientIdPRestriction { get; set; }
+  prop  TableConfiguration ClientPostLogoutRedirectUri { get; set; }
+  prop  TableConfiguration ClientProperty { get; set; }
+  prop  TableConfiguration ClientRedirectUri { get; set; }
+  prop  TableConfiguration ClientScopes { get; set; }
+  prop  TableConfiguration ClientSecret { get; set; }
+  prop  Action`1 ConfigureDbContext { get; set; }
+  prop  String DefaultSchema { get; set; }
+  prop  Boolean EnablePooling { get; set; }
+  prop  TableConfiguration IdentityProvider { get; set; }
+  prop  TableConfiguration IdentityResource { get; set; }
+  prop  TableConfiguration IdentityResourceClaim { get; set; }
+  prop  TableConfiguration IdentityResourceProperty { get; set; }
+  prop  Nullable`1 PoolSize { get; set; }
+  prop  Action`2 ResolveDbContextOptions { get; set; }
+  prop  TableConfiguration SamlAllowedScope { get; set; }
+  prop  TableConfiguration SamlAssertionConsumerService { get; set; }
+  prop  TableConfiguration SamlAuthnContextMapping { get; set; }
+  prop  TableConfiguration SamlCertificate { get; set; }
+  prop  TableConfiguration SamlClaimMapping { get; set; }
+  prop  TableConfiguration SamlRequestedClaimType { get; set; }
+  prop  TableConfiguration SamlServiceProvider { get; set; }
+  prop  TableConfiguration SamlSingleLogoutService { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Options.OperationalStoreOptions
+  ctor   ()
+  prop  Action`1 ConfigureDbContext { get; set; }
+  prop  Int32 ConsumedTokenCleanupDelay { get; set; }
+  prop  String DefaultSchema { get; set; }
+  prop  TableConfiguration DeviceFlowCodes { get; set; }
+  prop  Boolean EnablePooling { get; set; }
+  prop  Boolean EnableTokenCleanup { get; set; }
+  prop  Boolean FuzzTokenCleanupStart { get; set; }
+  prop  TableConfiguration Keys { get; set; }
+  prop  TableConfiguration PersistedGrants { get; set; }
+  prop  Nullable`1 PoolSize { get; set; }
+  prop  TableConfiguration PushedAuthorizationRequests { get; set; }
+  prop  Boolean RemoveConsumedTokens { get; set; }
+  prop  Action`2 ResolveDbContextOptions { get; set; }
+  prop  TableConfiguration SamlLogoutSessionRequestIndices { get; set; }
+  prop  TableConfiguration SamlLogoutSessions { get; set; }
+  prop  TableConfiguration SamlSigninStates { get; set; }
+  prop  TableConfiguration ServerSideSessions { get; set; }
+  prop  Int32 TokenCleanupBatchSize { get; set; }
+  prop  Int32 TokenCleanupInterval { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Options.TableConfiguration
+  ctor   (String name)
+  ctor   (String name, String schema)
+  prop  String Name { get; set; }
+  prop  String Schema { get; set; }
+
+TYPE Duende.IdentityServer.EntityFramework.Storage.IdentityServerEntityFrameworkBuilderExtensions
+  method IServiceCollection AddConfigurationDbContext(IServiceCollection services, Action`1 storeOptionsAction = ...)
+  method IServiceCollection AddConfigurationDbContext(IServiceCollection services, Action`1 storeOptionsAction = ...)
+  method IServiceCollection AddOperationalDbContext(IServiceCollection services, Action`1 storeOptionsAction = ...)
+  method IServiceCollection AddOperationalDbContext(IServiceCollection services, Action`1 storeOptionsAction = ...)
+  method IServiceCollection AddOperationalStoreNotification(IServiceCollection services)
+
+TYPE Duende.IdentityServer.EntityFramework.Stores.ClientStore
+  ctor   (IConfigurationDbContext context, ILogger`1 logger)
+  method Task`1 FindClientByIdAsync(String clientId, CancellationToken ct)
+  method IAsyncEnumerable`1 GetAllClientsAsync(CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.Stores.DeviceFlowStore
+  ctor   (IPersistedGrantDbContext context, IPersistentGrantSerializer serializer, ILogger`1 logger)
+  method Task`1 FindByDeviceCodeAsync(String deviceCode, CancellationToken ct)
+  method Task`1 FindByUserCodeAsync(String userCode, CancellationToken ct)
+  method Task RemoveByDeviceCodeAsync(String deviceCode, CancellationToken ct)
+  method Task StoreDeviceAuthorizationAsync(String deviceCode, String userCode, DeviceCode data, CancellationToken ct)
+  method Task UpdateByUserCodeAsync(String userCode, DeviceCode data, CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.Stores.IdentityProviderStore
+  ctor   (IConfigurationDbContext context, ILogger`1 logger, IIdentityProviderFactory identityProviderFactory)
+  method Task`1 GetAllSchemeNamesAsync(CancellationToken ct)
+  method Task`1 GetBySchemeAsync(String scheme, CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.Stores.PersistedGrantStore
+  ctor   (IPersistedGrantDbContext context, ILogger`1 logger)
+  method Task`1 GetAllAsync(PersistedGrantFilter filter, CancellationToken ct)
+  method Task`1 GetAsync(String key, CancellationToken ct)
+  method Task RemoveAllAsync(PersistedGrantFilter filter, CancellationToken ct)
+  method Task RemoveAsync(String key, CancellationToken ct)
+  method Task StoreAsync(PersistedGrant token, CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.Stores.PushedAuthorizationRequestStore
+  ctor   (IPersistedGrantDbContext context, ILogger`1 logger)
+  method Task ConsumeByHashAsync(String referenceValueHash, CancellationToken ct)
+  method Task`1 GetByHashAsync(String referenceValueHash, CancellationToken ct)
+  method Task StoreAsync(PushedAuthorizationRequest par, CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.Stores.ResourceStore
+  ctor   (IConfigurationDbContext context, ILogger`1 logger)
+  method Task`1 FindApiResourcesByNameAsync(IEnumerable`1 apiResourceNames, CancellationToken ct)
+  method Task`1 FindApiResourcesByScopeNameAsync(IEnumerable`1 scopeNames, CancellationToken ct)
+  method Task`1 FindApiScopesByNameAsync(IEnumerable`1 scopeNames, CancellationToken ct)
+  method Task`1 FindIdentityResourcesByScopeNameAsync(IEnumerable`1 scopeNames, CancellationToken ct)
+  method Task`1 GetAllResourcesAsync(CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.Stores.SamlLogoutSessionStore
+  ctor   (IPersistedGrantDbContext context, TimeProvider timeProvider, ILogger`1 logger)
+  method Task`1 GetByLogoutIdAsync(String logoutId, CancellationToken ct)
+  method Task RemoveAsync(String logoutId, CancellationToken ct)
+  method Task StoreAsync(SamlLogoutSession session, CancellationToken ct)
+  method Task`1 TryRecordResponseAsync(String requestId, String issuer, Boolean success, CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.Stores.SamlServiceProviderStore
+  ctor   (IConfigurationDbContext context, ILogger`1 logger)
+  method Task`1 FindByEntityIdAsync(String entityId, CancellationToken ct)
+  method IAsyncEnumerable`1 GetAllSamlServiceProvidersAsync(CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.Stores.SamlSigninStateStore
+  ctor   (IPersistedGrantDbContext context, TimeProvider timeProvider, ISamlSigninStateSerializer serializer, ILogger`1 logger)
+  method Task RemoveSigninRequestStateAsync(Guid stateId, CancellationToken ct = ...)
+  method Task`1 RetrieveSigninRequestStateAsync(Guid stateId, CancellationToken ct = ...)
+  method Task`1 StoreSigninRequestStateAsync(SamlAuthenticationState state, CancellationToken ct = ...)
+  method Task UpdateSigninRequestStateAsync(Guid stateId, SamlAuthenticationState state, CancellationToken ct = ...)
+
+TYPE Duende.IdentityServer.EntityFramework.Stores.ServerSideSessionStore
+  ctor   (IPersistedGrantDbContext context, ILogger`1 logger, TimeProvider timeProvider)
+  method Task CreateSessionAsync(ServerSideSession session, CancellationToken ct)
+  method Task DeleteSessionAsync(String key, CancellationToken ct)
+  method Task DeleteSessionsAsync(SessionFilter filter, CancellationToken ct)
+  method Task`1 GetAndRemoveExpiredSessionsAsync(Int32 count, CancellationToken ct)
+  method Task`1 GetSessionAsync(String key, CancellationToken ct)
+  method Task`1 GetSessionsAsync(SessionFilter filter, CancellationToken ct)
+  method Task`1 QuerySessionsAsync(CancellationToken ct, SessionQuery filter = ...)
+  method Task UpdateSessionAsync(ServerSideSession session, CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.Stores.SigningKeyStore
+  ctor   (IPersistedGrantDbContext context, ILogger`1 logger)
+  method Task DeleteKeyAsync(String id, CancellationToken ct)
+  method Task`1 LoadKeysAsync(CancellationToken ct)
+  method Task StoreKeyAsync(SerializedKey key, CancellationToken ct)
+
+TYPE Duende.IdentityServer.EntityFramework.TokenCleanupService
+  ctor   (OperationalStoreOptions options, IPersistedGrantDbContext persistedGrantDbContext, ILogger`1 logger, TimeProvider timeProvider, IOperationalStoreNotification operationalStoreNotification = ...)
+  method Task CleanupGrantsAsync(CancellationToken ct)
+
+TYPE Duende.IdentityServer.Tracing
+  prop  ActivitySource BasicActivitySource { get; }
+  prop  ActivitySource CacheActivitySource { get; }
+  prop  ActivitySource DiagnosticsActivitySource { get; }
+  prop  ActivitySource ServiceActivitySource { get; }
+  prop  String ServiceVersion { get; }
+  prop  ActivitySource StoreActivitySource { get; }
+  prop  ActivitySource ValidationActivitySource { get; }
+
+TYPE Duende.IdentityServer.Tracing+Properties
+  field  String ApiResourceNames = api_resource_names
+  field  String ClientId = client_id
+  field  String EndpointType = endpoint_type
+  field  String GrantType = grant_type
+  field  String Id = id
+  field  String Origin = origin
+  field  String Resource = resource
+  field  String SamlEntityId = saml_entity_id
+  field  String Scheme = scheme
+  field  String Scope = scope
+  field  String ScopeNames = scope_names
+  field  String Type = type
+
+TYPE Duende.IdentityServer.Tracing+TraceNames
+  prop  String Basic { get; }
+  prop  String Cache { get; }
+  prop  String Diagnostics { get; }
+  prop  String Services { get; }
+  prop  String Store { get; }
+  prop  String Validation { get; }
+

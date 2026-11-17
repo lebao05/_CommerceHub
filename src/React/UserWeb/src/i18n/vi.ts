@@ -44,6 +44,11 @@ export const vi: typeof en = {
   viewAll: 'Xem tất cả',
   addToCart: 'Thêm vào giỏ',
 
+  // Brands
+  shopByBrand: 'Mua theo thương hiệu',
+  viewAllBrands: 'Xem tất cả thương hiệu',
+  productsCount: '{count} sản phẩm',
+
   // Newsletter
   signUpForDeals: 'Đăng ký nhận ưu đãi độc quyền',
   dealsSubtitle:

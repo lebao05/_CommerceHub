@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Identity.Server</RootNamespace>
+    <UserSecretsId>commercehub-identity-server</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- The authorization server. Duende 8 requires a commercial licence for production use; the
+         free licence covers development and is configured through the Duende:License:Key setting. -->
+    <PackageReference Include="Duende.IdentityServer" Version="8.0.10" />
+
+    <!-- Replaces the in-memory test users with the ASP.NET Core Identity user store, so the login
+         page authenticates against the database. -->
+    <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="8.0.10" />
+
+    <!-- The EF Core stores for clients, resources, consents and issued tokens. Without them every
+         restart of the service silently revokes every consent a user has ever given. -->
+    <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="8.0.10" />
+    <PackageReference Include="Rsk.TokenExchange.DuendeIdentityServerV7" Version="3.0.1" />
+
+    <!-- The user store: password hashing, lockout, roles and claims, all in the database. -->
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.15">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
+
+    <!-- Optional social login. Registered only when a client id and secret are configured, so the
+         service starts without them and does not advertise a provider that cannot work. -->
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="10.0.15" />
+
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+  </ItemGroup>
+
+</Project>

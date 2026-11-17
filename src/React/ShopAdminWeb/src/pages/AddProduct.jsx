@@ -10,6 +10,7 @@ export default function AddProduct() {
   const [slugTouched, setSlugTouched] = useState(false);
   const [categoryId, setCategoryId] = useState(flatCategories[0]?.id ?? '');
   const [description, setDescription] = useState('');
+  const [stock, setStock] = useState('0');
   const [options, setOptions] = useState([{ name: '', values: [{ value: '' }] }]);
   const [error, setError] = useState('');
 
@@ -32,7 +33,7 @@ export default function AddProduct() {
         .filter((o) => o.name.trim())
         .map((o) => ({ name: o.name, values: o.values.filter((v) => v.value.trim()) }));
       const product = addProductWithOptions({
-        name, slug: slug.trim(), categoryId, description,
+        name, slug: slug.trim(), categoryId, description, stock,
         options: trimmedOptions,
       });
       navigate(`/products/${product.id}${publish ? '' : ''}`, { replace: false });
@@ -63,6 +64,7 @@ export default function AddProduct() {
               {flatCategories.map((c) => <option key={c.id} value={c.id}>{c.label}</option>)}
             </select></label>
             <label className="field">Description<textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Full product description…" /></label>
+            <label className="field">Initial stock<input type="number" min={0} step={1} value={stock} onChange={(e) => setStock(e.target.value)} placeholder="0" /></label>
             <div style={{ fontSize: 13, color: '#64748B' }}>
               Status on creation: <strong>Draft</strong> · mirrors <code className="mono">Product.Create</code> (Name, Slug, CategoryId, Description).
             </div>

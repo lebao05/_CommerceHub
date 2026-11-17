@@ -1,0 +1,18 @@
+########## Duende.IdentityServer ##########
+
+=== Duende.IdentityServer.Validation.ResourceValidationResult ===
+  ctor   ()
+  ctor   (Resources resources)
+  ctor   (Resources resources, IEnumerable`1 parsedScopeValues)
+  method ResourceValidationResult Filter(IEnumerable`1 scopeValues)
+  method ResourceValidationResult FilterByResourceIndicator(String resourceIndicator)
+  prop  ICollection`1 InvalidResourceIndicators { get; set; }
+  prop  ICollection`1 InvalidScopes { get; set; }
+  prop  ICollection`1 ParsedScopes { get; set; }
+  prop  IEnumerable`1 RawScopeValues { get; }
+  prop  Resources Resources { get; set; }
+  prop  Boolean Succeeded { get; }
+########## Duende.IdentityServer.EntityFramework ##########
+TYPE Duende.IdentityServer.EntityFramework.Services.CorsPolicyService
+TYPE Microsoft.Extensions.DependencyInjection.IdentityServerEntityFrameworkBuilderExtensions
+TYPE Microsoft.Extensions.DependencyInjection.TokenCleanupHost

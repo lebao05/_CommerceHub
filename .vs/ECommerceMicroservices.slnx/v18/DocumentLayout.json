@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\_commercehub\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C9CB1187-CD5E-2481-4559-EDB653994FF4}|src\\DotNet\\Identity.Service\\Identity.API\\Identity.API.csproj|d:\\_commercehub\\src\\dotnet\\identity.service\\identity.api\\identity.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C9CB1187-CD5E-2481-4559-EDB653994FF4}|src\\DotNet\\Identity.Service\\Identity.API\\Identity.API.csproj|solutionrelative:src\\dotnet\\identity.service\\identity.api\\identity.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A543FAB3-4D0C-D349-6000-D7593EF4AAC7}|src\\DotNet\\ApiGateway\\ApiGateway\\ApiGateway.csproj|d:\\_commercehub\\src\\dotnet\\apigateway\\apigateway\\apigateway.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A543FAB3-4D0C-D349-6000-D7593EF4AAC7}|src\\DotNet\\ApiGateway\\ApiGateway\\ApiGateway.csproj|solutionrelative:src\\dotnet\\apigateway\\apigateway\\apigateway.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +18,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 216,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApiGateway",
+              "DocumentMoniker": "D:\\_commercehub\\src\\DotNet\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
+              "RelativeDocumentMoniker": "src\\DotNet\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
+              "ToolTip": "D:\\_commercehub\\src\\DotNet\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
+              "RelativeToolTip": "src\\DotNet\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-11-12T09:34:48.279Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d84ee353-0bef-5a41-a649-8f89aca5d84d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Identity.API",
+              "DocumentMoniker": "D:\\_commercehub\\src\\DotNet\\Identity.Service\\Identity.API\\Identity.API.csproj",
+              "RelativeDocumentMoniker": "src\\DotNet\\Identity.Service\\Identity.API\\Identity.API.csproj",
+              "ToolTip": "D:\\_commercehub\\src\\DotNet\\Identity.Service\\Identity.API\\Identity.API.csproj",
+              "RelativeToolTip": "src\\DotNet\\Identity.Service\\Identity.API\\Identity.API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-11-12T09:34:52.248Z",
+              "EditorCaption": ""
             }
           ]
         }

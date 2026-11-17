@@ -1,0 +1,12 @@
+@model LogoutInputModel
+@{
+    ViewData["Title"] = "Sign out";
+}
+<section class="panel">
+    <h1>Sign out</h1>
+    <p>Are you sure you want to sign out?</p>
+    <form asp-controller="Account" asp-action="Logout" method="post">
+        <input asp-for="LogoutId" type="hidden" />
+        <button type="submit">Sign out</button>
+    </form>
+</section>

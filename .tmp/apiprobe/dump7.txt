@@ -1,0 +1,84 @@
+=== Duende.IdentityServer.Models.ConsentRequest ===
+  ctor   (AuthorizationRequest request, String subject)
+  ctor   (NameValueCollection parameters, String subject)
+  prop  String ClientId
+  prop  String Id
+  prop  String Nonce
+  prop  IEnumerable`1 ScopesRequested
+  prop  String Subject
+
+=== Duende.IdentityServer.Models.DeviceFlowInteractionResult ===
+  ctor   ()
+  prop  String ErrorDescription
+  method DeviceFlowInteractionResult Failure(String errorDescription = ...)
+  prop  Boolean IsAccessDenied
+  prop  Boolean IsError
+
+=== Duende.IdentityServer.Models.ErrorMessage ===
+  ctor   ()
+  prop  String ActivityId
+  prop  String ClientId
+  prop  String DisplayMode
+  prop  String Error
+  prop  String ErrorDescription
+  prop  String RedirectUri
+  prop  String RequestId
+  prop  String ResponseMode
+  prop  String UiLocales
+
+=== Duende.IdentityServer.Models.LogoutRequest ===
+  ctor   (String iframeUrl, LogoutMessage message)
+  prop  String ClientId
+  prop  IReadOnlyCollection`1 ClientIds
+  prop  String ClientName
+  prop  NameValueCollection Parameters
+  prop  String PostLogoutRedirectUri
+  prop  Boolean RequiresConfirmation
+  prop  String SamlLogoutRequestId
+  prop  String SamlRelayState
+  prop  String SamlServiceProviderEntityId
+  prop  IReadOnlyCollection`1 SamlSessions
+  prop  String SessionId
+  prop  Boolean ShowSignoutPrompt
+  prop  String SignOutIFrameUrl
+  prop  String SubjectId
+  prop  String UiLocales
+
+=== Duende.IdentityServer.Models.TokenRequestErrors ===
+  field  TokenRequestErrors InvalidClient = 1
+  field  TokenRequestErrors InvalidGrant = 2
+  field  TokenRequestErrors InvalidRequest = 0
+  field  TokenRequestErrors InvalidScope = 5
+  field  TokenRequestErrors InvalidTarget = 6
+  field  TokenRequestErrors UnauthorizedClient = 3
+  field  TokenRequestErrors UnsupportedGrantType = 4
+  field  Int32 value__
+
+=== Duende.IdentityServer.Models.IConnectedApplication ===
+  prop  String Description
+  prop  String DisplayName
+  prop  Boolean Enabled
+  prop  String Identifier
+  prop  String ProtocolType
+  prop  Boolean RequireConsent
+
+=== Duende.IdentityServer.Events.UserLoginSuccessEvent ===
+  ctor (String provider, String providerUserId, String subjectId, String name, Boolean interactive = ..., String clientId = ...)
+  ctor (String username, String subjectId, String name, Boolean interactive = ..., String clientId = ...)
+
+=== Duende.IdentityServer.Events.UserLoginFailureEvent ===
+  ctor (String username, String error, Boolean interactive = ..., String clientId = ...)
+
+=== Duende.IdentityServer.Events.ConsentGrantedEvent ===
+  ctor (String subjectId, String clientId, IEnumerable`1 requestedScopes, IEnumerable`1 grantedScopes, Boolean consentRemembered)
+
+=== Duende.IdentityServer.Events.ConsentDeniedEvent ===
+  ctor (String subjectId, String clientId, IEnumerable`1 requestedScopes)
+
+=== Duende.IdentityServer.Events.UserLogoutSuccessEvent ===
+  ctor (String subjectId, String name)
+
+=== Duende.IdentityServer.Events.GrantsRevokedEvent ===
+  ctor (String subjectId, String clientId)
+
+=== error code holders ===

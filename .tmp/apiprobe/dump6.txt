@@ -1,0 +1,25 @@
+=== Duende.IdentityServer.Services.IIdentityServerInteractionService ===
+  Duende.IdentityServer.Models.IAuthenticationContext GetAuthenticationContextAsync(System.String returnUrl, System.Threading.CancellationToken ct)
+  Duende.IdentityServer.Models.AuthorizationRequest GetAuthorizationContextAsync(System.String returnUrl, System.Threading.CancellationToken ct)
+  System.Boolean IsValidReturnUrl(System.String returnUrl)
+  Duende.IdentityServer.Models.ErrorMessage GetErrorContextAsync(System.String errorId, System.Threading.CancellationToken ct)
+  Duende.IdentityServer.Models.LogoutRequest GetLogoutContextAsync(System.String logoutId, System.Threading.CancellationToken ct)
+  System.String CreateLogoutContextAsync(System.Threading.CancellationToken ct)
+  System.Threading.Tasks.Task GrantConsentAsync(Duende.IdentityServer.Models.AuthorizationRequest request, Duende.IdentityServer.Models.ConsentResponse consent, System.Threading.CancellationToken ct, System.String subject = ...)
+  System.Threading.Tasks.Task DenyAuthorizationAsync(Duende.IdentityServer.Models.AuthorizationRequest request, Duende.IdentityServer.Models.InteractionError error, System.Threading.CancellationToken ct, System.String errorDescription = ...)
+  System.Threading.Tasks.Task DenyAuthenticationAsync(Duende.IdentityServer.Models.IAuthenticationContext context, Duende.IdentityServer.Models.InteractionError error, System.Threading.CancellationToken ct, System.String errorDescription = ...)
+  System.Collections.Generic.IReadOnlyCollection`1[[Duende.IdentityServer.Models.Grant, Duende.IdentityServer, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null]] GetAllUserGrantsAsync(System.Threading.CancellationToken ct)
+  System.Threading.Tasks.Task RevokeUserConsentAsync(System.String clientId, System.Threading.CancellationToken ct)
+  System.Threading.Tasks.Task RevokeTokensForCurrentSessionAsync(System.Threading.CancellationToken ct)
+
+=== Duende.IdentityServer.Services.IDeviceFlowInteractionService ===
+  Duende.IdentityServer.Models.DeviceFlowAuthorizationRequest GetAuthorizationContextAsync(System.String userCode, System.Threading.CancellationToken ct)
+  Duende.IdentityServer.Models.DeviceFlowInteractionResult HandleRequestAsync(System.String userCode, Duende.IdentityServer.Models.ConsentResponse consent, System.Threading.CancellationToken ct)
+
+=== Duende.IdentityServer.Models.IAuthenticationContext ===
+  Duende.IdentityServer.Models.IConnectedApplication get_Application()
+  System.String get_IdP()
+  System.String get_LoginHint()
+  System.String get_Tenant()
+  System.String get_PromptModes()
+

@@ -41,6 +41,11 @@ export const en = {
   viewAll: 'View All',
   addToCart: 'Add to Cart',
 
+  // Brands
+  shopByBrand: 'Shop by Brand',
+  viewAllBrands: 'View All Brands',
+  productsCount: '{count} products',
+
   // Newsletter
   signUpForDeals: 'Sign Up for Exclusive Deals',
   dealsSubtitle:

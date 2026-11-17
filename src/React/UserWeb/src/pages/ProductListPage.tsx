@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import {
   ChevronDown,
   ChevronUp,
@@ -18,6 +18,8 @@ import {
 } from '../data/productList';
 
 function ProductListPage() {
+  const [searchParams] = useSearchParams();
+  const activeBrand = searchParams.get('brand');
   const [openFilter, setOpenFilter] = useState<string | null>('gender');
   const [sortBy, setSortBy] = useState('featured');
   const [showFilters, setShowFilters] = useState(true);
@@ -28,11 +30,15 @@ function ProductListPage() {
   const currentSort = SORT_OPTIONS.find(o => o.value === sortBy)?.label ?? 'Featured';
 
   const sortedProducts = useMemo(() => {
-    const list = [...SAMPLE_PRODUCTS];
+    let list = [...SAMPLE_PRODUCTS];
+    if (activeBrand) {
+      const wanted = activeBrand.replace(/-/g, ' ').toLowerCase();
+      list = list.filter(p => p.brand?.toLowerCase() === wanted);
+    }
     if (sortBy === 'price-high') list.sort((a, b) => b.price - a.price);
     if (sortBy === 'price-low') list.sort((a, b) => a.price - b.price);
     return list;
-  }, [sortBy]);
+  }, [sortBy, activeBrand]);
 
   const toggleFilter = (id: string) => {
     setOpenFilter(prev => (prev === id ? null : id));
@@ -81,7 +87,9 @@ function ProductListPage() {
           color: '#111',
           margin: 0,
         }}>
-          Men&apos;s Brown ({totalCount})
+          {activeBrand
+            ? `${activeBrand.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())} (${sortedProducts.length})`
+            : `Men's Brown (${totalCount})`}
         </h1>
 
         <div style={{
@@ -301,6 +309,37 @@ function ProductListPage() {
 
         {/* Product grid */}
         <section>
+          {/* Brand chip (set from the home page brand showcase) */}
+          {activeBrand && (
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              marginBottom: '20px',
+              flexWrap: 'wrap',
+            }}>
+              <Link
+                to="/products"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '6px 10px',
+                  border: '1px solid #ccc',
+                  borderRadius: '9999px',
+                  background: '#fff',
+                  color: '#111',
+                  fontSize: '13px',
+                  textDecoration: 'none',
+                  cursor: 'pointer',
+                }}
+              >
+                {activeBrand.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}
+                <X size={14} />
+              </Link>
+            </div>
+          )}
+
           {/* Selected filter chips */}
           {selectedColours.length > 0 && (
             <div style={{

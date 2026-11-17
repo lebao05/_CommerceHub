@@ -1,0 +1,26 @@
+@model ConsentInputModel
+@{
+    ViewData["Title"] = "Permissions";
+}
+<section class="panel">
+    <h1>Permissions</h1>
+    <p><strong>@Model.ClientName</strong> is requesting access to:</p>
+    <div asp-validation-summary="ModelOnly" class="validation"></div>
+    <form asp-controller="Consent" asp-action="Index" method="post">
+        <input asp-for="ReturnUrl" type="hidden" />
+        @for (var index = 0; index < Model.RequestedScopes.Length; index++)
+        {
+            var scope = Model.RequestedScopes[index];
+            <label class="scope">
+                <input type="checkbox" name="SelectedScopes" value="@scope"
+                       checked="@Model.SelectedScopes.Contains(scope, StringComparer.Ordinal)" />
+                <span>@scope</span>
+            </label>
+        }
+        <label class="remember"><input asp-for="RememberConsent" /> Remember my decision</label>
+        <div class="actions">
+            <button type="submit" name="button" value="yes">Allow</button>
+            <button class="secondary" type="submit" name="button" value="no">Deny</button>
+        </div>
+    </form>
+</section>

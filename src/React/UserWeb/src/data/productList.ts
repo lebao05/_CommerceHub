@@ -90,6 +90,9 @@ export const FILTER_GROUPS: FilterGroup[] = [
       { label: 'Nike' },
       { label: 'Jordan' },
       { label: 'Converse' },
+      { label: 'Adidas' },
+      { label: 'Puma' },
+      { label: 'New Balance' },
     ],
   },
 ];
@@ -101,21 +104,26 @@ export interface ListProduct {
   price: number;
   image: string;
   slug: string;
+  /**
+   * Brand / manufacturer name, used by the brand filter on the home page.
+   * Optional so related-product fixtures don't have to declare it.
+   */
+  brand?: string;
 }
 
 export const SAMPLE_PRODUCTS: ListProduct[] = [
-  { id: 'p1', name: 'Nike 24.7', category: "Men's shoes", price: 4109000, slug: 'nike-247-mono', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80' },
-  { id: 'p2', name: 'Nike 24.7', category: "Men's shoes", price: 5889000, slug: 'nike-247-knit', image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80' },
-  { id: 'p3', name: 'Nike Air Max', category: "Men's shoes", price: 1279000, slug: 'nike-air-max-90', image: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600&q=80' },
-  { id: 'p4', name: 'Nike Pegasus 41', category: "Men's shoes", price: 3529000, slug: 'nike-pegasus-41', image: 'https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&q=80' },
-  { id: 'p5', name: 'Nike Vomero 18', category: "Men's shoes", price: 4109000, slug: 'nike-vomero-18', image: 'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&q=80' },
-  { id: 'p6', name: 'Nike Streakfly Plus', category: "Men's shoes", price: 4699000, slug: 'nike-streakfly-plus', image: 'https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=600&q=80' },
-  { id: 'p7', name: 'Nike Pegasus Plus', category: "Men's shoes", price: 4509000, slug: 'nike-pegasus-plus', image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80' },
-  { id: 'p8', name: 'Nike Pegasus Trail 5', category: "Men's shoes", price: 3829000, slug: 'nike-pegasus-trail-5', image: 'https://images.unsplash.com/photo-1605408499391-6368c628ef42?w=600&q=80' },
-  { id: 'p9', name: 'Nike Zoom Fly 6', category: "Men's shoes", price: 4999000, slug: 'nike-zoom-fly-6', image: 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&q=80' },
-  { id: 'p10', name: 'Nike Invincible 4', category: "Men's shoes", price: 4699000, slug: 'nike-invincible-4', image: 'https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=600&q=80' },
-  { id: 'p11', name: 'Nike InfinityRN 5', category: "Men's shoes", price: 4509000, slug: 'nike-infinityrn-5', image: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&q=80' },
-  { id: 'p12', name: 'Nike React Phantom', category: "Men's shoes", price: 3529000, slug: 'nike-react-phantom', image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80' },
+  { id: 'p1', name: 'Nike 24.7', category: "Men's shoes", price: 4109000, slug: 'nike-247-mono', brand: 'Nike', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80' },
+  { id: 'p2', name: 'Nike 24.7', category: "Men's shoes", price: 5889000, slug: 'nike-247-knit', brand: 'Nike', image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80' },
+  { id: 'p3', name: 'Nike Air Max', category: "Men's shoes", price: 1279000, slug: 'nike-air-max-90', brand: 'Nike', image: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600&q=80' },
+  { id: 'p4', name: 'Nike Pegasus 41', category: "Men's shoes", price: 3529000, slug: 'nike-pegasus-41', brand: 'Nike', image: 'https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&q=80' },
+  { id: 'p5', name: 'Nike Vomero 18', category: "Men's shoes", price: 4109000, slug: 'nike-vomero-18', brand: 'Nike', image: 'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=600&q=80' },
+  { id: 'p6', name: 'Air Jordan 1 Low', category: "Men's shoes", price: 4699000, slug: 'air-jordan-1-low', brand: 'Jordan', image: 'https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=600&q=80' },
+  { id: 'p7', name: 'Air Jordan 4 Retro', category: "Men's shoes", price: 4509000, slug: 'air-jordan-4-retro', brand: 'Jordan', image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80' },
+  { id: 'p8', name: 'Converse Chuck 70', category: "Men's shoes", price: 3829000, slug: 'converse-chuck-70', brand: 'Converse', image: 'https://images.unsplash.com/photo-1605408499391-6368c628ef42?w=600&q=80' },
+  { id: 'p9', name: 'Converse One Star', category: "Men's shoes", price: 4999000, slug: 'converse-one-star', brand: 'Converse', image: 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&q=80' },
+  { id: 'p10', name: 'Adidas Ultraboost Light', category: "Men's shoes", price: 4699000, slug: 'adidas-ultraboost-light', brand: 'Adidas', image: 'https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=600&q=80' },
+  { id: 'p11', name: 'Puma RS-X Efekt', category: "Men's shoes", price: 4509000, slug: 'puma-rs-x-efekt', brand: 'Puma', image: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&q=80' },
+  { id: 'p12', name: 'New Balance 574', category: "Men's shoes", price: 3529000, slug: 'new-balance-574', brand: 'New Balance', image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80' },
 ];
 
 export const SORT_OPTIONS = [

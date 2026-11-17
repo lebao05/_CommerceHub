@@ -3,6 +3,7 @@ import { ThemeProvider } from './hooks/useTheme';
 import { I18nProvider } from './i18n/context';
 import HomePage from './pages/HomePage';
 import ProductListPage from './pages/ProductListPage';
+import NewsPage from './pages/NewsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
@@ -23,6 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<ProductListPage />} />
+            <Route path="/news" element={<NewsPage />} />
             <Route path="/products/:slug" element={<ProductDetailPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
