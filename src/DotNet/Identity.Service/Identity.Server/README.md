@@ -15,6 +15,13 @@ dotnet run
 
 The development issuer listens at `http://localhost:5063` and uses a persisted development signing key. The seeded local account is `admin` / `DevOnly_Admin_2026!`; these development credentials must never be used outside a local Development environment. Production must supply the database connection, client secrets, and signing-certificate path/password through its deployment secret store. A production Duende license key must also be provided with `Duende:LicenseKey`.
 
+Development uses `SameSite=Lax` for IdentityServer cookies because the local issuer uses HTTP;
+production retains the default cross-site cookie settings and must run over HTTPS.
+
 The first start applies EF Core migrations and seeds missing IdentityServer clients, scopes, resources, and identity resources. Roles are created on startup. The initial `admin` account is created only when `SeedAdmin:Password` is set.
+
+UserWeb registration is available in Development through `POST /api/auth/register`. Development
+accounts are email-confirmed for local testing. Registration returns `503` outside Development
+until an email-confirmation service is configured.
 
 Token exchange uses the RSK parser and validation services with a local Duende 8-compatible extension-grant adapter; this avoids the package's incompatible pre-cancellation-token validator registration.

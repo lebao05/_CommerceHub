@@ -102,7 +102,13 @@ Create a `.env` file in the root directory:
 
 ```env
 VITE_API_BASE_URL=http://localhost:5000/api
+VITE_GATEWAY_BASE_URL=http://localhost:5108
+VITE_IDENTITY_BASE_URL=http://localhost:5063
 ```
+
+Sign-in uses the gateway's OIDC redirect and reads the signed-in claims from `/userinfo`.
+Account registration posts to the Identity Server; local Development accounts are marked
+email-confirmed so they can be used immediately.
 
 ## Design System
 

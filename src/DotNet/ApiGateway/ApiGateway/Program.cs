@@ -20,10 +20,16 @@ builder.Services.AddSingleton<DiscoveryDocument>();
 // Configure Services
 builder.Services.AddStackExchangeRedisCache(options =>
 {
-    options.Configuration = builder.Configuration.GetValue<string>("Redis");
+    options.Configuration = builder.Configuration.GetValue<string>("Session:Redis");
     options.InstanceName = "gw-authn";
 });
-var redis = ConnectionMultiplexer.Connect(builder.Configuration.GetValue<string>("Redis"));
+var redisConnection = builder.Configuration.GetValue<string>("Session:Redis");
+if (string.IsNullOrWhiteSpace(redisConnection))
+{
+    throw new InvalidOperationException("Session:Redis must be configured.");
+}
+
+var redis = ConnectionMultiplexer.Connect(redisConnection);
 builder.Services.AddDataProtection()
         .PersistKeysToStackExchangeRedis(redis, "DataProtection-Keys");
 
@@ -35,10 +41,15 @@ builder.Services.AddCors(options =>
     options.AddPolicy("api", policy =>
     {
         policy.AllowAnyMethod()
-            .AllowAnyHeader()
-            .AllowAnyOrigin();
+            .AllowAnyHeader();
+
+        if (config.CorsOrigins.Length > 0)
+        {
+            policy.WithOrigins(config.CorsOrigins)
+                .AllowCredentials();
+        }
     });
-}); // for demo only
+});
 
 builder.Services.AddHttpClient("oidc");
     //.ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler() // insecure for development
@@ -57,9 +68,10 @@ fordwardedHeaderOptions.KnownNetworks.Clear();
 fordwardedHeaderOptions.KnownProxies.Clear();
 app.UseForwardedHeaders(fordwardedHeaderOptions);
 
-app.UseHttpsRedirection();
-
-app.UseCors("api"); // for demo only
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseGateway();
 

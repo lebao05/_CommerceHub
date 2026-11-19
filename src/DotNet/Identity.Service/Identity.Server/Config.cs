@@ -22,9 +22,9 @@ public static class Config
 
     public static IEnumerable<IdentityResource> IdentityResources =>
     [
-        new Duende.IdentityServer.Models.IdentityResources.OpenId(),
-        new Duende.IdentityServer.Models.IdentityResources.Profile(),
-        new Duende.IdentityServer.Models.IdentityResources.Email(),
+        new IdentityResources.OpenId(),
+        new IdentityResources.Profile(),
+        new IdentityResources.Email(),
         new IdentityResource("coolstore.profile", "CoolStore profile", ProfileClaims)
     ];
 
@@ -115,7 +115,6 @@ public static class Config
                 $"{internalUrl.TrimEnd('/')}/signout-callback-oidc",
                 $"{publicUrl.TrimEnd('/')}/signout-callback-oidc"
             },
-            BackChannelLogoutUri = $"{internalUrl.TrimEnd('/')}/logout",
             AllowedScopes =
             {
                 IdentityServerConstants.StandardScopes.OpenId,
@@ -144,11 +143,8 @@ public static class Config
             AbsoluteRefreshTokenLifetime = 90 * 24 * 60 * 60
         };
 
-    private static Secret HashSecret(string secret)
-    {
-        var hash = SHA256.HashData(Encoding.UTF8.GetBytes(secret));
-        return new Secret(Convert.ToHexString(hash).ToLowerInvariant());
-    }
+    private static Secret HashSecret(string secret) =>
+        new(Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(secret))), IdentityServerConstants.SecretTypes.SharedSecret);
 
     private static string RequiredSecret(IConfiguration configuration, string key)
     {

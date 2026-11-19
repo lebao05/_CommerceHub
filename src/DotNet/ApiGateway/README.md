@@ -44,7 +44,7 @@ can safely live in is user secrets or the environment.
 | `Session:AbsoluteDays` | Session hard maximum age, in days. Defaults to 7. |
 | `Session:RefreshWindowSeconds` | When the access token is within this many seconds of expiry, the handler proactively refreshes it using the refresh token. Defaults to 60. |
 | `Session:Redis` | Redis connection string. The gateway refuses to start if this is not set. |
-| `Session:GatewayClientSecret` | The secret the gateway presents to the identity server as `commercehub-gateway`. Must be set in user secrets or the environment. |
+| `Session:GatewayClientSecret` | The secret the gateway presents to the identity server as `commercehub-gateway`. Set it in the local, git-ignored `appsettings.Development.json`, matching `IdentityClients:GatewaySecret` in the identity server's Development settings. |
 | `Session:StorefrontOrigin` | Where to redirect after a successful sign-in. Defaults to `http://localhost:5173`. |
 | `Session:AdminOrigin` | Where the admin SPA expects to land. Defaults to `http://localhost:5174`. |
 | `Session:AllowedClients` | The SPA client ids the gateway will act on behalf of. Defaults to `["commercehub-web", "admin-dashboard"]`. |
@@ -188,11 +188,17 @@ Sign-out calls `POST /oauth/logout`, which deletes the Redis record and clears b
 ### Gateway client secret
 
 The gateway presents itself as the confidential client `commercehub-gateway` to the identity
-server. Its secret is in `appsettings.json` under `Session:GatewayClientSecret` — set it in user
-secrets or the environment before starting, the same way the other client secrets are managed:
+server. Add `Session:GatewayClientSecret` to the local, git-ignored
+`appsettings.Development.json`, using the same value as `IdentityClients:GatewaySecret` in the
+identity server's Development settings. Do not put this Development secret in shared
+`appsettings.json` or use it outside local Development.
 
-```powershell
-dotnet user-secrets set "Session:GatewayClientSecret" "any-long-random-value"
+```json
+{
+  "Session": {
+    "GatewayClientSecret": "<same value as IdentityClients:GatewaySecret>"
+  }
+}
 ```
 
 The gateway refuses to start if the secret is missing or empty.

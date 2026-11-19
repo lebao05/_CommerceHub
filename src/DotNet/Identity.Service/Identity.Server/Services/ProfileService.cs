@@ -1,14 +1,16 @@
+using System.Security.Claims;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Services;
 using Identity.Server.Data;
 using Microsoft.AspNetCore.Identity;
-using System.Security.Claims;
 
 namespace Identity.Server;
 
 public sealed class ProfileService(UserManager<ApplicationUser> userManager) : IProfileService
 {
-    public async Task GetProfileDataAsync(ProfileDataRequestContext context, CancellationToken cancellationToken = default)
+    public async Task GetProfileDataAsync(
+        ProfileDataRequestContext context,
+        CancellationToken cancellationToken = default)
     {
         var user = await userManager.GetUserAsync(context.Subject);
         if (user is null)

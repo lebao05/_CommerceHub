@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { ShoppingCart, Search, Heart, User, Menu, X, Globe, Sun, Moon, Package, LogOut } from 'lucide-react';
 import { useTranslation } from '../i18n/context';
 import { useTheme } from '../hooks/useTheme';
+import { useAuth } from '../hooks/useAuth';
 import type { Locale } from '../i18n/context';
 
 function Header() {
   const { locale, setLocale, t } = useTranslation();
   const { theme, toggleTheme } = useTheme();
+  const { user, isAuthenticated, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [localeOpen, setLocaleOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
@@ -209,7 +211,12 @@ function Header() {
           <span style={{ color: 'var(--color-border)' }}>|</span>
           <a href="#" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>{t('joinUs')}</a>
           <span style={{ color: 'var(--color-border)' }}>|</span>
-          <Link to="/login" style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}>{t('signIn')}</Link>
+          <Link
+            to={isAuthenticated ? '/my-account' : '/login'}
+            style={{ color: 'var(--color-text-secondary)', textDecoration: 'none' }}
+          >
+            {isAuthenticated ? user?.name || t('myAccount') : t('signIn')}
+          </Link>
         </div>
       </div>
 
@@ -403,8 +410,7 @@ function Header() {
                     role="menuitem"
                     onClick={() => {
                       closeAccountNow();
-                      // TODO: clear auth state / redirect to /login
-                      window.location.href = '/login';
+                      logout();
                     }}
                     style={{
                       display: 'flex',

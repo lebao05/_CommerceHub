@@ -19,5 +19,6 @@ public record GatewayConfig
     public string ClientSecret { get; init; } = "";
     public string Scopes { get; init; } = "";
     public string LogoutUrl { get; init; } = "";
+    public string[] CorsOrigins { get; init; } = [];
     public List<DownStreamServiceConfig> DownStreamServices { get; init; } = new();
 }

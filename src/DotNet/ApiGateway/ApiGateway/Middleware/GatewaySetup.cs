@@ -1,6 +1,7 @@
 using ApiGateway.Config;
 using ApiGateway.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OAuth.Claims;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
@@ -37,11 +38,16 @@ public static class GatewaySetup
             options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
         })
-        .AddCookie(setup =>
+        .AddCookie(options =>
         {
-            setup.ExpireTimeSpan = TimeSpan.FromMinutes(sessionTimeoutInMin);
-            setup.SlidingExpiration = true;
-            //setup.Cookie.SameSite = SameSiteMode.None;
+            options.ExpireTimeSpan = TimeSpan.FromMinutes(sessionTimeoutInMin);
+            options.SlidingExpiration = true;
+            options.Cookie.Name = "commercehub.gateway";
+            options.Cookie.HttpOnly = true;
+            options.Cookie.SameSite = SameSiteMode.Lax;
+            options.Cookie.SecurePolicy = builder.Environment.IsDevelopment()
+                ? CookieSecurePolicy.SameAsRequest
+                : CookieSecurePolicy.Always;
         })
         .AddOpenIdConnect(options =>
         {
@@ -51,20 +57,33 @@ public static class GatewaySetup
             options.ClientSecret = config.ClientSecret;
             options.UsePkce = true;
             options.ResponseType = OpenIdConnectResponseType.Code;
-            options.SaveTokens = false;
+            options.SaveTokens = true;
             options.GetClaimsFromUserInfoEndpoint = true;
-            options.CorrelationCookie.SecurePolicy = CookieSecurePolicy.Always;
-            options.NonceCookie.SecurePolicy = CookieSecurePolicy.Always;
-            options.RequireHttpsMetadata = true;
-
-            // insecure for development
-            options.BackchannelHttpHandler = new HttpClientHandler()
-            {
-                ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-            };
+            options.MapInboundClaims = false;
+            options.ClaimActions.Add(new JsonKeyClaimAction(
+                "role",
+                System.Security.Claims.ClaimValueTypes.String,
+                "role"));
+            options.ClaimActions.Add(new JsonKeyClaimAction(
+                "preferred_username",
+                System.Security.Claims.ClaimValueTypes.String,
+                "preferred_username"));
+            options.CorrelationCookie.SecurePolicy = builder.Environment.IsDevelopment()
+                ? CookieSecurePolicy.SameAsRequest
+                : CookieSecurePolicy.Always;
+            options.CorrelationCookie.SameSite = builder.Environment.IsDevelopment()
+                ? SameSiteMode.Lax
+                : SameSiteMode.None;
+            options.NonceCookie.SecurePolicy = builder.Environment.IsDevelopment()
+                ? CookieSecurePolicy.SameAsRequest
+                : CookieSecurePolicy.Always;
+            options.NonceCookie.SameSite = builder.Environment.IsDevelopment()
+                ? SameSiteMode.Lax
+                : SameSiteMode.None;
+            options.RequireHttpsMetadata = !builder.Environment.IsDevelopment();
 
             var scopes = config.Scopes;
-            var scopeArray = scopes.Split(" ");
+            var scopeArray = scopes.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             foreach (var scope in scopeArray)
             {
                 options.Scope.Add(scope);
@@ -92,10 +111,11 @@ public static class GatewaySetup
     public static void UseGateway(this WebApplication app)
     {
         app.UseRouting();
+        app.UseCors("api");
+        app.UseCookiePolicy();
         app.UseSession();
         app.UseAuthentication();
         app.UseAuthorization();
-        app.UseCookiePolicy();
         app.UseXsrfCookie();
         app.UseGatewayEndpoints();
         app.UseYarp();

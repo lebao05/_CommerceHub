@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, User as UserIcon } from 'lucide-react';
+import { useAuth } from '../hooks/useAuth';
 
 function RegisterPage() {
   const [name, setName] = useState('');
@@ -9,12 +10,15 @@ function RegisterPage() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const { register } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
+    setSuccess('');
 
     if (password !== confirmPassword) {
       setError('Passwords do not match');
@@ -23,11 +27,13 @@ function RegisterPage() {
     }
 
     try {
-      // TODO: Implement actual registration logic
-      console.log('Register:', { name, email, password });
-      navigate('/');
-    } catch (err) {
-      setError('Registration failed. Please try again.');
+      const result = await register(name.trim(), email.trim(), password);
+      setSuccess(result.requiresEmailConfirmation
+        ? 'Account created. Email confirmation is required before signing in.'
+        : 'Account created. You can now sign in.');
+      setTimeout(() => navigate('/login', { state: { registered: true } }), 1200);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : 'Registration failed. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -85,6 +91,19 @@ function RegisterPage() {
             marginBottom: 'var(--spacing-md)',
           }}>
             {error}
+          </div>
+        )}
+
+        {success && (
+          <div role="status" style={{
+            backgroundColor: '#DCFCE7',
+            color: '#166534',
+            padding: 'var(--spacing-md)',
+            borderRadius: 'var(--radius-md)',
+            fontSize: '14px',
+            marginBottom: 'var(--spacing-md)',
+          }}>
+            {success}
           </div>
         )}
 

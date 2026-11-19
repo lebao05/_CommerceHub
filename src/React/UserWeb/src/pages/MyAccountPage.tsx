@@ -1,4 +1,5 @@
-import { useState, useRef, type ChangeEvent, type FormEvent } from 'react';
+import { useEffect, useState, useRef, type ChangeEvent, type FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import {
   User, Package, CreditCard, MapPin, Lock, Bell, ShieldCheck,
   IdCard, LogOut, Camera, Check, Plus,
@@ -6,6 +7,7 @@ import {
 import MainLayout from '../layouts/MainLayout';
 import { useTranslation } from '../i18n/context';
 import type { en } from '../i18n/en';
+import { useAuth } from '../hooks/useAuth';
 
 type Translator = (key: keyof typeof en) => string;
 
@@ -57,12 +59,12 @@ interface PrivacyPrefs {
 }
 
 const initialProfile: UserProfile = {
-  username: 'shopper2024',
-  name: 'Alex Johnson',
-  email: 'alex.johnson@example.com',
-  phone: '+84 901 234 567',
-  gender: 'male',
-  dob: '1998-06-15',
+  username: '',
+  name: '',
+  email: '',
+  phone: '',
+  gender: 'other',
+  dob: '',
   avatar: null,
 };
 
@@ -104,6 +106,7 @@ const initialPrivacy: PrivacyPrefs = {
 
 function MyAccountPage() {
   const { t } = useTranslation();
+  const { user, isAuthenticated, isLoading, logout } = useAuth();
   const [section, setSection] = useState<SectionKey>('profile');
   const [profile, setProfile] = useState<UserProfile>(initialProfile);
   const [draft, setDraft] = useState<UserProfile>(initialProfile);
@@ -114,6 +117,18 @@ function MyAccountPage() {
   const [privacy, setPrivacy] = useState<PrivacyPrefs>(initialPrivacy);
   const fileRef = useRef<HTMLInputElement>(null);
   const tt = t as Translator;
+
+  useEffect(() => {
+    if (!user) return;
+
+    const accountProfile = {
+      username: user.username,
+      name: user.name,
+      email: user.email,
+    };
+    setProfile(current => ({ ...current, ...accountProfile }));
+    setDraft(current => ({ ...current, ...accountProfile }));
+  }, [user]);
 
   // ── Profile handlers ─────────────────────────────────────────────
   const onProfileField = (field: keyof UserProfile, value: string) => {
@@ -162,6 +177,28 @@ function MyAccountPage() {
     { key: 'privacy', icon: ShieldCheck, label: tt('accountPrivacy') },
     { key: 'personal', icon: IdCard, label: tt('accountPersonalInfo') },
   ];
+
+  if (isLoading) {
+    return (
+      <MainLayout>
+        <p role="status" style={{ padding: 'var(--spacing-xl)', textAlign: 'center' }}>
+          Loading your account...
+        </p>
+      </MainLayout>
+    );
+  }
+
+  if (!isAuthenticated || !user) {
+    return (
+      <MainLayout>
+        <section style={{ padding: 'var(--spacing-3xl)', textAlign: 'center' }}>
+          <h1>Sign in to view your account</h1>
+          <p>Your profile information will appear here after you sign in.</p>
+          <Link to="/login">Sign in</Link>
+        </section>
+      </MainLayout>
+    );
+  }
 
   return (
     <MainLayout>
@@ -238,6 +275,13 @@ function MyAccountPage() {
                 marginTop: '4px',
               }}>
                 @{profile.username} · {profile.email}
+              </div>
+              <div style={{
+                color: 'var(--color-text-secondary)',
+                fontSize: '12px',
+                marginTop: '4px',
+              }}>
+                {user.roles.length > 0 ? user.roles.join(', ') : 'Customer'}
               </div>
             </div>
             <button
@@ -323,10 +367,7 @@ function MyAccountPage() {
               <div style={{ height: '1px', backgroundColor: 'var(--color-border)' }} />
               <button
                 type="button"
-                onClick={() => {
-                  // TODO: clear auth state
-                  window.location.href = '/login';
-                }}
+                onClick={logout}
                 style={{
                   display: 'flex',
                   alignItems: 'center',

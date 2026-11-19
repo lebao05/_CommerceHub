@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using ApiGateway.Config;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -17,12 +18,9 @@ public static class GatewayEndpoints
 
     private static void UseLogoutEndpoint(this IEndpointRouteBuilder app)
     {
-        app.MapGet("/logout", (string? redirectUrl, HttpContext ctx) =>
+        app.MapGet("/logout", (string? redirectUrl, HttpContext ctx, GatewayConfig config) =>
         {
-            if (string.IsNullOrEmpty(redirectUrl))
-            {
-                redirectUrl = "/";
-            }
+            redirectUrl = ResolveRedirectUrl(redirectUrl, config);
 
             ctx.Session.Clear();
 
@@ -43,14 +41,11 @@ public static class GatewayEndpoints
 
     private static void UseLoginEndpoint(this IEndpointRouteBuilder app)
     {
-        app.MapGet("/login", (string? redirectUrl, HttpContext ctx) =>
+        app.MapGet("/login", async (string? redirectUrl, HttpContext ctx, GatewayConfig config) =>
         {
-            if (string.IsNullOrEmpty(redirectUrl))
-            {
-                redirectUrl = "/";
-            }
+            redirectUrl = ResolveRedirectUrl(redirectUrl, config);
 
-            ctx.ChallengeAsync(OpenIdConnectDefaults.AuthenticationScheme, new AuthenticationProperties
+            await ctx.ChallengeAsync(OpenIdConnectDefaults.AuthenticationScheme, new AuthenticationProperties
             {
                 RedirectUri = redirectUrl
             });
@@ -61,6 +56,10 @@ public static class GatewayEndpoints
     {
         app.MapGet("/userinfo", (ClaimsPrincipal user) =>
         {
+            if (user.Identity?.IsAuthenticated != true)
+            {
+                return Results.Unauthorized();
+            }
 
             var claims = user.Claims;
             var dict = new Dictionary<string, string>();
@@ -70,7 +69,7 @@ public static class GatewayEndpoints
                 dict[entry.Type] = entry.Value;
             }
 
-            return dict;
+            return Results.Ok(dict);
         });
     }
 
@@ -82,5 +81,35 @@ public static class GatewayEndpoints
 
             return dict;
         });
+    }
+
+    private static string ResolveRedirectUrl(string? redirectUrl, GatewayConfig config)
+    {
+        if (string.IsNullOrWhiteSpace(redirectUrl))
+        {
+            return "/";
+        }
+
+        if (Uri.TryCreate(redirectUrl, UriKind.Absolute, out var absoluteUri))
+        {
+            var origin = absoluteUri.GetLeftPart(UriPartial.Authority);
+            if (config.CorsOrigins.Any(allowedOrigin =>
+                    Uri.TryCreate(allowedOrigin, UriKind.Absolute, out var allowedUri)
+                    && string.Equals(
+                        allowedUri.GetLeftPart(UriPartial.Authority),
+                        origin,
+                        StringComparison.OrdinalIgnoreCase)))
+            {
+                return absoluteUri.ToString();
+            }
+        }
+        else if (redirectUrl.StartsWith('/')
+            && !redirectUrl.StartsWith("//", StringComparison.Ordinal)
+            && !redirectUrl.StartsWith("/\\", StringComparison.Ordinal))
+        {
+            return redirectUrl;
+        }
+
+        throw new BadHttpRequestException("The redirect URL is not allowed.");
     }
 }

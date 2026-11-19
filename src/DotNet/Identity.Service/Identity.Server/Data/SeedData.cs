@@ -98,12 +98,46 @@ public static class SeedData
             .Where(resource => !apiResourceNames.Contains(resource.Name))
             .Select(resource => resource.ToEntity()));
 
-        var clientIds = await context.Clients
-            .Select(client => client.ClientId)
-            .ToHashSetAsync();
-        context.Clients.AddRange(Config.Clients(configuration)
-            .Where(client => !clientIds.Contains(client.ClientId))
-            .Select(client => client.ToEntity()));
+        var clients = Config.Clients(configuration).ToList();
+        var clientIds = clients.Select(client => client.ClientId).ToArray();
+        var existingClients = await context.Clients
+            .Include(client => client.ClientSecrets)
+            .Where(client => clientIds.Contains(client.ClientId))
+            .ToDictionaryAsync(client => client.ClientId);
+
+        foreach (var client in clients)
+        {
+            if (existingClients.TryGetValue(client.ClientId, out var existingClient))
+            {
+                var configuredSecrets = client.ToEntity().ClientSecrets.ToList();
+                var existingSecrets = existingClient.ClientSecrets.ToList();
+
+                for (var index = 0; index < Math.Max(configuredSecrets.Count, existingSecrets.Count); index++)
+                {
+                    if (index >= configuredSecrets.Count)
+                    {
+                        existingClient.ClientSecrets.Remove(existingSecrets[index]);
+                        continue;
+                    }
+
+                    var configuredSecret = configuredSecrets[index];
+                    if (index >= existingSecrets.Count)
+                    {
+                        existingClient.ClientSecrets.Add(configuredSecret);
+                        continue;
+                    }
+
+                    existingSecrets[index].Type = configuredSecret.Type;
+                    existingSecrets[index].Value = configuredSecret.Value;
+                    existingSecrets[index].Description = configuredSecret.Description;
+                    existingSecrets[index].Expiration = configuredSecret.Expiration;
+                }
+            }
+            else
+            {
+                context.Clients.Add(client.ToEntity());
+            }
+        }
 
         await context.SaveChangesAsync();
     }
