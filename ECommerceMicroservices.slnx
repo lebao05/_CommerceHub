@@ -17,4 +17,28 @@
     <Project Path="src/DotNet/ProductCatalog.Service/ProductCatalog.Domain/ProductCatalog.Domain.csproj" />
     <Project Path="src/DotNet/ProductCatalog.Service/ProductCatalog.Infrastructure/ProductCatalog.Infrastructure.csproj" />
   </Folder>
+  <Folder Name="/src/DotNet/Notification.Service/">
+    <Project Path="src/DotNet/Notification.Service/Notification.API/Notification.API.csproj" />
+    <Project Path="src/DotNet/Notification.Service/Notification.Application/Notification.Application.csproj" />
+    <Project Path="src/DotNet/Notification.Service/Notification.Domain/Notification.Domain.csproj" />
+    <Project Path="src/DotNet/Notification.Service/Notification.Infrastructure/Notification.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/DotNet/Audit.Service/">
+    <Project Path="src/DotNet/Audit.Service/Audit.API/Audit.API.csproj" />
+    <Project Path="src/DotNet/Audit.Service/Audit.Application/Audit.Application.csproj" />
+    <Project Path="src/DotNet/Audit.Service/Audit.Domain/Audit.Domain.csproj" />
+    <Project Path="src/DotNet/Audit.Service/Audit.Infrastructure/Audit.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/DotNet/Promotion.Service/">
+    <Project Path="src/DotNet/Promotion.Service/Promotion.API/Promotion.API.csproj" />
+    <Project Path="src/DotNet/Promotion.Service/Promotion.Application/Promotion.Application.csproj" />
+    <Project Path="src/DotNet/Promotion.Service/Promotion.Domain/Promotion.Domain.csproj" />
+    <Project Path="src/DotNet/Promotion.Service/Promotion.Infrastructure/Promotion.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/DotNet/Review.Service/">
+    <Project Path="src/DotNet/Review.Service/Review.API/Review.API.csproj" />
+    <Project Path="src/DotNet/Review.Service/Review.Application/Review.Application.csproj" />
+    <Project Path="src/DotNet/Review.Service/Review.Domain/Review.Domain.csproj" />
+    <Project Path="src/DotNet/Review.Service/Review.Infrastructure/Review.Infrastructure.csproj" />
+  </Folder>
 </Solution>
